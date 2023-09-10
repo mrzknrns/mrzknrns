@@ -1,0 +1,302 @@
+---
+title: "Week-4: Code-along"
+author: "Marzuki Nooranas"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+  df_print: paged
+pdf_document: default
+---
+
+  ```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# II. Code to edit and execute using the Code-along.Rmd file 
+<br>
+
+## A. Data Wrangling
+<br>
+
+### 1. Loading packages (Slide #16)
+
+```{r, eval=TRUE,echo=TRUE}
+# Load package tidyverse
+library(tidyverse)
+```
+
+### 2. Loading data-set (Slide #16)
+
+```{r, eval=TRUE,echo=TRUE}
+# Read data from the hotels.csv file and assign it to a variable named, "hotels"
+hotels <- read_csv("hotels.csv")
+```
+
+### 3. List names of the variables in the data-set (Slide #19)
+
+```{r, eval=TRUE,echo=TRUE}
+# Enter code here
+names(hotels)
+```
+
+
+### 4. Glimpse of contents of the data-set (Slide #20)
+
+```{r, eval=TRUE,echo=TRUE}
+# Enter code here
+glimpse(hotels)
+```
+<br>
+
+## B. Choosing rows or columns
+<br>
+
+### 5. Select a single column (Slide #24)
+
+```{r, eval=TRUE,echo=TRUE}
+# Enter code here
+select(hotels, lead_time)
+```
+
+### 6. Select multiple columns (Slide #25)
+
+```{r, eval=TRUE,echo=TRUE}
+# Enter code here
+select(hotels, lead_time,agent,market_segment)
+```
+
+### 7. Arrange entries of a column (Slide #28)
+
+```{r, eval=TRUE,echo=TRUE}
+# Enter code here
+arrange(hotels, lead_time)
+```
+
+### 8. Arrange entries of a column in the descending order (Slide #30)
+
+```{r, eval=TRUE,echo=TRUE}
+# Enter code here
+arrange(hotels, desc(lead_time))
+```
+
+### 9. Select columns and arrange the entries of a column (Slide #31)
+
+```{r, eval=TRUE,echo=TRUE}
+# Enter code here
+arrange(select(hotels, lead_time),desc(lead_time))
+```
+
+### 10. Select columns and arrange the entries of a column using the pipe operator (Slide #37)
+
+```{r, eval=TRUE,echo=TRUE}
+# Enter code here
+hotels %>% select(lead_time) %>% arrange(desc(lead_time))
+```
+
+### 11. Pick rows matching a condition (Slide #44)
+
+```{r, eval=TRUE,echo=TRUE}
+# Enter code here
+hotels %>% filter(children >= 1) %>% select(hotel, children)
+```
+
+### 12. Pick rows matching multiple conditions (Slide #46)
+
+```{r, eval=TRUE,echo=TRUE}
+# Enter code here
+hotels %>% 
+  filter(children >= 1,hotel == "City Hotel") %>% 
+  select(hotel, children)
+```
+
+### 13. Non-conditional selection of rows: sequence of indices (Slide #49)
+
+```{r, eval=TRUE,echo=TRUE}
+# Enter code here
+hotels %>% slice(1:5)
+```
+
+### 14. Non-conditional selection of rows: non-consecutive/specific indices (Slide #50)
+
+```{r, eval=TRUE,echo=TRUE}
+# Enter code here
+hotels %>%
+  slice(1,3,5)
+```
+
+### 15. Pick unique rows using distinct() (Slide #52)
+
+```{r, eval=TRUE,echo=TRUE}
+# Enter code here
+hotels %>% distinct(hotel)
+```
+<br>
+
+## C. Creating new columns
+<br>
+
+### 16. Creating a single column with mutate() (Slide #56)
+
+```{r, eval=TRUE,echo=TRUE}
+# Enter code here
+hotels %>%
+  mutate(little_ones = children + babies) %>%
+    select(hotel, little_ones,children,babies)
+```
+
+### 17. Creating multiple columns with mutate() (Slide #58)
+
+```{r, eval=TRUE,echo=TRUE}
+# Enter code here
+hotels %>%
+  mutate(little_ones = children + babies,
+          average_little_ones = mean(little_ones)) %>%
+    select(hotel, little_ones,children,babies, average_little_ones)
+```
+<br>
+
+## D. More operations with examples
+<br>
+
+### 18. count() to get frequencies (Slide #60)
+
+```{r, eval=TRUE,echo=TRUE}
+# Enter code here
+hotels %>%
+  count(market_segment)
+```
+
+### 19. count() to get frequencies with sorting of count (Slide #61)
+
+```{r, eval=TRUE,echo=TRUE}
+# Enter code here
+hotels %>% count(market_segment, sort = TRUE)
+```
+
+### 20. count() multiple variables (Slide #62)
+
+```{r, eval=TRUE,echo=TRUE}
+# Enter code here
+hotels %>%
+  count(hotel, market_segment)
+```
+
+### 21. summarise() for summary statistics (Slide #63)
+
+```{r, eval=TRUE,echo=TRUE}
+# Enter code here
+hotels %>%
+  summarise(mean_adr = mean(adr))
+```
+
+### 22. summarise() by using group_by to find mean (Slide #64)
+
+```{r, eval=TRUE,echo=TRUE}
+# Enter code here
+hotels %>%
+  group_by(hotel) %>%
+  summarise(mean_adr = mean(adr))
+```
+
+### 23. summarise() by using group_by to get count (Slide #65)
+
+```{r, eval=TRUE,echo=TRUE}
+# Enter code here
+hotels %>%
+  group_by(hotel) %>%
+  summarise(count = n())
+```
+
+### 24. summarise() for multiple summary statistics (Slide #67)
+
+```{r, eval=TRUE,echo=TRUE}
+# Enter code here
+hotels %>%
+  summarise(
+    min_adr = min(adr),
+    mean_adr = mean(adr),
+    median_adr = median(adr),
+    max_adr = max(adr)
+)
+```
+
+### 25. select(), slice() and arrange() (Slide #68)
+
+```{r, eval=TRUE,echo=TRUE}
+hotels %>%
+  select(hotel, lead_time) %>%
+  slice(1:5) %>%
+  arrange(lead_time)
+
+```
+
+### 26. select(), arrange() and slice() (Slide #69)
+
+```{r, eval=TRUE,echo=TRUE}
+# Enter code here
+hotels %>%
+  select(hotel, lead_time) %>%
+  arrange(lead_time) %>%
+  slice(1:5)
+```
+
+### 27. filter() to select rows based on conditions (Slide #73)
+
+```{r, eval=TRUE,echo=TRUE}
+# Enter code here
+hotels %>%
+  filter(adults == 0,
+         children >= 1
+    ) %>%
+  select(adults, babies, children)
+```
+
+### 28. filter() to select rows based on complicated conditions (Slide #74)
+
+```{r, eval=TRUE,echo=TRUE}
+# Enter code here
+hotels %>%
+  filter( adults == 1,
+    children >= 1 | babies >=1) %>% # | means OR select(adults, babies, children)
+  select(adults, babies, children)
+```
+
+### 29. count() and arrange() (Slide #76)
+
+```{r, eval=TRUE,echo=TRUE}
+# Enter code here
+hotels %>% count(market_segment) %>% arrange(desc(n)) # <-- decreasing order of counts
+```
+
+### 30. mutate(), select() and arrange() (Slide #77)
+
+```{r, eval=TRUE,echo=TRUE}
+# Enter code here
+hotels %>%
+mutate(little_ones = children + babies) %>% # <--- 
+  select(children, babies, little_ones) %>%
+  arrange(desc(little_ones))
+```
+
+
+### 31. mutate(), filter() and select() (Slide #78)
+
+```{r, eval=TRUE,echo=TRUE}
+# Enter code here
+hotels %>%
+  mutate(little_ones = children + babies) %>%
+  filter(
+    little_ones >= 1,
+    hotel == "Resort Hotel"
+    ) %>%
+  select(hotel, little_ones)
+
+
+hotels %>%
+  mutate(little_ones = children + babies) %>%
+  filter(
+    little_ones >= 1,
+    hotel == "City Hotel"
+    )  %>%
+  select(hotel, little_ones)
+```

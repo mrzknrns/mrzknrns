@@ -1,0 +1,3489 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Challenge-4},
+  pdfauthor={Marzuki Nooranas},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Challenge-4}
+\author{Marzuki Nooranas}
+\date{2023-09-04}
+
+\begin{document}
+\maketitle
+
+\hypertarget{questions}{%
+\subsection{Questions}\label{questions}}
+
+Load the ``CommQuest2023.csv'' dataset using the \texttt{read\_csv()}
+command and assign it to a variable named ``comm\_data.''
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter code here}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## -- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+## v dplyr     1.1.2     v readr     2.1.4
+## v forcats   1.0.0     v stringr   1.5.0
+## v ggplot2   3.4.3     v tibble    3.2.1
+## v lubridate 1.9.2     v tidyr     1.3.0
+## v purrr     1.0.2     
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+## i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{comm\_data }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"CommQuest2023\_Larger.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{question-1-communication-chronicles}{%
+\paragraph{Question-1: Communication
+Chronicles}\label{question-1-communication-chronicles}}
+
+Using the select command, create a new dataframe containing only the
+``date,'' ``channel,'' and ``message'' columns from the ``comm\_data''
+dataset.
+
+\textbf{Solution:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter code here}
+\FunctionTok{select}\NormalTok{(comm\_data, date, channel, message)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            date channel         message
+## 1    2023-08-11 Twitter    Fun weekend!
+## 2    2023-08-11   Email Hello everyone!
+## 3    2023-08-11   Slack Hello everyone!
+## 4    2023-08-18   Email    Fun weekend!
+## 5    2023-08-14   Slack Need assistance
+## 6    2023-08-04   Email Need assistance
+## 7    2023-08-10 Twitter Hello everyone!
+## 8    2023-08-04   Slack Hello everyone!
+## 9    2023-08-20   Email    Team meeting
+## 10   2023-08-09   Slack Hello everyone!
+## 11   2023-08-06   Email    Team meeting
+## 12   2023-08-16 Twitter     Great work!
+## 13   2023-08-01 Twitter Need assistance
+## 14   2023-08-16   Slack  Exciting news!
+## 15   2023-08-16 Twitter  Exciting news!
+## 16   2023-08-07   Email     Great work!
+## 17   2023-08-01 Twitter Need assistance
+## 18   2023-08-20   Email    Team meeting
+## 19   2023-08-08   Slack Need assistance
+## 20   2023-08-06   Slack Hello everyone!
+## 21   2023-08-11 Twitter     Great work!
+## 22   2023-08-12 Twitter    Team meeting
+## 23   2023-08-12   Slack    Fun weekend!
+## 24   2023-08-11   Email    Fun weekend!
+## 25   2023-08-04   Email    Fun weekend!
+## 26   2023-08-13   Email Hello everyone!
+## 27   2023-08-16 Twitter  Exciting news!
+## 28   2023-08-09 Twitter Need assistance
+## 29   2023-08-14 Twitter     Great work!
+## 30   2023-08-17 Twitter    Team meeting
+## 31   2023-08-17 Twitter Need assistance
+## 32   2023-08-15   Email     Great work!
+## 33   2023-08-01 Twitter Need assistance
+## 34   2023-08-16 Twitter     Great work!
+## 35   2023-08-10 Twitter     Great work!
+## 36   2023-08-07   Email    Team meeting
+## 37   2023-08-02   Email     Great work!
+## 38   2023-08-13   Email    Team meeting
+## 39   2023-08-11   Slack    Team meeting
+## 40   2023-08-05   Email  Exciting news!
+## 41   2023-08-19 Twitter Need assistance
+## 42   2023-08-10   Slack Need assistance
+## 43   2023-08-11   Email Need assistance
+## 44   2023-08-06 Twitter  Exciting news!
+## 45   2023-08-06   Email     Great work!
+## 46   2023-08-18   Email    Fun weekend!
+## 47   2023-08-07   Email    Fun weekend!
+## 48   2023-08-20   Email     Great work!
+## 49   2023-08-16   Slack  Exciting news!
+## 50   2023-08-02 Twitter    Team meeting
+## 51   2023-08-12   Email Need assistance
+## 52   2023-08-10 Twitter Need assistance
+## 53   2023-08-13   Slack Hello everyone!
+## 54   2023-08-13   Slack     Great work!
+## 55   2023-08-16   Slack    Team meeting
+## 56   2023-08-13   Slack     Great work!
+## 57   2023-08-07   Slack Need assistance
+## 58   2023-08-13 Twitter    Fun weekend!
+## 59   2023-08-06 Twitter Hello everyone!
+## 60   2023-08-15   Slack Hello everyone!
+## 61   2023-08-17   Email    Team meeting
+## 62   2023-08-12   Slack Hello everyone!
+## 63   2023-08-18 Twitter    Team meeting
+## 64   2023-08-20 Twitter Hello everyone!
+## 65   2023-08-14 Twitter    Team meeting
+## 66   2023-08-03   Email    Fun weekend!
+## 67   2023-08-06   Slack Hello everyone!
+## 68   2023-08-14 Twitter  Exciting news!
+## 69   2023-08-16   Email Hello everyone!
+## 70   2023-08-13 Twitter Need assistance
+## 71   2023-08-13   Email Need assistance
+## 72   2023-08-05   Slack Need assistance
+## 73   2023-08-12   Slack    Fun weekend!
+## 74   2023-08-16   Slack Hello everyone!
+## 75   2023-08-10   Email    Team meeting
+## 76   2023-08-12 Twitter     Great work!
+## 77   2023-08-18   Email    Fun weekend!
+## 78   2023-08-17   Email    Fun weekend!
+## 79   2023-08-09   Email  Exciting news!
+## 80   2023-08-10   Email     Great work!
+## 81   2023-08-04 Twitter    Fun weekend!
+## 82   2023-08-19   Email  Exciting news!
+## 83   2023-08-04   Slack Need assistance
+## 84   2023-08-17   Slack  Exciting news!
+## 85   2023-08-15 Twitter     Great work!
+## 86   2023-08-15 Twitter Hello everyone!
+## 87   2023-08-03 Twitter  Exciting news!
+## 88   2023-08-16   Email    Fun weekend!
+## 89   2023-08-04   Slack    Fun weekend!
+## 90   2023-08-15 Twitter    Team meeting
+## 91   2023-08-07   Email     Great work!
+## 92   2023-08-15 Twitter    Fun weekend!
+## 93   2023-08-20   Email Hello everyone!
+## 94   2023-08-19   Email  Exciting news!
+## 95   2023-08-07   Slack Need assistance
+## 96   2023-08-17   Email    Team meeting
+## 97   2023-08-09 Twitter    Fun weekend!
+## 98   2023-08-19   Email    Team meeting
+## 99   2023-08-16 Twitter  Exciting news!
+## 100  2023-08-01 Twitter  Exciting news!
+## 101  2023-08-10   Email Hello everyone!
+## 102  2023-08-17 Twitter  Exciting news!
+## 103  2023-08-14   Email     Great work!
+## 104  2023-08-08   Email Need assistance
+## 105  2023-08-03 Twitter Need assistance
+## 106  2023-08-14 Twitter Hello everyone!
+## 107  2023-08-20   Email  Exciting news!
+## 108  2023-08-13 Twitter     Great work!
+## 109  2023-08-06   Slack Hello everyone!
+## 110  2023-08-20   Slack     Great work!
+## 111  2023-08-20   Slack  Exciting news!
+## 112  2023-08-11   Email    Fun weekend!
+## 113  2023-08-09 Twitter     Great work!
+## 114  2023-08-10   Slack    Team meeting
+## 115  2023-08-16   Slack Need assistance
+## 116  2023-08-02   Slack    Fun weekend!
+## 117  2023-08-14   Email    Team meeting
+## 118  2023-08-07   Slack  Exciting news!
+## 119  2023-08-04   Email  Exciting news!
+## 120  2023-08-13 Twitter    Fun weekend!
+## 121  2023-08-08   Email    Team meeting
+## 122  2023-08-18   Slack    Fun weekend!
+## 123  2023-08-12 Twitter Need assistance
+## 124  2023-08-18   Email Need assistance
+## 125  2023-08-11   Slack  Exciting news!
+## 126  2023-08-18 Twitter Need assistance
+## 127  2023-08-11   Slack Hello everyone!
+## 128  2023-08-15   Email    Fun weekend!
+## 129  2023-08-09 Twitter     Great work!
+## 130  2023-08-11 Twitter Need assistance
+## 131  2023-08-15   Email  Exciting news!
+## 132  2023-08-15 Twitter    Fun weekend!
+## 133  2023-08-02 Twitter  Exciting news!
+## 134  2023-08-16   Email    Team meeting
+## 135  2023-08-07   Email  Exciting news!
+## 136  2023-08-19   Email  Exciting news!
+## 137  2023-08-17 Twitter Hello everyone!
+## 138  2023-08-20 Twitter  Exciting news!
+## 139  2023-08-20 Twitter     Great work!
+## 140  2023-08-10   Slack Hello everyone!
+## 141  2023-08-04   Email Need assistance
+## 142  2023-08-15 Twitter    Team meeting
+## 143  2023-08-10   Email Need assistance
+## 144  2023-08-03 Twitter Hello everyone!
+## 145  2023-08-19   Slack     Great work!
+## 146  2023-08-12 Twitter Hello everyone!
+## 147  2023-08-01   Slack    Team meeting
+## 148  2023-08-11   Email     Great work!
+## 149  2023-08-17 Twitter    Fun weekend!
+## 150  2023-08-01   Slack  Exciting news!
+## 151  2023-08-07 Twitter    Fun weekend!
+## 152  2023-08-20   Slack     Great work!
+## 153  2023-08-12   Slack     Great work!
+## 154  2023-08-17   Email     Great work!
+## 155  2023-08-10 Twitter    Fun weekend!
+## 156  2023-08-14 Twitter Hello everyone!
+## 157  2023-08-11   Slack Hello everyone!
+## 158  2023-08-11   Slack    Fun weekend!
+## 159  2023-08-03 Twitter  Exciting news!
+## 160  2023-08-18   Email    Fun weekend!
+## 161  2023-08-12 Twitter  Exciting news!
+## 162  2023-08-17   Email    Fun weekend!
+## 163  2023-08-16   Slack Need assistance
+## 164  2023-08-01   Slack     Great work!
+## 165  2023-08-01 Twitter    Team meeting
+## 166  2023-08-04 Twitter Need assistance
+## 167  2023-08-07   Email     Great work!
+## 168  2023-08-06 Twitter    Fun weekend!
+## 169  2023-08-15   Slack    Fun weekend!
+## 170  2023-08-13 Twitter Hello everyone!
+## 171  2023-08-05 Twitter     Great work!
+## 172  2023-08-10   Slack Hello everyone!
+## 173  2023-08-16 Twitter    Fun weekend!
+## 174  2023-08-06   Email    Fun weekend!
+## 175  2023-08-13   Slack  Exciting news!
+## 176  2023-08-01 Twitter  Exciting news!
+## 177  2023-08-07   Slack  Exciting news!
+## 178  2023-08-13   Slack Need assistance
+## 179  2023-08-18 Twitter  Exciting news!
+## 180  2023-08-14 Twitter     Great work!
+## 181  2023-08-06 Twitter  Exciting news!
+## 182  2023-08-13 Twitter Hello everyone!
+## 183  2023-08-07   Email Hello everyone!
+## 184  2023-08-14 Twitter     Great work!
+## 185  2023-08-09   Email  Exciting news!
+## 186  2023-08-15   Slack    Fun weekend!
+## 187  2023-08-09   Slack    Team meeting
+## 188  2023-08-03 Twitter Hello everyone!
+## 189  2023-08-16   Slack    Team meeting
+## 190  2023-08-06   Email    Fun weekend!
+## 191  2023-08-07   Email  Exciting news!
+## 192  2023-08-12   Email  Exciting news!
+## 193  2023-08-13   Slack  Exciting news!
+## 194  2023-08-01   Slack Need assistance
+## 195  2023-08-07   Slack Need assistance
+## 196  2023-08-10   Slack Need assistance
+## 197  2023-08-18 Twitter Need assistance
+## 198  2023-08-07   Email    Team meeting
+## 199  2023-08-12   Slack    Fun weekend!
+## 200  2023-08-14   Slack Hello everyone!
+## 201  2023-08-06   Slack Need assistance
+## 202  2023-08-14 Twitter    Team meeting
+## 203  2023-08-07 Twitter    Team meeting
+## 204  2023-08-02   Slack  Exciting news!
+## 205  2023-08-09 Twitter    Fun weekend!
+## 206  2023-08-07   Slack Hello everyone!
+## 207  2023-08-16   Email     Great work!
+## 208  2023-08-10   Email Need assistance
+## 209  2023-08-09   Slack    Fun weekend!
+## 210  2023-08-03   Email Hello everyone!
+## 211  2023-08-03 Twitter    Team meeting
+## 212  2023-08-05 Twitter Need assistance
+## 213  2023-08-19   Slack Hello everyone!
+## 214  2023-08-03   Email    Team meeting
+## 215  2023-08-04   Slack Need assistance
+## 216  2023-08-07   Slack Need assistance
+## 217  2023-08-11   Slack Need assistance
+## 218  2023-08-05   Slack Hello everyone!
+## 219  2023-08-20   Slack  Exciting news!
+## 220  2023-08-14   Email Need assistance
+## 221  2023-08-20 Twitter     Great work!
+## 222  2023-08-20   Slack  Exciting news!
+## 223  2023-08-16 Twitter     Great work!
+## 224  2023-08-16   Email     Great work!
+## 225  2023-08-11   Slack  Exciting news!
+## 226  2023-08-12   Email Need assistance
+## 227  2023-08-18   Email Hello everyone!
+## 228  2023-08-03 Twitter Need assistance
+## 229  2023-08-20   Email Need assistance
+## 230  2023-08-19   Slack Hello everyone!
+## 231  2023-08-19 Twitter     Great work!
+## 232  2023-08-05   Slack    Team meeting
+## 233  2023-08-08 Twitter Hello everyone!
+## 234  2023-08-16 Twitter Need assistance
+## 235  2023-08-07   Slack Hello everyone!
+## 236  2023-08-03 Twitter     Great work!
+## 237  2023-08-11   Email    Team meeting
+## 238  2023-08-01   Slack Hello everyone!
+## 239  2023-08-08   Email    Fun weekend!
+## 240  2023-08-16   Email  Exciting news!
+## 241  2023-08-06   Slack    Fun weekend!
+## 242  2023-08-14   Slack     Great work!
+## 243  2023-08-05   Email  Exciting news!
+## 244  2023-08-13   Email  Exciting news!
+## 245  2023-08-18   Email Need assistance
+## 246  2023-08-20 Twitter     Great work!
+## 247  2023-08-11 Twitter    Team meeting
+## 248  2023-08-18   Email    Team meeting
+## 249  2023-08-01   Slack    Team meeting
+## 250  2023-08-05   Slack    Team meeting
+## 251  2023-08-08   Email Need assistance
+## 252  2023-08-19   Email  Exciting news!
+## 253  2023-08-15   Slack  Exciting news!
+## 254  2023-08-18   Email  Exciting news!
+## 255  2023-08-14   Slack Need assistance
+## 256  2023-08-10   Slack     Great work!
+## 257  2023-08-10   Slack    Team meeting
+## 258  2023-08-11 Twitter  Exciting news!
+## 259  2023-08-15   Email Need assistance
+## 260  2023-08-20 Twitter    Team meeting
+## 261  2023-08-12 Twitter Hello everyone!
+## 262  2023-08-20   Slack  Exciting news!
+## 263  2023-08-18 Twitter  Exciting news!
+## 264  2023-08-14 Twitter     Great work!
+## 265  2023-08-02 Twitter  Exciting news!
+## 266  2023-08-19   Email    Team meeting
+## 267  2023-08-02 Twitter  Exciting news!
+## 268  2023-08-05 Twitter    Fun weekend!
+## 269  2023-08-12   Slack Need assistance
+## 270  2023-08-08   Slack  Exciting news!
+## 271  2023-08-19   Slack     Great work!
+## 272  2023-08-01   Email    Fun weekend!
+## 273  2023-08-04   Slack    Fun weekend!
+## 274  2023-08-03 Twitter     Great work!
+## 275  2023-08-16   Slack    Team meeting
+## 276  2023-08-06 Twitter    Team meeting
+## 277  2023-08-06   Email Need assistance
+## 278  2023-08-06 Twitter    Team meeting
+## 279  2023-08-14   Email    Fun weekend!
+## 280  2023-08-04   Email     Great work!
+## 281  2023-08-05   Slack Need assistance
+## 282  2023-08-06   Slack    Fun weekend!
+## 283  2023-08-04   Email Need assistance
+## 284  2023-08-15   Slack  Exciting news!
+## 285  2023-08-16   Slack Hello everyone!
+## 286  2023-08-03   Slack     Great work!
+## 287  2023-08-18   Slack    Team meeting
+## 288  2023-08-03 Twitter Hello everyone!
+## 289  2023-08-20 Twitter    Fun weekend!
+## 290  2023-08-15 Twitter Need assistance
+## 291  2023-08-05 Twitter    Team meeting
+## 292  2023-08-09   Slack    Team meeting
+## 293  2023-08-04   Email Need assistance
+## 294  2023-08-18 Twitter  Exciting news!
+## 295  2023-08-20   Email    Team meeting
+## 296  2023-08-12 Twitter     Great work!
+## 297  2023-08-14 Twitter    Fun weekend!
+## 298  2023-08-20   Slack    Team meeting
+## 299  2023-08-20   Email    Team meeting
+## 300  2023-08-02 Twitter  Exciting news!
+## 301  2023-08-09   Slack Need assistance
+## 302  2023-08-17 Twitter    Fun weekend!
+## 303  2023-08-08   Slack     Great work!
+## 304  2023-08-05   Slack  Exciting news!
+## 305  2023-08-19   Email    Team meeting
+## 306  2023-08-19   Slack    Team meeting
+## 307  2023-08-03   Slack     Great work!
+## 308  2023-08-15   Slack    Team meeting
+## 309  2023-08-10 Twitter    Team meeting
+## 310  2023-08-06   Email     Great work!
+## 311  2023-08-08   Email  Exciting news!
+## 312  2023-08-07   Slack  Exciting news!
+## 313  2023-08-03 Twitter Hello everyone!
+## 314  2023-08-01   Email    Team meeting
+## 315  2023-08-18   Email  Exciting news!
+## 316  2023-08-03   Email Need assistance
+## 317  2023-08-04   Slack    Fun weekend!
+## 318  2023-08-15   Email Need assistance
+## 319  2023-08-06   Slack    Fun weekend!
+## 320  2023-08-11   Slack Hello everyone!
+## 321  2023-08-05 Twitter    Team meeting
+## 322  2023-08-20   Slack     Great work!
+## 323  2023-08-20   Email  Exciting news!
+## 324  2023-08-09   Slack    Fun weekend!
+## 325  2023-08-13   Email  Exciting news!
+## 326  2023-08-20   Slack    Fun weekend!
+## 327  2023-08-15   Email Hello everyone!
+## 328  2023-08-16   Slack  Exciting news!
+## 329  2023-08-02 Twitter    Team meeting
+## 330  2023-08-16 Twitter  Exciting news!
+## 331  2023-08-19   Email Hello everyone!
+## 332  2023-08-14   Slack  Exciting news!
+## 333  2023-08-07   Slack     Great work!
+## 334  2023-08-01 Twitter  Exciting news!
+## 335  2023-08-11 Twitter  Exciting news!
+## 336  2023-08-18   Slack Need assistance
+## 337  2023-08-14   Email Need assistance
+## 338  2023-08-14   Email Need assistance
+## 339  2023-08-01   Slack    Fun weekend!
+## 340  2023-08-12 Twitter    Team meeting
+## 341  2023-08-04   Slack    Team meeting
+## 342  2023-08-05   Email    Fun weekend!
+## 343  2023-08-04   Email     Great work!
+## 344  2023-08-08 Twitter Hello everyone!
+## 345  2023-08-07 Twitter  Exciting news!
+## 346  2023-08-14   Slack Hello everyone!
+## 347  2023-08-04 Twitter    Fun weekend!
+## 348  2023-08-04   Email    Fun weekend!
+## 349  2023-08-18   Slack  Exciting news!
+## 350  2023-08-01   Email Need assistance
+## 351  2023-08-10   Slack Need assistance
+## 352  2023-08-16 Twitter Need assistance
+## 353  2023-08-18   Email  Exciting news!
+## 354  2023-08-14   Email Need assistance
+## 355  2023-08-14   Email Need assistance
+## 356  2023-08-20 Twitter    Fun weekend!
+## 357  2023-08-08   Email     Great work!
+## 358  2023-08-19   Email     Great work!
+## 359  2023-08-17   Email Hello everyone!
+## 360  2023-08-07   Slack    Team meeting
+## 361  2023-08-07 Twitter Need assistance
+## 362  2023-08-01   Slack    Team meeting
+## 363  2023-08-17   Slack     Great work!
+## 364  2023-08-04   Slack Need assistance
+## 365  2023-08-08   Slack Hello everyone!
+## 366  2023-08-17 Twitter    Fun weekend!
+## 367  2023-08-11 Twitter    Fun weekend!
+## 368  2023-08-19   Slack Hello everyone!
+## 369  2023-08-18 Twitter Need assistance
+## 370  2023-08-17   Email     Great work!
+## 371  2023-08-10   Email  Exciting news!
+## 372  2023-08-12   Email    Team meeting
+## 373  2023-08-02   Email  Exciting news!
+## 374  2023-08-18   Email    Fun weekend!
+## 375  2023-08-14   Slack Need assistance
+## 376  2023-08-08 Twitter    Fun weekend!
+## 377  2023-08-18 Twitter  Exciting news!
+## 378  2023-08-17 Twitter Need assistance
+## 379  2023-08-12   Email  Exciting news!
+## 380  2023-08-04   Email  Exciting news!
+## 381  2023-08-04 Twitter  Exciting news!
+## 382  2023-08-17 Twitter Hello everyone!
+## 383  2023-08-10 Twitter  Exciting news!
+## 384  2023-08-10 Twitter    Team meeting
+## 385  2023-08-16   Email  Exciting news!
+## 386  2023-08-12   Slack    Fun weekend!
+## 387  2023-08-11 Twitter    Fun weekend!
+## 388  2023-08-12   Email    Fun weekend!
+## 389  2023-08-15 Twitter     Great work!
+## 390  2023-08-18   Slack    Team meeting
+## 391  2023-08-08   Slack Need assistance
+## 392  2023-08-07 Twitter     Great work!
+## 393  2023-08-16   Email    Fun weekend!
+## 394  2023-08-14   Slack  Exciting news!
+## 395  2023-08-02   Slack    Fun weekend!
+## 396  2023-08-03   Email     Great work!
+## 397  2023-08-19 Twitter    Fun weekend!
+## 398  2023-08-18 Twitter    Team meeting
+## 399  2023-08-12 Twitter    Team meeting
+## 400  2023-08-02   Email    Fun weekend!
+## 401  2023-08-14   Slack Need assistance
+## 402  2023-08-15 Twitter Need assistance
+## 403  2023-08-11   Slack Need assistance
+## 404  2023-08-18   Slack    Fun weekend!
+## 405  2023-08-19 Twitter    Team meeting
+## 406  2023-08-19   Email    Fun weekend!
+## 407  2023-08-07   Email    Team meeting
+## 408  2023-08-05   Email Hello everyone!
+## 409  2023-08-10   Email     Great work!
+## 410  2023-08-02 Twitter     Great work!
+## 411  2023-08-18 Twitter Need assistance
+## 412  2023-08-15   Slack Need assistance
+## 413  2023-08-06   Email  Exciting news!
+## 414  2023-08-20   Email    Team meeting
+## 415  2023-08-10   Slack Need assistance
+## 416  2023-08-11   Email  Exciting news!
+## 417  2023-08-14   Slack    Fun weekend!
+## 418  2023-08-20   Slack  Exciting news!
+## 419  2023-08-13 Twitter    Team meeting
+## 420  2023-08-06   Slack     Great work!
+## 421  2023-08-12   Email Need assistance
+## 422  2023-08-20 Twitter    Fun weekend!
+## 423  2023-08-20 Twitter     Great work!
+## 424  2023-08-02   Email  Exciting news!
+## 425  2023-08-19 Twitter    Team meeting
+## 426  2023-08-09   Slack    Fun weekend!
+## 427  2023-08-11   Email Hello everyone!
+## 428  2023-08-14 Twitter Need assistance
+## 429  2023-08-09   Slack    Fun weekend!
+## 430  2023-08-16 Twitter    Fun weekend!
+## 431  2023-08-05 Twitter Hello everyone!
+## 432  2023-08-01 Twitter     Great work!
+## 433  2023-08-10 Twitter    Fun weekend!
+## 434  2023-08-04   Slack Need assistance
+## 435  2023-08-20   Email     Great work!
+## 436  2023-08-20   Slack     Great work!
+## 437  2023-08-10   Slack  Exciting news!
+## 438  2023-08-12   Email     Great work!
+## 439  2023-08-09   Email    Team meeting
+## 440  2023-08-07   Slack    Fun weekend!
+## 441  2023-08-04   Email     Great work!
+## 442  2023-08-06   Email    Fun weekend!
+## 443  2023-08-08   Email  Exciting news!
+## 444  2023-08-07 Twitter Hello everyone!
+## 445  2023-08-09 Twitter Hello everyone!
+## 446  2023-08-14 Twitter     Great work!
+## 447  2023-08-14 Twitter  Exciting news!
+## 448  2023-08-10   Email     Great work!
+## 449  2023-08-16   Email     Great work!
+## 450  2023-08-10 Twitter     Great work!
+## 451  2023-08-08   Email Need assistance
+## 452  2023-08-10   Email    Team meeting
+## 453  2023-08-08 Twitter    Fun weekend!
+## 454  2023-08-11   Slack  Exciting news!
+## 455  2023-08-20 Twitter    Team meeting
+## 456  2023-08-17   Email    Team meeting
+## 457  2023-08-18   Slack  Exciting news!
+## 458  2023-08-13 Twitter Need assistance
+## 459  2023-08-11 Twitter     Great work!
+## 460  2023-08-06 Twitter Need assistance
+## 461  2023-08-03 Twitter Hello everyone!
+## 462  2023-08-15   Slack Hello everyone!
+## 463  2023-08-13   Email Hello everyone!
+## 464  2023-08-16   Email Need assistance
+## 465  2023-08-16   Email    Team meeting
+## 466  2023-08-05   Email Need assistance
+## 467  2023-08-16   Email Need assistance
+## 468  2023-08-15   Email Hello everyone!
+## 469  2023-08-06 Twitter Hello everyone!
+## 470  2023-08-13 Twitter  Exciting news!
+## 471  2023-08-10 Twitter     Great work!
+## 472  2023-08-18 Twitter  Exciting news!
+## 473  2023-08-20 Twitter    Team meeting
+## 474  2023-08-13 Twitter Need assistance
+## 475  2023-08-20   Slack Hello everyone!
+## 476  2023-08-04 Twitter    Fun weekend!
+## 477  2023-08-05   Email  Exciting news!
+## 478  2023-08-17 Twitter     Great work!
+## 479  2023-08-08   Email  Exciting news!
+## 480  2023-08-05   Email    Team meeting
+## 481  2023-08-08 Twitter    Team meeting
+## 482  2023-08-18   Email Need assistance
+## 483  2023-08-17   Slack Need assistance
+## 484  2023-08-07   Email Hello everyone!
+## 485  2023-08-16 Twitter Hello everyone!
+## 486  2023-08-05   Email Need assistance
+## 487  2023-08-03 Twitter    Fun weekend!
+## 488  2023-08-02   Email     Great work!
+## 489  2023-08-13   Slack     Great work!
+## 490  2023-08-09   Email    Fun weekend!
+## 491  2023-08-04   Email    Team meeting
+## 492  2023-08-04   Email Hello everyone!
+## 493  2023-08-16   Email    Fun weekend!
+## 494  2023-08-13 Twitter Hello everyone!
+## 495  2023-08-04 Twitter Hello everyone!
+## 496  2023-08-16 Twitter    Team meeting
+## 497  2023-08-11   Slack Need assistance
+## 498  2023-08-15   Slack Hello everyone!
+## 499  2023-08-20   Email    Team meeting
+## 500  2023-08-06   Slack    Team meeting
+## 501  2023-08-05 Twitter    Team meeting
+## 502  2023-08-07   Slack    Team meeting
+## 503  2023-08-06   Email Need assistance
+## 504  2023-08-07   Slack Need assistance
+## 505  2023-08-09 Twitter    Team meeting
+## 506  2023-08-06   Email     Great work!
+## 507  2023-08-17 Twitter    Team meeting
+## 508  2023-08-15 Twitter  Exciting news!
+## 509  2023-08-01 Twitter Hello everyone!
+## 510  2023-08-09   Email    Fun weekend!
+## 511  2023-08-05 Twitter    Fun weekend!
+## 512  2023-08-10   Slack Need assistance
+## 513  2023-08-16   Slack Need assistance
+## 514  2023-08-07   Email    Team meeting
+## 515  2023-08-07   Email  Exciting news!
+## 516  2023-08-18   Email Hello everyone!
+## 517  2023-08-17 Twitter    Fun weekend!
+## 518  2023-08-15 Twitter    Team meeting
+## 519  2023-08-13 Twitter  Exciting news!
+## 520  2023-08-12   Email    Fun weekend!
+## 521  2023-08-19 Twitter Need assistance
+## 522  2023-08-19 Twitter    Team meeting
+## 523  2023-08-12   Slack  Exciting news!
+## 524  2023-08-17   Email    Fun weekend!
+## 525  2023-08-07   Email    Team meeting
+## 526  2023-08-16   Email Hello everyone!
+## 527  2023-08-08   Email  Exciting news!
+## 528  2023-08-07   Email  Exciting news!
+## 529  2023-08-01 Twitter Hello everyone!
+## 530  2023-08-07   Email     Great work!
+## 531  2023-08-11   Slack     Great work!
+## 532  2023-08-04 Twitter  Exciting news!
+## 533  2023-08-11   Email     Great work!
+## 534  2023-08-19 Twitter    Fun weekend!
+## 535  2023-08-03   Email Need assistance
+## 536  2023-08-09   Email    Fun weekend!
+## 537  2023-08-19   Email    Team meeting
+## 538  2023-08-08   Email     Great work!
+## 539  2023-08-14   Slack     Great work!
+## 540  2023-08-19   Email     Great work!
+## 541  2023-08-12   Slack Need assistance
+## 542  2023-08-11   Slack    Team meeting
+## 543  2023-08-14 Twitter  Exciting news!
+## 544  2023-08-10   Slack Need assistance
+## 545  2023-08-19   Email    Fun weekend!
+## 546  2023-08-09 Twitter Hello everyone!
+## 547  2023-08-14 Twitter Hello everyone!
+## 548  2023-08-08   Email Need assistance
+## 549  2023-08-04   Slack Hello everyone!
+## 550  2023-08-05 Twitter    Team meeting
+## 551  2023-08-13 Twitter     Great work!
+## 552  2023-08-15   Email     Great work!
+## 553  2023-08-08 Twitter    Fun weekend!
+## 554  2023-08-15   Slack    Team meeting
+## 555  2023-08-08   Email Need assistance
+## 556  2023-08-10   Slack  Exciting news!
+## 557  2023-08-18   Slack    Team meeting
+## 558  2023-08-20 Twitter    Fun weekend!
+## 559  2023-08-18   Email Need assistance
+## 560  2023-08-12   Email Need assistance
+## 561  2023-08-10   Slack  Exciting news!
+## 562  2023-08-07   Slack  Exciting news!
+## 563  2023-08-19 Twitter    Team meeting
+## 564  2023-08-20 Twitter  Exciting news!
+## 565  2023-08-04   Slack    Fun weekend!
+## 566  2023-08-20   Slack    Team meeting
+## 567  2023-08-04   Email Need assistance
+## 568  2023-08-18 Twitter    Fun weekend!
+## 569  2023-08-01 Twitter Hello everyone!
+## 570  2023-08-17 Twitter Hello everyone!
+## 571  2023-08-12   Slack Need assistance
+## 572  2023-08-18 Twitter    Team meeting
+## 573  2023-08-10   Email  Exciting news!
+## 574  2023-08-18   Email  Exciting news!
+## 575  2023-08-20   Slack     Great work!
+## 576  2023-08-06   Slack Need assistance
+## 577  2023-08-14 Twitter    Fun weekend!
+## 578  2023-08-13   Email    Fun weekend!
+## 579  2023-08-14 Twitter    Team meeting
+## 580  2023-08-17 Twitter Hello everyone!
+## 581  2023-08-03   Email Hello everyone!
+## 582  2023-08-07 Twitter     Great work!
+## 583  2023-08-15 Twitter Hello everyone!
+## 584  2023-08-15   Email    Team meeting
+## 585  2023-08-10   Email Hello everyone!
+## 586  2023-08-02   Slack    Fun weekend!
+## 587  2023-08-01   Slack    Team meeting
+## 588  2023-08-15   Email Need assistance
+## 589  2023-08-09   Email Hello everyone!
+## 590  2023-08-16   Slack    Fun weekend!
+## 591  2023-08-14   Email Hello everyone!
+## 592  2023-08-04 Twitter    Fun weekend!
+## 593  2023-08-20   Slack     Great work!
+## 594  2023-08-07   Email Hello everyone!
+## 595  2023-08-02 Twitter Hello everyone!
+## 596  2023-08-05   Slack     Great work!
+## 597  2023-08-07   Email    Fun weekend!
+## 598  2023-08-15   Slack     Great work!
+## 599  2023-08-19   Email    Team meeting
+## 600  2023-08-02   Slack  Exciting news!
+## 601  2023-08-01   Slack  Exciting news!
+## 602  2023-08-01   Email    Fun weekend!
+## 603  2023-08-07 Twitter    Team meeting
+## 604  2023-08-15   Email Need assistance
+## 605  2023-08-08   Slack Need assistance
+## 606  2023-08-18 Twitter Need assistance
+## 607  2023-08-17   Email    Team meeting
+## 608  2023-08-17 Twitter Need assistance
+## 609  2023-08-10   Email    Team meeting
+## 610  2023-08-15 Twitter Need assistance
+## 611  2023-08-12 Twitter     Great work!
+## 612  2023-08-13 Twitter     Great work!
+## 613  2023-08-17 Twitter Hello everyone!
+## 614  2023-08-02 Twitter Hello everyone!
+## 615  2023-08-10   Slack  Exciting news!
+## 616  2023-08-06   Email Hello everyone!
+## 617  2023-08-04   Email Need assistance
+## 618  2023-08-06   Email Hello everyone!
+## 619  2023-08-03 Twitter Need assistance
+## 620  2023-08-14 Twitter    Fun weekend!
+## 621  2023-08-09 Twitter  Exciting news!
+## 622  2023-08-12   Email  Exciting news!
+## 623  2023-08-13 Twitter     Great work!
+## 624  2023-08-05   Email     Great work!
+## 625  2023-08-15   Email    Fun weekend!
+## 626  2023-08-12 Twitter    Fun weekend!
+## 627  2023-08-04 Twitter    Fun weekend!
+## 628  2023-08-05   Slack Need assistance
+## 629  2023-08-19 Twitter Need assistance
+## 630  2023-08-02 Twitter Need assistance
+## 631  2023-08-08   Email     Great work!
+## 632  2023-08-10 Twitter    Team meeting
+## 633  2023-08-10 Twitter  Exciting news!
+## 634  2023-08-15 Twitter    Fun weekend!
+## 635  2023-08-14   Email Need assistance
+## 636  2023-08-13   Email Hello everyone!
+## 637  2023-08-06   Slack  Exciting news!
+## 638  2023-08-19   Slack     Great work!
+## 639  2023-08-03   Slack    Team meeting
+## 640  2023-08-08 Twitter     Great work!
+## 641  2023-08-13 Twitter    Fun weekend!
+## 642  2023-08-17   Slack    Fun weekend!
+## 643  2023-08-12   Email     Great work!
+## 644  2023-08-06   Slack    Fun weekend!
+## 645  2023-08-06 Twitter    Fun weekend!
+## 646  2023-08-08   Email Need assistance
+## 647  2023-08-06   Email Hello everyone!
+## 648  2023-08-16   Email    Fun weekend!
+## 649  2023-08-07   Slack    Team meeting
+## 650  2023-08-14   Email    Fun weekend!
+## 651  2023-08-08 Twitter     Great work!
+## 652  2023-08-09 Twitter     Great work!
+## 653  2023-08-01 Twitter     Great work!
+## 654  2023-08-08 Twitter    Team meeting
+## 655  2023-08-14   Email    Fun weekend!
+## 656  2023-08-03   Slack  Exciting news!
+## 657  2023-08-15   Slack    Fun weekend!
+## 658  2023-08-14   Email Hello everyone!
+## 659  2023-08-05   Email    Fun weekend!
+## 660  2023-08-18   Slack    Fun weekend!
+## 661  2023-08-19 Twitter  Exciting news!
+## 662  2023-08-15 Twitter    Team meeting
+## 663  2023-08-01   Email Hello everyone!
+## 664  2023-08-13 Twitter    Team meeting
+## 665  2023-08-06   Slack Hello everyone!
+## 666  2023-08-09   Email Hello everyone!
+## 667  2023-08-07   Email    Team meeting
+## 668  2023-08-05 Twitter     Great work!
+## 669  2023-08-02 Twitter Need assistance
+## 670  2023-08-08   Slack Hello everyone!
+## 671  2023-08-02   Slack Hello everyone!
+## 672  2023-08-10   Email    Team meeting
+## 673  2023-08-14   Slack Hello everyone!
+## 674  2023-08-18   Email  Exciting news!
+## 675  2023-08-14 Twitter     Great work!
+## 676  2023-08-03   Slack     Great work!
+## 677  2023-08-04   Email    Fun weekend!
+## 678  2023-08-11 Twitter    Team meeting
+## 679  2023-08-04 Twitter Hello everyone!
+## 680  2023-08-10   Slack    Team meeting
+## 681  2023-08-11   Slack    Team meeting
+## 682  2023-08-13   Slack Need assistance
+## 683  2023-08-13   Slack Need assistance
+## 684  2023-08-18   Email Need assistance
+## 685  2023-08-09   Slack Hello everyone!
+## 686  2023-08-02 Twitter Need assistance
+## 687  2023-08-13   Slack    Team meeting
+## 688  2023-08-09   Email    Team meeting
+## 689  2023-08-12 Twitter  Exciting news!
+## 690  2023-08-06   Email Hello everyone!
+## 691  2023-08-08 Twitter    Fun weekend!
+## 692  2023-08-10 Twitter  Exciting news!
+## 693  2023-08-15 Twitter Need assistance
+## 694  2023-08-03   Email     Great work!
+## 695  2023-08-05   Email  Exciting news!
+## 696  2023-08-16   Slack    Team meeting
+## 697  2023-08-16   Slack Hello everyone!
+## 698  2023-08-11   Slack     Great work!
+## 699  2023-08-07   Slack     Great work!
+## 700  2023-08-12   Email  Exciting news!
+## 701  2023-08-01   Slack Hello everyone!
+## 702  2023-08-09   Email    Fun weekend!
+## 703  2023-08-12 Twitter Need assistance
+## 704  2023-08-12   Slack     Great work!
+## 705  2023-08-17   Slack     Great work!
+## 706  2023-08-13   Email Need assistance
+## 707  2023-08-08   Slack  Exciting news!
+## 708  2023-08-10   Slack    Fun weekend!
+## 709  2023-08-09   Slack  Exciting news!
+## 710  2023-08-05 Twitter  Exciting news!
+## 711  2023-08-15 Twitter Hello everyone!
+## 712  2023-08-14   Slack  Exciting news!
+## 713  2023-08-05 Twitter     Great work!
+## 714  2023-08-02 Twitter  Exciting news!
+## 715  2023-08-18   Slack Hello everyone!
+## 716  2023-08-08   Email    Fun weekend!
+## 717  2023-08-12   Email Need assistance
+## 718  2023-08-09 Twitter  Exciting news!
+## 719  2023-08-16 Twitter  Exciting news!
+## 720  2023-08-13 Twitter Hello everyone!
+## 721  2023-08-08   Email    Fun weekend!
+## 722  2023-08-03   Email     Great work!
+## 723  2023-08-14   Email     Great work!
+## 724  2023-08-06   Email     Great work!
+## 725  2023-08-12   Email     Great work!
+## 726  2023-08-03   Slack Need assistance
+## 727  2023-08-12   Email    Fun weekend!
+## 728  2023-08-15   Email Need assistance
+## 729  2023-08-14   Slack Hello everyone!
+## 730  2023-08-20   Email    Fun weekend!
+## 731  2023-08-07   Email  Exciting news!
+## 732  2023-08-10 Twitter     Great work!
+## 733  2023-08-13   Slack Need assistance
+## 734  2023-08-12   Slack    Fun weekend!
+## 735  2023-08-20   Email    Team meeting
+## 736  2023-08-09   Slack Hello everyone!
+## 737  2023-08-03   Email Hello everyone!
+## 738  2023-08-08 Twitter    Fun weekend!
+## 739  2023-08-13   Slack     Great work!
+## 740  2023-08-10   Slack Need assistance
+## 741  2023-08-05 Twitter Hello everyone!
+## 742  2023-08-15   Email    Team meeting
+## 743  2023-08-14   Slack  Exciting news!
+## 744  2023-08-18   Slack    Team meeting
+## 745  2023-08-07   Slack     Great work!
+## 746  2023-08-13   Email     Great work!
+## 747  2023-08-11 Twitter    Team meeting
+## 748  2023-08-14   Email  Exciting news!
+## 749  2023-08-02 Twitter Need assistance
+## 750  2023-08-19 Twitter    Team meeting
+## 751  2023-08-14 Twitter Need assistance
+## 752  2023-08-13   Email     Great work!
+## 753  2023-08-18   Slack Hello everyone!
+## 754  2023-08-15 Twitter Need assistance
+## 755  2023-08-01 Twitter Need assistance
+## 756  2023-08-03   Slack    Fun weekend!
+## 757  2023-08-07   Slack Need assistance
+## 758  2023-08-01   Slack    Team meeting
+## 759  2023-08-08   Email Hello everyone!
+## 760  2023-08-01   Email    Team meeting
+## 761  2023-08-05   Slack     Great work!
+## 762  2023-08-02   Email    Fun weekend!
+## 763  2023-08-08   Slack    Team meeting
+## 764  2023-08-11 Twitter     Great work!
+## 765  2023-08-12   Email  Exciting news!
+## 766  2023-08-11   Slack     Great work!
+## 767  2023-08-03   Email    Fun weekend!
+## 768  2023-08-08 Twitter  Exciting news!
+## 769  2023-08-01 Twitter Hello everyone!
+## 770  2023-08-10   Slack  Exciting news!
+## 771  2023-08-12   Email    Team meeting
+## 772  2023-08-16   Email Hello everyone!
+## 773  2023-08-10 Twitter     Great work!
+## 774  2023-08-09   Email Hello everyone!
+## 775  2023-08-01 Twitter     Great work!
+## 776  2023-08-15   Slack     Great work!
+## 777  2023-08-19 Twitter Hello everyone!
+## 778  2023-08-04 Twitter  Exciting news!
+## 779  2023-08-16 Twitter     Great work!
+## 780  2023-08-07   Slack Hello everyone!
+## 781  2023-08-14 Twitter Need assistance
+## 782  2023-08-15   Slack Hello everyone!
+## 783  2023-08-14 Twitter  Exciting news!
+## 784  2023-08-10   Slack Need assistance
+## 785  2023-08-09 Twitter Need assistance
+## 786  2023-08-11   Email     Great work!
+## 787  2023-08-02   Slack     Great work!
+## 788  2023-08-15 Twitter    Team meeting
+## 789  2023-08-06 Twitter  Exciting news!
+## 790  2023-08-07   Slack Need assistance
+## 791  2023-08-15   Slack Hello everyone!
+## 792  2023-08-15   Email    Fun weekend!
+## 793  2023-08-13   Slack Hello everyone!
+## 794  2023-08-12 Twitter Need assistance
+## 795  2023-08-19 Twitter Hello everyone!
+## 796  2023-08-19 Twitter  Exciting news!
+## 797  2023-08-06 Twitter    Fun weekend!
+## 798  2023-08-11   Slack    Team meeting
+## 799  2023-08-12   Slack    Team meeting
+## 800  2023-08-13   Slack    Team meeting
+## 801  2023-08-14   Email    Team meeting
+## 802  2023-08-09   Slack    Fun weekend!
+## 803  2023-08-17   Slack     Great work!
+## 804  2023-08-09   Slack Hello everyone!
+## 805  2023-08-06   Slack  Exciting news!
+## 806  2023-08-19   Slack    Team meeting
+## 807  2023-08-17 Twitter    Team meeting
+## 808  2023-08-10   Email Hello everyone!
+## 809  2023-08-12 Twitter    Fun weekend!
+## 810  2023-08-18   Slack     Great work!
+## 811  2023-08-17 Twitter Need assistance
+## 812  2023-08-10   Slack Hello everyone!
+## 813  2023-08-12   Email  Exciting news!
+## 814  2023-08-04   Slack Need assistance
+## 815  2023-08-13   Email  Exciting news!
+## 816  2023-08-04   Email    Fun weekend!
+## 817  2023-08-09   Email    Fun weekend!
+## 818  2023-08-11 Twitter Hello everyone!
+## 819  2023-08-08   Slack Hello everyone!
+## 820  2023-08-11   Email    Team meeting
+## 821  2023-08-18 Twitter    Fun weekend!
+## 822  2023-08-16   Slack    Fun weekend!
+## 823  2023-08-06   Slack Need assistance
+## 824  2023-08-04   Slack    Fun weekend!
+## 825  2023-08-14 Twitter    Fun weekend!
+## 826  2023-08-09 Twitter Hello everyone!
+## 827  2023-08-12   Email    Team meeting
+## 828  2023-08-03   Slack Need assistance
+## 829  2023-08-07   Slack Hello everyone!
+## 830  2023-08-18 Twitter     Great work!
+## 831  2023-08-20   Slack    Fun weekend!
+## 832  2023-08-03   Email    Fun weekend!
+## 833  2023-08-14   Slack    Team meeting
+## 834  2023-08-18 Twitter    Fun weekend!
+## 835  2023-08-03   Email Hello everyone!
+## 836  2023-08-12 Twitter    Team meeting
+## 837  2023-08-10 Twitter     Great work!
+## 838  2023-08-18   Slack    Fun weekend!
+## 839  2023-08-19   Email     Great work!
+## 840  2023-08-03   Email Need assistance
+## 841  2023-08-19   Email Hello everyone!
+## 842  2023-08-11   Slack    Fun weekend!
+## 843  2023-08-20   Slack Hello everyone!
+## 844  2023-08-05 Twitter  Exciting news!
+## 845  2023-08-14 Twitter     Great work!
+## 846  2023-08-10   Email  Exciting news!
+## 847  2023-08-10 Twitter     Great work!
+## 848  2023-08-07 Twitter     Great work!
+## 849  2023-08-03   Slack Hello everyone!
+## 850  2023-08-08   Slack Need assistance
+## 851  2023-08-16   Slack  Exciting news!
+## 852  2023-08-12   Email Need assistance
+## 853  2023-08-10   Email    Fun weekend!
+## 854  2023-08-19   Email     Great work!
+## 855  2023-08-19   Email    Team meeting
+## 856  2023-08-05   Email Hello everyone!
+## 857  2023-08-05 Twitter Hello everyone!
+## 858  2023-08-12 Twitter    Fun weekend!
+## 859  2023-08-03 Twitter Hello everyone!
+## 860  2023-08-19 Twitter  Exciting news!
+## 861  2023-08-05   Email Hello everyone!
+## 862  2023-08-07   Slack Hello everyone!
+## 863  2023-08-14 Twitter    Fun weekend!
+## 864  2023-08-11 Twitter Need assistance
+## 865  2023-08-04 Twitter  Exciting news!
+## 866  2023-08-07   Slack    Fun weekend!
+## 867  2023-08-10 Twitter    Team meeting
+## 868  2023-08-06   Slack     Great work!
+## 869  2023-08-10   Slack  Exciting news!
+## 870  2023-08-01   Slack Need assistance
+## 871  2023-08-17   Email  Exciting news!
+## 872  2023-08-15 Twitter Hello everyone!
+## 873  2023-08-16 Twitter    Team meeting
+## 874  2023-08-13   Slack Hello everyone!
+## 875  2023-08-03   Slack     Great work!
+## 876  2023-08-14 Twitter     Great work!
+## 877  2023-08-01 Twitter  Exciting news!
+## 878  2023-08-05   Email Need assistance
+## 879  2023-08-14   Slack Hello everyone!
+## 880  2023-08-07 Twitter     Great work!
+## 881  2023-08-12   Email Need assistance
+## 882  2023-08-14   Slack Hello everyone!
+## 883  2023-08-07   Slack     Great work!
+## 884  2023-08-05 Twitter    Fun weekend!
+## 885  2023-08-01   Email     Great work!
+## 886  2023-08-14   Email Hello everyone!
+## 887  2023-08-16   Email     Great work!
+## 888  2023-08-08 Twitter Need assistance
+## 889  2023-08-13   Email Need assistance
+## 890  2023-08-01 Twitter     Great work!
+## 891  2023-08-09   Email    Fun weekend!
+## 892  2023-08-19   Slack    Team meeting
+## 893  2023-08-19   Slack    Team meeting
+## 894  2023-08-06   Slack Need assistance
+## 895  2023-08-01   Email    Team meeting
+## 896  2023-08-01   Email     Great work!
+## 897  2023-08-05   Email    Team meeting
+## 898  2023-08-06   Email Hello everyone!
+## 899  2023-08-11   Slack    Team meeting
+## 900  2023-08-20   Email    Team meeting
+## 901  2023-08-03   Slack Need assistance
+## 902  2023-08-18   Slack    Team meeting
+## 903  2023-08-10   Email Need assistance
+## 904  2023-08-17 Twitter     Great work!
+## 905  2023-08-08   Slack    Team meeting
+## 906  2023-08-20 Twitter  Exciting news!
+## 907  2023-08-07 Twitter     Great work!
+## 908  2023-08-15   Slack Need assistance
+## 909  2023-08-08   Email     Great work!
+## 910  2023-08-14   Email    Fun weekend!
+## 911  2023-08-01 Twitter Need assistance
+## 912  2023-08-10 Twitter    Fun weekend!
+## 913  2023-08-20 Twitter     Great work!
+## 914  2023-08-10   Slack Need assistance
+## 915  2023-08-02   Slack    Fun weekend!
+## 916  2023-08-09   Email    Fun weekend!
+## 917  2023-08-10   Slack Need assistance
+## 918  2023-08-13   Email Hello everyone!
+## 919  2023-08-05   Slack    Fun weekend!
+## 920  2023-08-20   Email    Team meeting
+## 921  2023-08-15 Twitter     Great work!
+## 922  2023-08-18   Slack    Fun weekend!
+## 923  2023-08-12 Twitter Need assistance
+## 924  2023-08-17 Twitter  Exciting news!
+## 925  2023-08-10   Slack     Great work!
+## 926  2023-08-10   Slack    Team meeting
+## 927  2023-08-02   Slack     Great work!
+## 928  2023-08-10 Twitter Need assistance
+## 929  2023-08-09   Slack Need assistance
+## 930  2023-08-18 Twitter Hello everyone!
+## 931  2023-08-01   Email     Great work!
+## 932  2023-08-11   Email    Fun weekend!
+## 933  2023-08-03   Slack Need assistance
+## 934  2023-08-20   Email Hello everyone!
+## 935  2023-08-17   Email    Team meeting
+## 936  2023-08-13 Twitter  Exciting news!
+## 937  2023-08-13 Twitter    Fun weekend!
+## 938  2023-08-04   Email     Great work!
+## 939  2023-08-16   Email Need assistance
+## 940  2023-08-17 Twitter Need assistance
+## 941  2023-08-06 Twitter  Exciting news!
+## 942  2023-08-01   Slack  Exciting news!
+## 943  2023-08-08   Email  Exciting news!
+## 944  2023-08-13 Twitter     Great work!
+## 945  2023-08-06   Slack  Exciting news!
+## 946  2023-08-08   Email Hello everyone!
+## 947  2023-08-20   Slack Hello everyone!
+## 948  2023-08-01 Twitter Need assistance
+## 949  2023-08-02   Slack  Exciting news!
+## 950  2023-08-11   Email Need assistance
+## 951  2023-08-11   Slack     Great work!
+## 952  2023-08-05   Slack Need assistance
+## 953  2023-08-07   Email    Fun weekend!
+## 954  2023-08-20 Twitter Hello everyone!
+## 955  2023-08-01   Slack Need assistance
+## 956  2023-08-09   Email Need assistance
+## 957  2023-08-12   Slack Need assistance
+## 958  2023-08-19   Slack  Exciting news!
+## 959  2023-08-17 Twitter  Exciting news!
+## 960  2023-08-11 Twitter Hello everyone!
+## 961  2023-08-17 Twitter    Team meeting
+## 962  2023-08-06   Email Need assistance
+## 963  2023-08-10   Email  Exciting news!
+## 964  2023-08-18   Email Need assistance
+## 965  2023-08-07   Slack     Great work!
+## 966  2023-08-09   Email    Team meeting
+## 967  2023-08-18 Twitter     Great work!
+## 968  2023-08-06 Twitter    Team meeting
+## 969  2023-08-02   Slack     Great work!
+## 970  2023-08-17   Email Need assistance
+## 971  2023-08-08   Email    Team meeting
+## 972  2023-08-20 Twitter  Exciting news!
+## 973  2023-08-02 Twitter Need assistance
+## 974  2023-08-08   Slack  Exciting news!
+## 975  2023-08-01   Email    Fun weekend!
+## 976  2023-08-12 Twitter     Great work!
+## 977  2023-08-19 Twitter Hello everyone!
+## 978  2023-08-12 Twitter    Team meeting
+## 979  2023-08-07   Slack     Great work!
+## 980  2023-08-08 Twitter     Great work!
+## 981  2023-08-14   Email     Great work!
+## 982  2023-08-13   Email    Fun weekend!
+## 983  2023-08-18   Email    Team meeting
+## 984  2023-08-10 Twitter    Fun weekend!
+## 985  2023-08-03   Slack Need assistance
+## 986  2023-08-08 Twitter Need assistance
+## 987  2023-08-05   Email    Team meeting
+## 988  2023-08-17   Slack Hello everyone!
+## 989  2023-08-03   Slack     Great work!
+## 990  2023-08-07   Slack    Fun weekend!
+## 991  2023-08-18   Slack     Great work!
+## 992  2023-08-12   Slack Hello everyone!
+## 993  2023-08-10   Email Need assistance
+## 994  2023-08-14   Slack  Exciting news!
+## 995  2023-08-04 Twitter    Team meeting
+## 996  2023-08-05 Twitter Hello everyone!
+## 997  2023-08-12 Twitter  Exciting news!
+## 998  2023-08-07   Slack  Exciting news!
+## 999  2023-08-08   Slack    Fun weekend!
+## 1000 2023-08-03   Email Hello everyone!
+\end{verbatim}
+
+\hypertarget{question-2-channel-selection}{%
+\paragraph{Question-2: Channel
+Selection}\label{question-2-channel-selection}}
+
+Use the filter command to create a new dataframe that includes messages
+sent through the ``Twitter'' channel on August 2nd.
+
+\textbf{Solution:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter code here}
+\NormalTok{comm\_data }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(channel }\SpecialCharTok{==} \StringTok{"Twitter"}\NormalTok{ , date }\SpecialCharTok{==} \StringTok{"2023{-}08{-}02"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(date,channel)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          date channel
+## 1  2023-08-02 Twitter
+## 2  2023-08-02 Twitter
+## 3  2023-08-02 Twitter
+## 4  2023-08-02 Twitter
+## 5  2023-08-02 Twitter
+## 6  2023-08-02 Twitter
+## 7  2023-08-02 Twitter
+## 8  2023-08-02 Twitter
+## 9  2023-08-02 Twitter
+## 10 2023-08-02 Twitter
+## 11 2023-08-02 Twitter
+## 12 2023-08-02 Twitter
+## 13 2023-08-02 Twitter
+## 14 2023-08-02 Twitter
+## 15 2023-08-02 Twitter
+\end{verbatim}
+
+\hypertarget{question-3-chronological-order}{%
+\paragraph{Question-3: Chronological
+Order}\label{question-3-chronological-order}}
+
+Utilizing the arrange command, arrange the ``comm\_data'' dataframe in
+ascending order based on the ``date'' column.
+
+\textbf{Solution:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter code here}
+\NormalTok{comm\_data }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{arrange}\NormalTok{(date)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            date channel        sender         message    sentiment
+## 1    2023-08-01 Twitter alice@example Need assistance  0.676776995
+## 2    2023-08-01 Twitter   @bob_tweets Need assistance  0.148395223
+## 3    2023-08-01 Twitter   @frank_chat Need assistance  0.599045397
+## 4    2023-08-01 Twitter   @frank_chat  Exciting news! -0.822780307
+## 5    2023-08-01   Slack   @frank_chat    Team meeting -0.202094683
+## 6    2023-08-01   Slack   @bob_tweets  Exciting news!  0.146396939
+## 7    2023-08-01   Slack  @erin_tweets     Great work!  0.244422906
+## 8    2023-08-01 Twitter   @frank_chat    Team meeting -0.526283488
+## 9    2023-08-01 Twitter   @frank_chat  Exciting news! -0.398672424
+## 10   2023-08-01   Slack   @frank_chat Need assistance  0.601800072
+## 11   2023-08-01   Slack   carol_slack Hello everyone!  0.802523659
+## 12   2023-08-01   Slack  dave@example    Team meeting -0.176315426
+## 13   2023-08-01   Email   carol_slack    Fun weekend!  0.757286296
+## 14   2023-08-01   Email   @frank_chat    Team meeting -0.670432338
+## 15   2023-08-01 Twitter   @bob_tweets  Exciting news! -0.452694423
+## 16   2023-08-01   Slack   carol_slack    Fun weekend! -0.877705400
+## 17   2023-08-01   Email   carol_slack Need assistance -0.130674560
+## 18   2023-08-01   Slack  dave@example    Team meeting  0.093826082
+## 19   2023-08-01 Twitter   @frank_chat     Great work!  0.473425272
+## 20   2023-08-01 Twitter   @bob_tweets Hello everyone! -0.918783627
+## 21   2023-08-01 Twitter  @erin_tweets Hello everyone!  0.524320859
+## 22   2023-08-01 Twitter  dave@example Hello everyone!  0.530999278
+## 23   2023-08-01   Slack  @erin_tweets    Team meeting  0.031597136
+## 24   2023-08-01   Slack   @bob_tweets  Exciting news! -0.024743940
+## 25   2023-08-01   Email   @frank_chat    Fun weekend! -0.797102704
+## 26   2023-08-01 Twitter   carol_slack     Great work!  0.406890230
+## 27   2023-08-01   Email   @bob_tweets Hello everyone!  0.902623749
+## 28   2023-08-01   Slack   @frank_chat Hello everyone! -0.572465386
+## 29   2023-08-01 Twitter   @frank_chat Need assistance -0.970480603
+## 30   2023-08-01   Slack   @frank_chat    Team meeting -0.113114946
+## 31   2023-08-01   Email   @bob_tweets    Team meeting  0.783531986
+## 32   2023-08-01 Twitter  @erin_tweets Hello everyone! -0.325806037
+## 33   2023-08-01 Twitter   @frank_chat     Great work!  0.159243134
+## 34   2023-08-01   Slack   @bob_tweets Need assistance -0.614020258
+## 35   2023-08-01 Twitter  @erin_tweets  Exciting news!  0.423581860
+## 36   2023-08-01   Email   carol_slack     Great work!  0.605523043
+## 37   2023-08-01 Twitter   carol_slack     Great work! -0.311684015
+## 38   2023-08-01   Email   @frank_chat    Team meeting -0.307752223
+## 39   2023-08-01   Email  dave@example     Great work! -0.948017055
+## 40   2023-08-01 Twitter   @frank_chat Need assistance -0.003094339
+## 41   2023-08-01   Email   carol_slack     Great work! -0.389590032
+## 42   2023-08-01   Slack alice@example  Exciting news!  0.350437745
+## 43   2023-08-01 Twitter   @frank_chat Need assistance -0.696885624
+## 44   2023-08-01   Slack  dave@example Need assistance -0.988749139
+## 45   2023-08-01   Email  @erin_tweets    Fun weekend!  0.203746784
+## 46   2023-08-02   Email  dave@example     Great work!  0.973676749
+## 47   2023-08-02 Twitter alice@example    Team meeting  0.210089974
+## 48   2023-08-02   Slack  @erin_tweets    Fun weekend! -0.474169046
+## 49   2023-08-02 Twitter  @erin_tweets  Exciting news!  0.750492542
+## 50   2023-08-02   Slack  @erin_tweets  Exciting news!  0.900116188
+## 51   2023-08-02 Twitter  dave@example  Exciting news!  0.817105632
+## 52   2023-08-02 Twitter  @erin_tweets  Exciting news!  0.581556937
+## 53   2023-08-02 Twitter  @erin_tweets  Exciting news! -0.525143623
+## 54   2023-08-02 Twitter alice@example    Team meeting  0.964958043
+## 55   2023-08-02   Email  dave@example  Exciting news!  0.717076284
+## 56   2023-08-02   Slack alice@example    Fun weekend!  0.823352248
+## 57   2023-08-02   Email  dave@example    Fun weekend! -0.357268680
+## 58   2023-08-02 Twitter  dave@example     Great work!  0.516138048
+## 59   2023-08-02   Email  dave@example  Exciting news! -0.212464974
+## 60   2023-08-02   Email alice@example     Great work! -0.784876938
+## 61   2023-08-02   Slack alice@example    Fun weekend! -0.485003887
+## 62   2023-08-02 Twitter   carol_slack Hello everyone!  0.450987421
+## 63   2023-08-02   Slack   @bob_tweets  Exciting news!  0.365244868
+## 64   2023-08-02 Twitter   carol_slack Hello everyone!  0.173851238
+## 65   2023-08-02 Twitter   carol_slack Need assistance  0.215954025
+## 66   2023-08-02 Twitter   @frank_chat Need assistance -0.115179492
+## 67   2023-08-02   Slack   carol_slack Hello everyone!  0.805289558
+## 68   2023-08-02 Twitter alice@example Need assistance  0.157653404
+## 69   2023-08-02 Twitter   carol_slack  Exciting news! -0.693217811
+## 70   2023-08-02 Twitter   @bob_tweets Need assistance -0.281915764
+## 71   2023-08-02   Email   @frank_chat    Fun weekend!  0.129630754
+## 72   2023-08-02   Slack   carol_slack     Great work!  0.066785066
+## 73   2023-08-02   Slack   carol_slack    Fun weekend!  0.045978463
+## 74   2023-08-02   Slack   @bob_tweets     Great work! -0.666475324
+## 75   2023-08-02   Slack  dave@example  Exciting news! -0.662697271
+## 76   2023-08-02   Slack  @erin_tweets     Great work! -0.887057793
+## 77   2023-08-02 Twitter  @erin_tweets Need assistance  0.821079701
+## 78   2023-08-03   Email  @erin_tweets    Fun weekend!  0.924321534
+## 79   2023-08-03 Twitter   @bob_tweets  Exciting news! -0.408464086
+## 80   2023-08-03 Twitter  @erin_tweets Need assistance -0.680233249
+## 81   2023-08-03 Twitter alice@example Hello everyone!  0.530733542
+## 82   2023-08-03 Twitter   carol_slack  Exciting news!  0.044649603
+## 83   2023-08-03 Twitter   @bob_tweets Hello everyone! -0.243440011
+## 84   2023-08-03   Email  dave@example Hello everyone!  0.575844854
+## 85   2023-08-03 Twitter  dave@example    Team meeting -0.024207670
+## 86   2023-08-03   Email  @erin_tweets    Team meeting  0.100578078
+## 87   2023-08-03 Twitter   @bob_tweets Need assistance  0.115823371
+## 88   2023-08-03 Twitter   carol_slack     Great work!  0.646422371
+## 89   2023-08-03 Twitter   carol_slack     Great work!  0.049291416
+## 90   2023-08-03   Slack alice@example     Great work! -0.150377708
+## 91   2023-08-03 Twitter  dave@example Hello everyone!  0.902683333
+## 92   2023-08-03   Slack  dave@example     Great work! -0.488912587
+## 93   2023-08-03 Twitter alice@example Hello everyone! -0.893453151
+## 94   2023-08-03   Email   @frank_chat Need assistance -0.345415825
+## 95   2023-08-03   Email  @erin_tweets     Great work! -0.900102365
+## 96   2023-08-03 Twitter alice@example Hello everyone! -0.567197050
+## 97   2023-08-03 Twitter  @erin_tweets    Fun weekend! -0.345988781
+## 98   2023-08-03   Email   carol_slack Need assistance  0.247236022
+## 99   2023-08-03   Email   @frank_chat Hello everyone!  0.488557915
+## 100  2023-08-03 Twitter alice@example Need assistance  0.747163485
+## 101  2023-08-03   Slack  @erin_tweets    Team meeting -0.812502595
+## 102  2023-08-03   Slack   @frank_chat  Exciting news!  0.591279314
+## 103  2023-08-03   Slack   carol_slack     Great work! -0.777630202
+## 104  2023-08-03   Email   @frank_chat     Great work! -0.022698464
+## 105  2023-08-03   Email   @frank_chat     Great work! -0.222633559
+## 106  2023-08-03   Slack  @erin_tweets Need assistance -0.173975688
+## 107  2023-08-03   Email alice@example Hello everyone!  0.713812393
+## 108  2023-08-03   Slack alice@example    Fun weekend!  0.542070733
+## 109  2023-08-03   Email   @frank_chat    Fun weekend!  0.992682932
+## 110  2023-08-03   Slack alice@example Need assistance  0.135939530
+## 111  2023-08-03   Email alice@example    Fun weekend!  0.312383833
+## 112  2023-08-03   Email alice@example Hello everyone! -0.440484574
+## 113  2023-08-03   Email   carol_slack Need assistance -0.161143415
+## 114  2023-08-03   Slack   @frank_chat Hello everyone!  0.368215033
+## 115  2023-08-03 Twitter   @bob_tweets Hello everyone!  0.401231622
+## 116  2023-08-03   Slack   @bob_tweets     Great work!  0.884830707
+## 117  2023-08-03   Slack  @erin_tweets Need assistance -0.600851388
+## 118  2023-08-03   Slack  @erin_tweets Need assistance  0.896539724
+## 119  2023-08-03   Slack   @bob_tweets Need assistance  0.496275815
+## 120  2023-08-03   Slack  dave@example     Great work!  0.675534202
+## 121  2023-08-03   Email   @frank_chat Hello everyone!  0.583445542
+## 122  2023-08-04   Email  @erin_tweets Need assistance -0.108376242
+## 123  2023-08-04   Slack alice@example Hello everyone! -0.187917918
+## 124  2023-08-04   Email   @bob_tweets    Fun weekend! -0.539049788
+## 125  2023-08-04 Twitter   @bob_tweets    Fun weekend!  0.185009266
+## 126  2023-08-04   Slack alice@example Need assistance  0.534302738
+## 127  2023-08-04   Slack   @bob_tweets    Fun weekend!  0.866016825
+## 128  2023-08-04   Email alice@example  Exciting news! -0.200843529
+## 129  2023-08-04   Email  @erin_tweets Need assistance  0.689327837
+## 130  2023-08-04 Twitter  dave@example Need assistance -0.635092593
+## 131  2023-08-04   Slack   @frank_chat Need assistance  0.691338675
+## 132  2023-08-04   Slack   carol_slack    Fun weekend! -0.049394990
+## 133  2023-08-04   Email alice@example     Great work! -0.769964864
+## 134  2023-08-04   Email   @frank_chat Need assistance  0.063336529
+## 135  2023-08-04   Email   @bob_tweets Need assistance  0.017915569
+## 136  2023-08-04   Slack  dave@example    Fun weekend! -0.848228461
+## 137  2023-08-04   Slack alice@example    Team meeting -0.111247493
+## 138  2023-08-04   Email   @frank_chat     Great work! -0.317266905
+## 139  2023-08-04 Twitter   @bob_tweets    Fun weekend!  0.163814227
+## 140  2023-08-04   Email  @erin_tweets    Fun weekend! -0.415885320
+## 141  2023-08-04   Slack   carol_slack Need assistance  0.088740259
+## 142  2023-08-04   Email alice@example  Exciting news!  0.308247630
+## 143  2023-08-04 Twitter   @bob_tweets  Exciting news! -0.122806889
+## 144  2023-08-04   Slack   @frank_chat Need assistance  0.933738099
+## 145  2023-08-04   Email   @frank_chat     Great work!  0.263225980
+## 146  2023-08-04 Twitter  dave@example    Fun weekend!  0.463157478
+## 147  2023-08-04   Email   @bob_tweets    Team meeting -0.235653992
+## 148  2023-08-04   Email alice@example Hello everyone!  0.161035733
+## 149  2023-08-04 Twitter   @bob_tweets Hello everyone! -0.774547359
+## 150  2023-08-04 Twitter   carol_slack  Exciting news! -0.615862965
+## 151  2023-08-04   Slack   @bob_tweets Hello everyone! -0.161284721
+## 152  2023-08-04   Slack  dave@example    Fun weekend!  0.796501584
+## 153  2023-08-04   Email  @erin_tweets Need assistance -0.070094255
+## 154  2023-08-04 Twitter  dave@example    Fun weekend! -0.495438306
+## 155  2023-08-04   Email   carol_slack Need assistance  0.188933107
+## 156  2023-08-04 Twitter alice@example    Fun weekend! -0.693275109
+## 157  2023-08-04   Email   @bob_tweets    Fun weekend!  0.419715998
+## 158  2023-08-04 Twitter  @erin_tweets Hello everyone! -0.217646003
+## 159  2023-08-04 Twitter   @frank_chat  Exciting news!  0.795437461
+## 160  2023-08-04   Slack   @frank_chat Need assistance  0.165087673
+## 161  2023-08-04   Email   @bob_tweets    Fun weekend! -0.953222217
+## 162  2023-08-04   Slack   @frank_chat    Fun weekend! -0.530567507
+## 163  2023-08-04 Twitter   @bob_tweets  Exciting news!  0.053784013
+## 164  2023-08-04   Email   @bob_tweets     Great work! -0.251496902
+## 165  2023-08-04 Twitter  dave@example    Team meeting -0.785379849
+## 166  2023-08-05   Email   carol_slack  Exciting news!  0.468174768
+## 167  2023-08-05   Slack  @erin_tweets Need assistance -0.195926677
+## 168  2023-08-05 Twitter alice@example     Great work! -0.630844017
+## 169  2023-08-05 Twitter   @bob_tweets Need assistance  0.089429019
+## 170  2023-08-05   Slack   @bob_tweets Hello everyone! -0.940684421
+## 171  2023-08-05   Slack   @bob_tweets    Team meeting -0.386754569
+## 172  2023-08-05   Email  @erin_tweets  Exciting news!  0.549038415
+## 173  2023-08-05   Slack   carol_slack    Team meeting -0.320228465
+## 174  2023-08-05 Twitter   carol_slack    Fun weekend!  0.706561523
+## 175  2023-08-05   Slack  @erin_tweets Need assistance  0.519475343
+## 176  2023-08-05 Twitter alice@example    Team meeting  0.824948560
+## 177  2023-08-05   Slack  @erin_tweets  Exciting news! -0.302134784
+## 178  2023-08-05 Twitter   carol_slack    Team meeting  0.364639959
+## 179  2023-08-05   Email   carol_slack    Fun weekend!  0.451752027
+## 180  2023-08-05   Email   @bob_tweets Hello everyone!  0.616259416
+## 181  2023-08-05 Twitter   @bob_tweets Hello everyone! -0.038818533
+## 182  2023-08-05   Email   carol_slack Need assistance  0.558824511
+## 183  2023-08-05   Email   @frank_chat  Exciting news!  0.567230823
+## 184  2023-08-05   Email   @frank_chat    Team meeting -0.094959955
+## 185  2023-08-05   Email   carol_slack Need assistance  0.300882405
+## 186  2023-08-05 Twitter  dave@example    Team meeting  0.779166287
+## 187  2023-08-05 Twitter  dave@example    Fun weekend! -0.021554315
+## 188  2023-08-05 Twitter alice@example    Team meeting  0.082249742
+## 189  2023-08-05   Slack   carol_slack     Great work!  0.470731148
+## 190  2023-08-05   Email  @erin_tweets     Great work!  0.830162693
+## 191  2023-08-05   Slack   @bob_tweets Need assistance  0.291605130
+## 192  2023-08-05   Email alice@example    Fun weekend!  0.347548683
+## 193  2023-08-05 Twitter  dave@example     Great work!  0.245927144
+## 194  2023-08-05   Email  @erin_tweets  Exciting news! -0.283369262
+## 195  2023-08-05 Twitter alice@example  Exciting news!  0.722319741
+## 196  2023-08-05 Twitter  dave@example     Great work!  0.544805384
+## 197  2023-08-05 Twitter   carol_slack Hello everyone!  0.130742100
+## 198  2023-08-05   Slack  dave@example     Great work!  0.018169560
+## 199  2023-08-05 Twitter   @bob_tweets  Exciting news! -0.798021044
+## 200  2023-08-05   Email   @bob_tweets Hello everyone!  0.725036937
+## 201  2023-08-05 Twitter   carol_slack Hello everyone! -0.279889458
+## 202  2023-08-05   Email alice@example Hello everyone! -0.822144668
+## 203  2023-08-05   Email alice@example Need assistance  0.694902051
+## 204  2023-08-05 Twitter  @erin_tweets    Fun weekend!  0.619198539
+## 205  2023-08-05   Email   @frank_chat    Team meeting  0.611721705
+## 206  2023-08-05   Slack  @erin_tweets    Fun weekend! -0.240693055
+## 207  2023-08-05   Slack   @frank_chat Need assistance -0.129298556
+## 208  2023-08-05   Email   @bob_tweets    Team meeting  0.243233590
+## 209  2023-08-05 Twitter   @frank_chat Hello everyone!  0.599585856
+## 210  2023-08-06   Email   @frank_chat    Team meeting  0.819675826
+## 211  2023-08-06   Slack  dave@example Hello everyone!  0.968081689
+## 212  2023-08-06 Twitter  @erin_tweets  Exciting news! -0.415566467
+## 213  2023-08-06   Email   carol_slack     Great work! -0.579760317
+## 214  2023-08-06 Twitter alice@example Hello everyone! -0.882707532
+## 215  2023-08-06   Slack   @bob_tweets Hello everyone! -0.452905738
+## 216  2023-08-06   Slack   @frank_chat Hello everyone! -0.050532605
+## 217  2023-08-06 Twitter   @bob_tweets    Fun weekend! -0.149422837
+## 218  2023-08-06   Email   @bob_tweets    Fun weekend!  0.201027735
+## 219  2023-08-06 Twitter  dave@example  Exciting news! -0.433124611
+## 220  2023-08-06   Email   @bob_tweets    Fun weekend! -0.159573650
+## 221  2023-08-06   Slack   @frank_chat Need assistance  0.746888391
+## 222  2023-08-06   Slack   @bob_tweets    Fun weekend! -0.927836751
+## 223  2023-08-06 Twitter   carol_slack    Team meeting -0.385177557
+## 224  2023-08-06   Email  dave@example Need assistance -0.438415068
+## 225  2023-08-06 Twitter   @bob_tweets    Team meeting -0.549432104
+## 226  2023-08-06   Slack alice@example    Fun weekend! -0.103599444
+## 227  2023-08-06   Email   carol_slack     Great work!  0.766328182
+## 228  2023-08-06   Slack alice@example    Fun weekend! -0.143456620
+## 229  2023-08-06   Email   @frank_chat  Exciting news!  0.696377364
+## 230  2023-08-06   Slack alice@example     Great work! -0.545365768
+## 231  2023-08-06   Email   @frank_chat    Fun weekend!  0.791513952
+## 232  2023-08-06 Twitter  dave@example Need assistance -0.064178423
+## 233  2023-08-06 Twitter   @bob_tweets Hello everyone!  0.116596443
+## 234  2023-08-06   Slack  dave@example    Team meeting -0.536957865
+## 235  2023-08-06   Email  @erin_tweets Need assistance  0.664381829
+## 236  2023-08-06   Email   @bob_tweets     Great work! -0.400677142
+## 237  2023-08-06   Slack alice@example Need assistance  0.037042340
+## 238  2023-08-06   Email  @erin_tweets Hello everyone! -0.172054263
+## 239  2023-08-06   Email  dave@example Hello everyone! -0.987261285
+## 240  2023-08-06   Slack   carol_slack  Exciting news! -0.633368273
+## 241  2023-08-06   Slack   @bob_tweets    Fun weekend! -0.895003283
+## 242  2023-08-06 Twitter  dave@example    Fun weekend!  0.005671109
+## 243  2023-08-06   Email  @erin_tweets Hello everyone!  0.905330024
+## 244  2023-08-06   Slack alice@example Hello everyone!  0.710270591
+## 245  2023-08-06   Email   carol_slack Hello everyone!  0.076276061
+## 246  2023-08-06   Email   @bob_tweets     Great work! -0.417041691
+## 247  2023-08-06 Twitter   @bob_tweets  Exciting news!  0.979591473
+## 248  2023-08-06 Twitter   carol_slack    Fun weekend!  0.394200163
+## 249  2023-08-06   Slack  @erin_tweets  Exciting news!  0.063273371
+## 250  2023-08-06   Slack   carol_slack Need assistance  0.572155187
+## 251  2023-08-06   Slack  @erin_tweets     Great work! -0.387922954
+## 252  2023-08-06   Slack   @bob_tweets Need assistance  0.743181323
+## 253  2023-08-06   Email  @erin_tweets Hello everyone! -0.318016798
+## 254  2023-08-06 Twitter   carol_slack  Exciting news! -0.329569053
+## 255  2023-08-06   Slack   carol_slack  Exciting news! -0.249575844
+## 256  2023-08-06   Email  dave@example Need assistance  0.492307736
+## 257  2023-08-06 Twitter  dave@example    Team meeting  0.165403601
+## 258  2023-08-07   Email   @bob_tweets     Great work!  0.642848774
+## 259  2023-08-07   Email  dave@example    Team meeting  0.327507946
+## 260  2023-08-07   Email   @frank_chat    Fun weekend!  0.387379609
+## 261  2023-08-07   Slack   @frank_chat Need assistance  0.914976185
+## 262  2023-08-07   Email alice@example     Great work! -0.329095908
+## 263  2023-08-07   Slack   @bob_tweets Need assistance -0.356371285
+## 264  2023-08-07   Slack   @frank_chat  Exciting news!  0.993148146
+## 265  2023-08-07   Email alice@example  Exciting news!  0.773558143
+## 266  2023-08-07 Twitter   @bob_tweets    Fun weekend! -0.390309056
+## 267  2023-08-07   Email  @erin_tweets     Great work! -0.446627778
+## 268  2023-08-07   Slack alice@example  Exciting news! -0.686074989
+## 269  2023-08-07   Email alice@example Hello everyone!  0.917979236
+## 270  2023-08-07   Email   carol_slack  Exciting news!  0.785684678
+## 271  2023-08-07   Slack alice@example Need assistance  0.877496709
+## 272  2023-08-07   Email   @bob_tweets    Team meeting -0.767587414
+## 273  2023-08-07 Twitter  dave@example    Team meeting -0.014527882
+## 274  2023-08-07   Slack  @erin_tweets Hello everyone!  0.079340591
+## 275  2023-08-07   Slack   @bob_tweets Need assistance -0.611560303
+## 276  2023-08-07   Slack   carol_slack Hello everyone!  0.973429719
+## 277  2023-08-07   Slack   @bob_tweets  Exciting news!  0.370947586
+## 278  2023-08-07   Slack  @erin_tweets     Great work! -0.643276188
+## 279  2023-08-07 Twitter  dave@example  Exciting news!  0.466239469
+## 280  2023-08-07   Slack   carol_slack    Team meeting  0.190247875
+## 281  2023-08-07 Twitter   carol_slack Need assistance  0.895823483
+## 282  2023-08-07 Twitter   carol_slack     Great work!  0.805481421
+## 283  2023-08-07   Email   @bob_tweets    Team meeting -0.150205611
+## 284  2023-08-07   Slack alice@example    Fun weekend!  0.397376804
+## 285  2023-08-07 Twitter   carol_slack Hello everyone! -0.355751095
+## 286  2023-08-07   Email  dave@example Hello everyone! -0.526591262
+## 287  2023-08-07   Slack alice@example    Team meeting  0.569526526
+## 288  2023-08-07   Slack  dave@example Need assistance -0.718395420
+## 289  2023-08-07   Email   @bob_tweets    Team meeting -0.423585835
+## 290  2023-08-07   Email  dave@example  Exciting news! -0.184577833
+## 291  2023-08-07   Email   @frank_chat    Team meeting  0.192018484
+## 292  2023-08-07   Email   @bob_tweets  Exciting news! -0.616928389
+## 293  2023-08-07   Email  dave@example     Great work! -0.359934055
+## 294  2023-08-07   Slack  dave@example  Exciting news! -0.823877914
+## 295  2023-08-07 Twitter   @frank_chat     Great work! -0.823533585
+## 296  2023-08-07   Email   @frank_chat Hello everyone! -0.143556185
+## 297  2023-08-07   Email  dave@example    Fun weekend! -0.735883705
+## 298  2023-08-07 Twitter alice@example    Team meeting -0.365139902
+## 299  2023-08-07   Slack  @erin_tweets    Team meeting -0.780283807
+## 300  2023-08-07   Email   @bob_tweets    Team meeting -0.232356975
+## 301  2023-08-07   Slack   @bob_tweets     Great work! -0.311243319
+## 302  2023-08-07   Email   @bob_tweets  Exciting news!  0.244900235
+## 303  2023-08-07   Slack alice@example     Great work!  0.580541194
+## 304  2023-08-07   Slack   @bob_tweets Need assistance  0.251102221
+## 305  2023-08-07   Slack  dave@example Hello everyone!  0.747580624
+## 306  2023-08-07   Slack   @bob_tweets Need assistance -0.846264025
+## 307  2023-08-07   Slack  dave@example Hello everyone!  0.593321668
+## 308  2023-08-07 Twitter  @erin_tweets     Great work! -0.597466531
+## 309  2023-08-07   Slack   @bob_tweets Hello everyone! -0.160779689
+## 310  2023-08-07   Slack   @bob_tweets    Fun weekend! -0.511013610
+## 311  2023-08-07 Twitter   @bob_tweets     Great work! -0.389785778
+## 312  2023-08-07   Slack   @bob_tweets     Great work!  0.872962321
+## 313  2023-08-07 Twitter   @bob_tweets     Great work! -0.548428072
+## 314  2023-08-07   Email   @bob_tweets    Fun weekend!  0.079245736
+## 315  2023-08-07   Slack   carol_slack     Great work!  0.937586371
+## 316  2023-08-07   Slack   @bob_tweets     Great work!  0.170066014
+## 317  2023-08-07   Slack alice@example    Fun weekend!  0.844455994
+## 318  2023-08-07   Slack   carol_slack  Exciting news!  0.186763622
+## 319  2023-08-08   Slack  @erin_tweets Need assistance -0.879413284
+## 320  2023-08-08   Email   @bob_tweets Need assistance  0.115187556
+## 321  2023-08-08   Email   carol_slack    Team meeting  0.213498762
+## 322  2023-08-08 Twitter   @frank_chat Hello everyone! -0.081353148
+## 323  2023-08-08   Email   carol_slack    Fun weekend!  0.670605208
+## 324  2023-08-08   Email  dave@example Need assistance  0.084778340
+## 325  2023-08-08   Slack   carol_slack  Exciting news! -0.388513986
+## 326  2023-08-08   Slack  @erin_tweets     Great work! -0.410223121
+## 327  2023-08-08   Email alice@example  Exciting news! -0.007040349
+## 328  2023-08-08 Twitter alice@example Hello everyone!  0.223401716
+## 329  2023-08-08   Email alice@example     Great work!  0.222402995
+## 330  2023-08-08   Slack   @bob_tweets Hello everyone!  0.740663246
+## 331  2023-08-08 Twitter   @frank_chat    Fun weekend!  0.484796492
+## 332  2023-08-08   Slack   @frank_chat Need assistance  0.963640937
+## 333  2023-08-08   Email   @frank_chat  Exciting news! -0.050068120
+## 334  2023-08-08   Email  dave@example Need assistance -0.998774239
+## 335  2023-08-08 Twitter   carol_slack    Fun weekend!  0.232626481
+## 336  2023-08-08   Email  @erin_tweets  Exciting news! -0.847681918
+## 337  2023-08-08 Twitter   @bob_tweets    Team meeting -0.024243061
+## 338  2023-08-08   Email alice@example  Exciting news!  0.723251828
+## 339  2023-08-08   Email   @frank_chat     Great work!  0.362224979
+## 340  2023-08-08   Email   @bob_tweets Need assistance -0.249764988
+## 341  2023-08-08 Twitter   @frank_chat    Fun weekend! -0.673607849
+## 342  2023-08-08   Email  @erin_tweets Need assistance -0.775436828
+## 343  2023-08-08   Slack  @erin_tweets Need assistance -0.461871512
+## 344  2023-08-08   Email alice@example     Great work! -0.068923920
+## 345  2023-08-08 Twitter   @bob_tweets     Great work!  0.564973874
+## 346  2023-08-08   Email   @frank_chat Need assistance -0.992002849
+## 347  2023-08-08 Twitter alice@example     Great work! -0.236779108
+## 348  2023-08-08 Twitter alice@example    Team meeting  0.870818266
+## 349  2023-08-08   Slack alice@example Hello everyone! -0.812013249
+## 350  2023-08-08 Twitter alice@example    Fun weekend! -0.329790550
+## 351  2023-08-08   Slack   carol_slack  Exciting news!  0.055117640
+## 352  2023-08-08   Email  @erin_tweets    Fun weekend!  0.378708432
+## 353  2023-08-08   Email  @erin_tweets    Fun weekend!  0.734125260
+## 354  2023-08-08 Twitter  @erin_tweets    Fun weekend!  0.191519982
+## 355  2023-08-08   Email alice@example Hello everyone! -0.666331347
+## 356  2023-08-08   Slack  @erin_tweets    Team meeting  0.849549761
+## 357  2023-08-08 Twitter   carol_slack  Exciting news!  0.614791796
+## 358  2023-08-08   Slack  @erin_tweets Hello everyone! -0.568787924
+## 359  2023-08-08   Slack  @erin_tweets Need assistance  0.593302410
+## 360  2023-08-08 Twitter  dave@example Need assistance  0.911442756
+## 361  2023-08-08   Slack  @erin_tweets    Team meeting  0.068864945
+## 362  2023-08-08   Email   carol_slack     Great work!  0.710615378
+## 363  2023-08-08   Email alice@example  Exciting news!  0.529548995
+## 364  2023-08-08   Email  @erin_tweets Hello everyone! -0.064463819
+## 365  2023-08-08   Email   @frank_chat    Team meeting  0.778342899
+## 366  2023-08-08   Slack  @erin_tweets  Exciting news!  0.085280708
+## 367  2023-08-08 Twitter alice@example     Great work!  0.552484959
+## 368  2023-08-08 Twitter   @bob_tweets Need assistance -0.716619523
+## 369  2023-08-08   Slack  @erin_tweets    Fun weekend!  0.172925062
+## 370  2023-08-09   Slack  @erin_tweets Hello everyone! -0.932525445
+## 371  2023-08-09 Twitter alice@example Need assistance  0.083300223
+## 372  2023-08-09   Email  @erin_tweets  Exciting news! -0.018193701
+## 373  2023-08-09 Twitter   carol_slack    Fun weekend! -0.056202481
+## 374  2023-08-09 Twitter alice@example     Great work! -0.013945965
+## 375  2023-08-09 Twitter alice@example     Great work!  0.432502551
+## 376  2023-08-09   Email  @erin_tweets  Exciting news!  0.020394353
+## 377  2023-08-09   Slack   @bob_tweets    Team meeting  0.500293179
+## 378  2023-08-09 Twitter alice@example    Fun weekend! -0.391704335
+## 379  2023-08-09   Slack  @erin_tweets    Fun weekend!  0.542777083
+## 380  2023-08-09   Slack  @erin_tweets    Team meeting  0.268132484
+## 381  2023-08-09   Slack alice@example Need assistance  0.665302936
+## 382  2023-08-09   Slack  dave@example    Fun weekend! -0.358376735
+## 383  2023-08-09   Slack alice@example    Fun weekend!  0.690391378
+## 384  2023-08-09   Slack  dave@example    Fun weekend!  0.229193896
+## 385  2023-08-09   Email  @erin_tweets    Team meeting -0.956999032
+## 386  2023-08-09 Twitter alice@example Hello everyone!  0.184942272
+## 387  2023-08-09   Email  @erin_tweets    Fun weekend!  0.513564137
+## 388  2023-08-09 Twitter   @bob_tweets    Team meeting  0.526457346
+## 389  2023-08-09   Email   @bob_tweets    Fun weekend! -0.375794835
+## 390  2023-08-09   Email  @erin_tweets    Fun weekend!  0.237909144
+## 391  2023-08-09 Twitter alice@example Hello everyone!  0.762754925
+## 392  2023-08-09   Email   @bob_tweets Hello everyone!  0.703965933
+## 393  2023-08-09 Twitter alice@example  Exciting news! -0.792284821
+## 394  2023-08-09 Twitter  dave@example     Great work! -0.495721815
+## 395  2023-08-09   Email   @bob_tweets Hello everyone! -0.725457437
+## 396  2023-08-09   Slack   carol_slack Hello everyone!  0.902016178
+## 397  2023-08-09   Email  dave@example    Team meeting  0.746085706
+## 398  2023-08-09   Email   @frank_chat    Fun weekend! -0.372473280
+## 399  2023-08-09   Slack alice@example  Exciting news! -0.539138246
+## 400  2023-08-09 Twitter   @bob_tweets  Exciting news!  0.605349668
+## 401  2023-08-09   Slack   carol_slack Hello everyone! -0.289897254
+## 402  2023-08-09   Email   @frank_chat Hello everyone! -0.633588556
+## 403  2023-08-09 Twitter  @erin_tweets Need assistance -0.600080754
+## 404  2023-08-09   Slack  @erin_tweets    Fun weekend!  0.525517232
+## 405  2023-08-09   Slack   carol_slack Hello everyone!  0.346090994
+## 406  2023-08-09   Email alice@example    Fun weekend!  0.893210486
+## 407  2023-08-09 Twitter   @frank_chat Hello everyone!  0.649366590
+## 408  2023-08-09   Email   @frank_chat    Fun weekend! -0.789119672
+## 409  2023-08-09   Email  dave@example    Fun weekend!  0.698494015
+## 410  2023-08-09   Slack  dave@example Need assistance  0.662048494
+## 411  2023-08-09   Email  @erin_tweets Need assistance  0.953375103
+## 412  2023-08-09   Email   @frank_chat    Team meeting -0.712716471
+## 413  2023-08-10 Twitter   @frank_chat Hello everyone! -0.740855453
+## 414  2023-08-10 Twitter  @erin_tweets     Great work!  0.199771451
+## 415  2023-08-10   Slack  @erin_tweets Need assistance -0.766245456
+## 416  2023-08-10 Twitter  @erin_tweets Need assistance -0.340010146
+## 417  2023-08-10   Email   @bob_tweets    Team meeting -0.060755176
+## 418  2023-08-10   Email   @bob_tweets     Great work!  0.924440826
+## 419  2023-08-10   Email   @frank_chat Hello everyone!  0.535708998
+## 420  2023-08-10   Slack  dave@example    Team meeting -0.934943126
+## 421  2023-08-10   Slack   @bob_tweets Hello everyone! -0.075317414
+## 422  2023-08-10   Email alice@example Need assistance -0.815106571
+## 423  2023-08-10 Twitter  @erin_tweets    Fun weekend! -0.496555788
+## 424  2023-08-10   Slack   @frank_chat Hello everyone!  0.142070077
+## 425  2023-08-10   Slack alice@example Need assistance -0.356432681
+## 426  2023-08-10   Email   @frank_chat Need assistance -0.857863282
+## 427  2023-08-10   Slack alice@example     Great work!  0.804542714
+## 428  2023-08-10   Slack  @erin_tweets    Team meeting  0.862134462
+## 429  2023-08-10 Twitter  @erin_tweets    Team meeting  0.384202328
+## 430  2023-08-10   Slack   @bob_tweets Need assistance  0.279333149
+## 431  2023-08-10   Email  @erin_tweets  Exciting news!  0.679597112
+## 432  2023-08-10 Twitter  @erin_tweets  Exciting news!  0.275836162
+## 433  2023-08-10 Twitter   @frank_chat    Team meeting -0.976236885
+## 434  2023-08-10   Email   @frank_chat     Great work!  0.533465849
+## 435  2023-08-10   Slack  @erin_tweets Need assistance -0.904224418
+## 436  2023-08-10 Twitter   @bob_tweets    Fun weekend!  0.346377916
+## 437  2023-08-10   Slack  dave@example  Exciting news! -0.762122771
+## 438  2023-08-10   Email alice@example     Great work!  0.693037350
+## 439  2023-08-10 Twitter   @frank_chat     Great work!  0.214199054
+## 440  2023-08-10   Email   carol_slack    Team meeting -0.970338997
+## 441  2023-08-10 Twitter alice@example     Great work!  0.266619468
+## 442  2023-08-10   Slack  @erin_tweets Need assistance  0.086844633
+## 443  2023-08-10   Slack alice@example Need assistance -0.236316590
+## 444  2023-08-10   Slack  dave@example  Exciting news!  0.532747218
+## 445  2023-08-10   Slack   @bob_tweets  Exciting news!  0.027252671
+## 446  2023-08-10   Email   @bob_tweets  Exciting news!  0.664575256
+## 447  2023-08-10   Email   @frank_chat Hello everyone!  0.051583528
+## 448  2023-08-10   Email   @bob_tweets    Team meeting  0.253805156
+## 449  2023-08-10   Slack   @frank_chat  Exciting news!  0.769946682
+## 450  2023-08-10 Twitter   @frank_chat    Team meeting -0.289186294
+## 451  2023-08-10 Twitter   carol_slack  Exciting news!  0.030849482
+## 452  2023-08-10   Email   @frank_chat    Team meeting -0.320194449
+## 453  2023-08-10   Slack alice@example    Team meeting  0.425960287
+## 454  2023-08-10 Twitter   @frank_chat  Exciting news! -0.149807401
+## 455  2023-08-10   Slack   @bob_tweets    Fun weekend!  0.957983019
+## 456  2023-08-10 Twitter  dave@example     Great work! -0.505026447
+## 457  2023-08-10   Slack  @erin_tweets Need assistance  0.037588875
+## 458  2023-08-10   Slack   @bob_tweets  Exciting news! -0.873230109
+## 459  2023-08-10 Twitter  @erin_tweets     Great work!  0.181200765
+## 460  2023-08-10   Slack alice@example Need assistance -0.917325706
+## 461  2023-08-10   Email  @erin_tweets Hello everyone!  0.063933458
+## 462  2023-08-10   Slack   @frank_chat Hello everyone!  0.672468295
+## 463  2023-08-10 Twitter   carol_slack     Great work!  0.268422757
+## 464  2023-08-10   Email   @bob_tweets  Exciting news! -0.286527871
+## 465  2023-08-10 Twitter  @erin_tweets     Great work!  0.282790715
+## 466  2023-08-10   Email   @frank_chat    Fun weekend! -0.520876877
+## 467  2023-08-10 Twitter  dave@example    Team meeting -0.879799920
+## 468  2023-08-10   Slack  dave@example  Exciting news! -0.750027833
+## 469  2023-08-10   Email  dave@example Need assistance  0.834841503
+## 470  2023-08-10 Twitter   @frank_chat    Fun weekend! -0.528116655
+## 471  2023-08-10   Slack   @frank_chat Need assistance  0.626154714
+## 472  2023-08-10   Slack   @frank_chat Need assistance -0.198273231
+## 473  2023-08-10   Slack  dave@example     Great work!  0.746216161
+## 474  2023-08-10   Slack alice@example    Team meeting -0.939407335
+## 475  2023-08-10 Twitter   carol_slack Need assistance  0.809991531
+## 476  2023-08-10   Email   @frank_chat  Exciting news! -0.010767524
+## 477  2023-08-10 Twitter  dave@example    Fun weekend! -0.363247766
+## 478  2023-08-10   Email   @bob_tweets Need assistance -0.316063035
+## 479  2023-08-11 Twitter  dave@example    Fun weekend!  0.824099663
+## 480  2023-08-11   Email   @bob_tweets Hello everyone!  0.662486946
+## 481  2023-08-11   Slack   @frank_chat Hello everyone! -0.143450806
+## 482  2023-08-11 Twitter   @bob_tweets     Great work! -0.751736611
+## 483  2023-08-11   Email   @frank_chat    Fun weekend!  0.874191639
+## 484  2023-08-11   Slack   @bob_tweets    Team meeting -0.955364774
+## 485  2023-08-11   Email   carol_slack Need assistance -0.547700667
+## 486  2023-08-11   Email alice@example    Fun weekend! -0.034278538
+## 487  2023-08-11   Slack   @frank_chat  Exciting news! -0.871460078
+## 488  2023-08-11   Slack  dave@example Hello everyone! -0.843954970
+## 489  2023-08-11 Twitter  @erin_tweets Need assistance -0.462980804
+## 490  2023-08-11   Email  dave@example     Great work!  0.509797142
+## 491  2023-08-11   Slack   @frank_chat Hello everyone! -0.108963726
+## 492  2023-08-11   Slack alice@example    Fun weekend! -0.799520459
+## 493  2023-08-11   Slack   @bob_tweets Need assistance -0.542398809
+## 494  2023-08-11   Slack   carol_slack  Exciting news!  0.062969209
+## 495  2023-08-11   Email  dave@example    Team meeting  0.146319367
+## 496  2023-08-11 Twitter   @frank_chat    Team meeting  0.629940747
+## 497  2023-08-11 Twitter  dave@example  Exciting news!  0.018387399
+## 498  2023-08-11   Slack  dave@example Hello everyone!  0.879992486
+## 499  2023-08-11 Twitter   @bob_tweets  Exciting news!  0.260118117
+## 500  2023-08-11 Twitter  dave@example    Fun weekend!  0.124404418
+## 501  2023-08-11 Twitter   @frank_chat    Fun weekend! -0.926554946
+## 502  2023-08-11   Slack  dave@example Need assistance  0.930096855
+## 503  2023-08-11   Email alice@example  Exciting news! -0.901918261
+## 504  2023-08-11   Email   @bob_tweets Hello everyone!  0.576369455
+## 505  2023-08-11   Slack   @bob_tweets  Exciting news! -0.033773244
+## 506  2023-08-11 Twitter   carol_slack     Great work!  0.910158344
+## 507  2023-08-11   Slack   @frank_chat Need assistance  0.235724795
+## 508  2023-08-11   Slack   @frank_chat     Great work!  0.431652104
+## 509  2023-08-11   Email  @erin_tweets     Great work! -0.049498704
+## 510  2023-08-11   Slack   @frank_chat    Team meeting -0.642315470
+## 511  2023-08-11 Twitter  @erin_tweets    Team meeting -0.351081788
+## 512  2023-08-11   Slack   @frank_chat    Team meeting -0.203160496
+## 513  2023-08-11   Slack   @bob_tweets     Great work!  0.041871845
+## 514  2023-08-11 Twitter   @frank_chat    Team meeting -0.303564250
+## 515  2023-08-11 Twitter   carol_slack     Great work!  0.782265475
+## 516  2023-08-11   Slack   @bob_tweets     Great work! -0.549234209
+## 517  2023-08-11   Email   @bob_tweets     Great work! -0.539260621
+## 518  2023-08-11   Slack   carol_slack    Team meeting  0.921573296
+## 519  2023-08-11 Twitter alice@example Hello everyone! -0.120084892
+## 520  2023-08-11   Email alice@example    Team meeting -0.641849058
+## 521  2023-08-11   Slack   @frank_chat    Fun weekend!  0.312006338
+## 522  2023-08-11 Twitter  @erin_tweets Need assistance -0.102778860
+## 523  2023-08-11   Slack  @erin_tweets    Team meeting -0.893834382
+## 524  2023-08-11   Email   carol_slack    Fun weekend!  0.355941510
+## 525  2023-08-11   Email  dave@example Need assistance  0.060486035
+## 526  2023-08-11   Slack  @erin_tweets     Great work! -0.704862314
+## 527  2023-08-11 Twitter   @frank_chat Hello everyone!  0.807257727
+## 528  2023-08-12 Twitter  dave@example    Team meeting -0.786887704
+## 529  2023-08-12   Slack   @frank_chat    Fun weekend!  0.519153008
+## 530  2023-08-12   Email  dave@example Need assistance  0.091942075
+## 531  2023-08-12   Slack   @frank_chat Hello everyone! -0.219064676
+## 532  2023-08-12   Slack  dave@example    Fun weekend! -0.285561244
+## 533  2023-08-12 Twitter   carol_slack     Great work!  0.407506729
+## 534  2023-08-12 Twitter   carol_slack Need assistance -0.435741366
+## 535  2023-08-12 Twitter  dave@example Hello everyone!  0.278570379
+## 536  2023-08-12   Slack   carol_slack     Great work! -0.733910211
+## 537  2023-08-12 Twitter   @bob_tweets  Exciting news! -0.608554570
+## 538  2023-08-12   Email  @erin_tweets  Exciting news! -0.260005387
+## 539  2023-08-12   Slack alice@example    Fun weekend!  0.226010282
+## 540  2023-08-12   Email   @bob_tweets Need assistance -0.042491458
+## 541  2023-08-12 Twitter alice@example Hello everyone!  0.532433989
+## 542  2023-08-12   Slack   @frank_chat Need assistance -0.611636332
+## 543  2023-08-12 Twitter  dave@example     Great work!  0.195303030
+## 544  2023-08-12 Twitter   @bob_tweets    Team meeting  0.265132846
+## 545  2023-08-12   Email alice@example    Team meeting  0.774573303
+## 546  2023-08-12   Email   @bob_tweets  Exciting news! -0.597888714
+## 547  2023-08-12   Slack   carol_slack    Fun weekend!  0.608656868
+## 548  2023-08-12   Email  dave@example    Fun weekend!  0.043927317
+## 549  2023-08-12 Twitter  @erin_tweets    Team meeting  0.650313874
+## 550  2023-08-12   Email   @frank_chat Need assistance -0.104900640
+## 551  2023-08-12   Email  dave@example     Great work!  0.480317921
+## 552  2023-08-12   Email  dave@example    Fun weekend!  0.650773503
+## 553  2023-08-12   Slack  dave@example  Exciting news!  0.563268560
+## 554  2023-08-12   Slack alice@example Need assistance  0.454688824
+## 555  2023-08-12   Email  @erin_tweets Need assistance  0.866607873
+## 556  2023-08-12   Slack   carol_slack Need assistance -0.919222645
+## 557  2023-08-12 Twitter   @bob_tweets     Great work! -0.405934577
+## 558  2023-08-12   Email alice@example  Exciting news!  0.063475272
+## 559  2023-08-12 Twitter  @erin_tweets    Fun weekend!  0.038330505
+## 560  2023-08-12   Email alice@example     Great work!  0.383860287
+## 561  2023-08-12 Twitter alice@example  Exciting news! -0.487793705
+## 562  2023-08-12   Email   @frank_chat  Exciting news!  0.777389107
+## 563  2023-08-12 Twitter  dave@example Need assistance -0.713639749
+## 564  2023-08-12   Slack   carol_slack     Great work!  0.874556832
+## 565  2023-08-12   Email   @frank_chat Need assistance  0.544408341
+## 566  2023-08-12   Email  dave@example     Great work! -0.841218561
+## 567  2023-08-12   Email   @frank_chat    Fun weekend! -0.102208237
+## 568  2023-08-12   Slack   @bob_tweets    Fun weekend!  0.990166281
+## 569  2023-08-12   Email alice@example  Exciting news! -0.995861550
+## 570  2023-08-12   Email alice@example    Team meeting  0.255163795
+## 571  2023-08-12 Twitter  @erin_tweets Need assistance -0.329706852
+## 572  2023-08-12   Slack   carol_slack    Team meeting  0.504667453
+## 573  2023-08-12 Twitter   @bob_tweets    Fun weekend!  0.226440192
+## 574  2023-08-12   Email alice@example  Exciting news! -0.616592484
+## 575  2023-08-12   Email   carol_slack    Team meeting -0.492082868
+## 576  2023-08-12 Twitter   carol_slack    Team meeting  0.704733795
+## 577  2023-08-12   Email   carol_slack Need assistance  0.937844194
+## 578  2023-08-12 Twitter   carol_slack    Fun weekend! -0.455487390
+## 579  2023-08-12   Email alice@example Need assistance  0.120129855
+## 580  2023-08-12 Twitter  @erin_tweets Need assistance  0.298994374
+## 581  2023-08-12   Slack   carol_slack Need assistance -0.044029484
+## 582  2023-08-12 Twitter  dave@example     Great work! -0.462906254
+## 583  2023-08-12 Twitter alice@example    Team meeting  0.582250814
+## 584  2023-08-12   Slack  @erin_tweets Hello everyone! -0.360894154
+## 585  2023-08-12 Twitter alice@example  Exciting news!  0.874988238
+## 586  2023-08-13   Email alice@example Hello everyone!  0.433930994
+## 587  2023-08-13   Email   @bob_tweets    Team meeting -0.092784007
+## 588  2023-08-13   Slack   carol_slack Hello everyone!  0.675182751
+## 589  2023-08-13   Slack   @bob_tweets     Great work! -0.443448592
+## 590  2023-08-13   Slack alice@example     Great work!  0.480868685
+## 591  2023-08-13 Twitter  dave@example    Fun weekend!  0.986894567
+## 592  2023-08-13 Twitter alice@example Need assistance  0.119616441
+## 593  2023-08-13   Email  dave@example Need assistance -0.834047724
+## 594  2023-08-13 Twitter   @bob_tweets     Great work! -0.705626460
+## 595  2023-08-13 Twitter alice@example    Fun weekend! -0.958858334
+## 596  2023-08-13 Twitter alice@example Hello everyone!  0.752351641
+## 597  2023-08-13   Slack   @frank_chat  Exciting news!  0.443950114
+## 598  2023-08-13   Slack  @erin_tweets Need assistance -0.514785561
+## 599  2023-08-13 Twitter   @frank_chat Hello everyone! -0.369747002
+## 600  2023-08-13   Slack   carol_slack  Exciting news!  0.474910577
+## 601  2023-08-13   Email   carol_slack  Exciting news!  0.991050147
+## 602  2023-08-13   Email   carol_slack  Exciting news! -0.930242309
+## 603  2023-08-13 Twitter alice@example    Team meeting  0.892404643
+## 604  2023-08-13 Twitter   @bob_tweets Need assistance  0.408644735
+## 605  2023-08-13   Email  @erin_tweets Hello everyone! -0.939573104
+## 606  2023-08-13 Twitter   @frank_chat  Exciting news!  0.368110256
+## 607  2023-08-13 Twitter   @bob_tweets Need assistance -0.883181106
+## 608  2023-08-13   Slack   carol_slack     Great work! -0.947211589
+## 609  2023-08-13 Twitter   @frank_chat Hello everyone! -0.426096413
+## 610  2023-08-13 Twitter   carol_slack  Exciting news!  0.771407587
+## 611  2023-08-13 Twitter  @erin_tweets     Great work! -0.956337988
+## 612  2023-08-13   Email  @erin_tweets    Fun weekend!  0.496487776
+## 613  2023-08-13 Twitter  @erin_tweets     Great work!  0.515643027
+## 614  2023-08-13 Twitter alice@example     Great work! -0.026141260
+## 615  2023-08-13   Email alice@example Hello everyone!  0.042741961
+## 616  2023-08-13 Twitter  dave@example    Fun weekend! -0.042934414
+## 617  2023-08-13 Twitter   @frank_chat    Team meeting -0.877922161
+## 618  2023-08-13   Slack alice@example Need assistance -0.100954488
+## 619  2023-08-13   Slack   carol_slack Need assistance  0.886342321
+## 620  2023-08-13   Slack alice@example    Team meeting -0.493501368
+## 621  2023-08-13   Email   @frank_chat Need assistance  0.935812009
+## 622  2023-08-13 Twitter   @frank_chat Hello everyone! -0.694118693
+## 623  2023-08-13   Slack  @erin_tweets Need assistance -0.544543609
+## 624  2023-08-13   Slack   carol_slack     Great work!  0.460303653
+## 625  2023-08-13   Email  dave@example     Great work!  0.550955762
+## 626  2023-08-13   Email   @frank_chat     Great work! -0.693289580
+## 627  2023-08-13   Slack  dave@example Hello everyone! -0.945477226
+## 628  2023-08-13   Slack alice@example    Team meeting -0.927027794
+## 629  2023-08-13   Email   @bob_tweets  Exciting news!  0.553149406
+## 630  2023-08-13   Slack   carol_slack Hello everyone! -0.416070993
+## 631  2023-08-13   Email alice@example Need assistance  0.596431601
+## 632  2023-08-13   Email   @bob_tweets Hello everyone!  0.264306294
+## 633  2023-08-13 Twitter  dave@example  Exciting news! -0.618614707
+## 634  2023-08-13 Twitter   carol_slack    Fun weekend! -0.412842807
+## 635  2023-08-13 Twitter alice@example     Great work! -0.806566573
+## 636  2023-08-13   Email  @erin_tweets    Fun weekend!  0.418006041
+## 637  2023-08-14   Slack   @frank_chat Need assistance  0.187954018
+## 638  2023-08-14 Twitter  dave@example     Great work!  0.866824818
+## 639  2023-08-14 Twitter   @frank_chat    Team meeting -0.935610580
+## 640  2023-08-14 Twitter alice@example  Exciting news!  0.415267176
+## 641  2023-08-14   Email  @erin_tweets     Great work!  0.891589128
+## 642  2023-08-14 Twitter  @erin_tweets Hello everyone! -0.647561021
+## 643  2023-08-14   Email   @bob_tweets    Team meeting -0.815906889
+## 644  2023-08-14 Twitter alice@example Hello everyone! -0.892831107
+## 645  2023-08-14 Twitter alice@example     Great work!  0.346799491
+## 646  2023-08-14 Twitter   @frank_chat     Great work! -0.912142744
+## 647  2023-08-14   Slack  @erin_tweets Hello everyone!  0.987832270
+## 648  2023-08-14 Twitter alice@example    Team meeting  0.024089097
+## 649  2023-08-14   Email  @erin_tweets Need assistance  0.867801995
+## 650  2023-08-14   Slack  @erin_tweets     Great work! -0.518683678
+## 651  2023-08-14   Slack   @frank_chat Need assistance -0.384110797
+## 652  2023-08-14 Twitter   @bob_tweets     Great work! -0.970631612
+## 653  2023-08-14   Email   carol_slack    Fun weekend!  0.446355308
+## 654  2023-08-14 Twitter  dave@example    Fun weekend!  0.474564350
+## 655  2023-08-14   Slack  @erin_tweets  Exciting news!  0.336964048
+## 656  2023-08-14   Email  dave@example Need assistance -0.829999507
+## 657  2023-08-14   Email alice@example Need assistance  0.043240849
+## 658  2023-08-14   Slack  dave@example Hello everyone!  0.491653796
+## 659  2023-08-14   Email  @erin_tweets Need assistance -0.220039924
+## 660  2023-08-14   Email alice@example Need assistance  0.041204039
+## 661  2023-08-14   Slack   @frank_chat Need assistance -0.920249034
+## 662  2023-08-14   Slack  dave@example  Exciting news! -0.298691060
+## 663  2023-08-14   Slack  @erin_tweets Need assistance  0.141076977
+## 664  2023-08-14   Slack  @erin_tweets    Fun weekend! -0.259928443
+## 665  2023-08-14 Twitter  @erin_tweets Need assistance -0.543064435
+## 666  2023-08-14 Twitter  @erin_tweets     Great work!  0.468599080
+## 667  2023-08-14 Twitter alice@example  Exciting news!  0.157755047
+## 668  2023-08-14   Slack  dave@example     Great work!  0.538406652
+## 669  2023-08-14 Twitter   @bob_tweets  Exciting news!  0.754322437
+## 670  2023-08-14 Twitter   @bob_tweets Hello everyone!  0.250149151
+## 671  2023-08-14 Twitter  dave@example    Fun weekend! -0.064443091
+## 672  2023-08-14 Twitter   @frank_chat    Team meeting  0.499737595
+## 673  2023-08-14   Email   @bob_tweets Hello everyone!  0.498191035
+## 674  2023-08-14 Twitter   @frank_chat    Fun weekend! -0.672147054
+## 675  2023-08-14   Email   @bob_tweets Need assistance  0.330107941
+## 676  2023-08-14   Email  @erin_tweets    Fun weekend! -0.835450725
+## 677  2023-08-14   Email  dave@example    Fun weekend!  0.304697359
+## 678  2023-08-14   Email  @erin_tweets Hello everyone! -0.446434771
+## 679  2023-08-14   Slack   @bob_tweets Hello everyone!  0.450289166
+## 680  2023-08-14 Twitter   @bob_tweets     Great work! -0.018533767
+## 681  2023-08-14   Slack   @frank_chat  Exciting news! -0.054910814
+## 682  2023-08-14   Email alice@example     Great work! -0.111933967
+## 683  2023-08-14   Slack  @erin_tweets Hello everyone!  0.605556316
+## 684  2023-08-14   Slack  @erin_tweets  Exciting news! -0.736287751
+## 685  2023-08-14   Email   carol_slack  Exciting news!  0.596924395
+## 686  2023-08-14 Twitter  dave@example Need assistance -0.273263505
+## 687  2023-08-14 Twitter   carol_slack Need assistance  0.739025190
+## 688  2023-08-14 Twitter   @bob_tweets  Exciting news!  0.671785708
+## 689  2023-08-14   Email   @bob_tweets    Team meeting -0.996662613
+## 690  2023-08-14 Twitter  dave@example    Fun weekend! -0.998980226
+## 691  2023-08-14   Slack   @bob_tweets    Team meeting -0.709024122
+## 692  2023-08-14 Twitter alice@example     Great work! -0.652119522
+## 693  2023-08-14 Twitter   @bob_tweets    Fun weekend!  0.567614020
+## 694  2023-08-14 Twitter alice@example     Great work! -0.232635738
+## 695  2023-08-14   Slack alice@example Hello everyone! -0.798660460
+## 696  2023-08-14   Slack alice@example Hello everyone! -0.691606675
+## 697  2023-08-14   Email  dave@example Hello everyone! -0.359136123
+## 698  2023-08-14   Email  @erin_tweets    Fun weekend!  0.035476264
+## 699  2023-08-14   Email  @erin_tweets     Great work! -0.129584252
+## 700  2023-08-14   Slack  dave@example  Exciting news! -0.531753783
+## 701  2023-08-15   Email   @bob_tweets     Great work!  0.468266435
+## 702  2023-08-15   Slack  @erin_tweets Hello everyone! -0.689319659
+## 703  2023-08-15 Twitter  @erin_tweets     Great work! -0.244326655
+## 704  2023-08-15 Twitter   carol_slack Hello everyone! -0.761104998
+## 705  2023-08-15 Twitter alice@example    Team meeting -0.178657859
+## 706  2023-08-15 Twitter alice@example    Fun weekend! -0.707901944
+## 707  2023-08-15   Email  @erin_tweets    Fun weekend! -0.576360519
+## 708  2023-08-15   Email   carol_slack  Exciting news! -0.745493084
+## 709  2023-08-15 Twitter  dave@example    Fun weekend!  0.469535301
+## 710  2023-08-15 Twitter   @bob_tweets    Team meeting  0.853966497
+## 711  2023-08-15   Slack alice@example    Fun weekend!  0.271711212
+## 712  2023-08-15   Slack   carol_slack    Fun weekend! -0.760701751
+## 713  2023-08-15   Slack   @frank_chat  Exciting news! -0.582243779
+## 714  2023-08-15   Email   carol_slack Need assistance  0.414960733
+## 715  2023-08-15   Slack   @bob_tweets  Exciting news!  0.423514269
+## 716  2023-08-15 Twitter   @frank_chat Need assistance -0.639425840
+## 717  2023-08-15   Slack   @bob_tweets    Team meeting -0.271451744
+## 718  2023-08-15   Email   @frank_chat Need assistance  0.385732211
+## 719  2023-08-15   Email  @erin_tweets Hello everyone! -0.598425182
+## 720  2023-08-15 Twitter  dave@example     Great work!  0.435108419
+## 721  2023-08-15 Twitter   @bob_tweets Need assistance  0.373691486
+## 722  2023-08-15   Slack   carol_slack Need assistance  0.674294885
+## 723  2023-08-15   Slack  dave@example Hello everyone! -0.510870771
+## 724  2023-08-15   Email  dave@example Hello everyone!  0.282330315
+## 725  2023-08-15   Slack   @frank_chat Hello everyone!  0.058449768
+## 726  2023-08-15 Twitter alice@example  Exciting news!  0.153143482
+## 727  2023-08-15 Twitter   carol_slack    Team meeting  0.498292263
+## 728  2023-08-15   Email   @frank_chat     Great work!  0.120376800
+## 729  2023-08-15   Slack  @erin_tweets    Team meeting  0.457860831
+## 730  2023-08-15 Twitter   @frank_chat Hello everyone!  0.384222084
+## 731  2023-08-15   Email alice@example    Team meeting  0.176413531
+## 732  2023-08-15   Email   @frank_chat Need assistance -0.438784983
+## 733  2023-08-15   Slack   @frank_chat     Great work!  0.960373470
+## 734  2023-08-15   Email alice@example Need assistance -0.264464825
+## 735  2023-08-15 Twitter   @frank_chat Need assistance  0.344264537
+## 736  2023-08-15   Email   carol_slack    Fun weekend! -0.141636565
+## 737  2023-08-15 Twitter  dave@example    Fun weekend!  0.345517721
+## 738  2023-08-15   Slack   @frank_chat    Fun weekend!  0.816346027
+## 739  2023-08-15 Twitter   @bob_tweets    Team meeting -0.144443278
+## 740  2023-08-15 Twitter  @erin_tweets Need assistance  0.599532404
+## 741  2023-08-15 Twitter  @erin_tweets Hello everyone!  0.768580468
+## 742  2023-08-15   Email  dave@example Need assistance  0.773382573
+## 743  2023-08-15   Email   @bob_tweets    Team meeting -0.801572199
+## 744  2023-08-15 Twitter  @erin_tweets Need assistance  0.787741330
+## 745  2023-08-15   Slack  dave@example     Great work! -0.481857921
+## 746  2023-08-15   Slack   @frank_chat Hello everyone! -0.508614742
+## 747  2023-08-15 Twitter   carol_slack    Team meeting -0.074092148
+## 748  2023-08-15   Slack  @erin_tweets Hello everyone! -0.562214842
+## 749  2023-08-15   Email   @frank_chat    Fun weekend!  0.535877908
+## 750  2023-08-15 Twitter   carol_slack Hello everyone! -0.638266036
+## 751  2023-08-15   Slack alice@example Need assistance  0.899728119
+## 752  2023-08-15 Twitter alice@example     Great work!  0.798867194
+## 753  2023-08-16 Twitter  @erin_tweets     Great work!  0.150156671
+## 754  2023-08-16   Slack alice@example  Exciting news!  0.320830711
+## 755  2023-08-16 Twitter alice@example  Exciting news!  0.927110374
+## 756  2023-08-16 Twitter   @bob_tweets  Exciting news! -0.141741692
+## 757  2023-08-16 Twitter alice@example     Great work! -0.179680133
+## 758  2023-08-16   Slack  @erin_tweets  Exciting news! -0.290788232
+## 759  2023-08-16   Slack   @bob_tweets    Team meeting -0.774452816
+## 760  2023-08-16   Email   @frank_chat Hello everyone!  0.997601895
+## 761  2023-08-16   Slack   carol_slack Hello everyone!  0.529127310
+## 762  2023-08-16   Email   @frank_chat    Fun weekend! -0.584208118
+## 763  2023-08-16 Twitter  @erin_tweets  Exciting news! -0.265161676
+## 764  2023-08-16   Slack alice@example Need assistance  0.669039086
+## 765  2023-08-16   Email alice@example    Team meeting  0.858062949
+## 766  2023-08-16   Slack alice@example Need assistance  0.445466304
+## 767  2023-08-16 Twitter   @bob_tweets    Fun weekend! -0.533522750
+## 768  2023-08-16   Slack   @bob_tweets    Team meeting  0.120248223
+## 769  2023-08-16   Email   carol_slack     Great work!  0.306993762
+## 770  2023-08-16 Twitter  dave@example     Great work!  0.827052074
+## 771  2023-08-16   Email   carol_slack     Great work! -0.045373839
+## 772  2023-08-16 Twitter  dave@example Need assistance -0.194268964
+## 773  2023-08-16   Email   @frank_chat  Exciting news!  0.305391626
+## 774  2023-08-16   Slack   @frank_chat    Team meeting -0.143542713
+## 775  2023-08-16   Slack   carol_slack Hello everyone! -0.321912185
+## 776  2023-08-16   Slack  dave@example  Exciting news!  0.461496073
+## 777  2023-08-16 Twitter   carol_slack  Exciting news! -0.875286373
+## 778  2023-08-16 Twitter   carol_slack Need assistance -0.375053814
+## 779  2023-08-16   Email alice@example  Exciting news! -0.858994203
+## 780  2023-08-16   Email  @erin_tweets    Fun weekend! -0.928850479
+## 781  2023-08-16 Twitter  dave@example    Fun weekend! -0.286604216
+## 782  2023-08-16   Email alice@example     Great work!  0.360768258
+## 783  2023-08-16   Email  dave@example Need assistance -0.014521594
+## 784  2023-08-16   Email   @frank_chat    Team meeting -0.287118956
+## 785  2023-08-16   Email   @frank_chat Need assistance  0.343977793
+## 786  2023-08-16 Twitter  @erin_tweets Hello everyone!  0.806540163
+## 787  2023-08-16   Email   @frank_chat    Fun weekend!  0.402509230
+## 788  2023-08-16 Twitter  @erin_tweets    Team meeting -0.674190784
+## 789  2023-08-16   Slack  dave@example Need assistance  0.484403751
+## 790  2023-08-16   Email   carol_slack Hello everyone! -0.029610693
+## 791  2023-08-16   Slack  dave@example    Fun weekend!  0.438361928
+## 792  2023-08-16   Email   @frank_chat    Fun weekend! -0.552409418
+## 793  2023-08-16   Slack   @frank_chat    Team meeting -0.933677876
+## 794  2023-08-16   Slack   @frank_chat Hello everyone! -0.878399170
+## 795  2023-08-16 Twitter alice@example  Exciting news!  0.696509592
+## 796  2023-08-16   Email   carol_slack Hello everyone! -0.851052538
+## 797  2023-08-16 Twitter   @bob_tweets     Great work! -0.674055766
+## 798  2023-08-16   Slack   @frank_chat    Fun weekend!  0.269629325
+## 799  2023-08-16   Slack  @erin_tweets  Exciting news! -0.113282133
+## 800  2023-08-16 Twitter  dave@example    Team meeting  0.796688539
+## 801  2023-08-16   Email   @bob_tweets     Great work! -0.351176404
+## 802  2023-08-16   Email   @bob_tweets Need assistance -0.459899545
+## 803  2023-08-17 Twitter alice@example    Team meeting -0.189370414
+## 804  2023-08-17 Twitter   @bob_tweets Need assistance -0.493062959
+## 805  2023-08-17   Email   @frank_chat    Team meeting  0.932789830
+## 806  2023-08-17   Email   @bob_tweets    Fun weekend!  0.825692308
+## 807  2023-08-17   Slack alice@example  Exciting news! -0.301641050
+## 808  2023-08-17   Email   @bob_tweets    Team meeting -0.467768930
+## 809  2023-08-17 Twitter   @bob_tweets  Exciting news!  0.953910344
+## 810  2023-08-17 Twitter   @frank_chat Hello everyone!  0.951721462
+## 811  2023-08-17 Twitter   carol_slack    Fun weekend!  0.172285239
+## 812  2023-08-17   Email  @erin_tweets     Great work!  0.709753431
+## 813  2023-08-17   Email  dave@example    Fun weekend!  0.420022254
+## 814  2023-08-17 Twitter  @erin_tweets    Fun weekend! -0.417790642
+## 815  2023-08-17   Email  dave@example Hello everyone!  0.976894801
+## 816  2023-08-17   Slack alice@example     Great work!  0.652192219
+## 817  2023-08-17 Twitter  dave@example    Fun weekend!  0.775130778
+## 818  2023-08-17   Email   @frank_chat     Great work! -0.951084716
+## 819  2023-08-17 Twitter   carol_slack Need assistance -0.806338225
+## 820  2023-08-17 Twitter  @erin_tweets Hello everyone!  0.299843722
+## 821  2023-08-17   Email  @erin_tweets    Team meeting  0.863822790
+## 822  2023-08-17 Twitter alice@example     Great work! -0.641657173
+## 823  2023-08-17   Slack   carol_slack Need assistance -0.750471560
+## 824  2023-08-17 Twitter   @frank_chat    Team meeting -0.232014328
+## 825  2023-08-17 Twitter   @frank_chat    Fun weekend! -0.624432764
+## 826  2023-08-17   Email  dave@example    Fun weekend! -0.173903828
+## 827  2023-08-17 Twitter alice@example Hello everyone!  0.582868762
+## 828  2023-08-17 Twitter alice@example Hello everyone! -0.605858998
+## 829  2023-08-17   Email   @frank_chat    Team meeting -0.229243480
+## 830  2023-08-17 Twitter  dave@example Need assistance -0.035525655
+## 831  2023-08-17 Twitter  @erin_tweets Hello everyone! -0.606922586
+## 832  2023-08-17   Slack   carol_slack    Fun weekend!  0.169502832
+## 833  2023-08-17   Slack   @frank_chat     Great work! -0.700269639
+## 834  2023-08-17   Slack alice@example     Great work! -0.853163924
+## 835  2023-08-17 Twitter   @frank_chat    Team meeting -0.608078998
+## 836  2023-08-17 Twitter   carol_slack Need assistance -0.065970336
+## 837  2023-08-17   Email   @frank_chat  Exciting news! -0.770805090
+## 838  2023-08-17 Twitter   @bob_tweets     Great work!  0.401612313
+## 839  2023-08-17 Twitter alice@example  Exciting news!  0.968932204
+## 840  2023-08-17   Email  dave@example    Team meeting -0.047711935
+## 841  2023-08-17 Twitter   carol_slack Need assistance -0.101536875
+## 842  2023-08-17 Twitter   carol_slack  Exciting news! -0.237763272
+## 843  2023-08-17 Twitter  @erin_tweets    Team meeting -0.666378770
+## 844  2023-08-17   Email   @frank_chat Need assistance -0.837423526
+## 845  2023-08-17   Slack  @erin_tweets Hello everyone!  0.937329018
+## 846  2023-08-18   Email   @frank_chat    Fun weekend!  0.380196611
+## 847  2023-08-18   Email alice@example    Fun weekend!  0.233402089
+## 848  2023-08-18 Twitter   @frank_chat    Team meeting -0.004460444
+## 849  2023-08-18   Email   @frank_chat    Fun weekend! -0.569811309
+## 850  2023-08-18   Slack   @bob_tweets    Fun weekend! -0.558302570
+## 851  2023-08-18   Email  dave@example Need assistance -0.770186925
+## 852  2023-08-18 Twitter   @bob_tweets Need assistance  0.083397951
+## 853  2023-08-18   Email   @bob_tweets    Fun weekend! -0.558283084
+## 854  2023-08-18 Twitter   @frank_chat  Exciting news! -0.445320373
+## 855  2023-08-18 Twitter  dave@example Need assistance -0.577738499
+## 856  2023-08-18   Email alice@example Hello everyone! -0.024430894
+## 857  2023-08-18   Email  @erin_tweets Need assistance -0.240649289
+## 858  2023-08-18   Email   carol_slack    Team meeting  0.343653605
+## 859  2023-08-18   Email   @bob_tweets  Exciting news!  0.497974098
+## 860  2023-08-18 Twitter   @frank_chat  Exciting news!  0.784590872
+## 861  2023-08-18   Slack  @erin_tweets    Team meeting  0.353438236
+## 862  2023-08-18 Twitter   carol_slack  Exciting news!  0.222249684
+## 863  2023-08-18   Email alice@example  Exciting news!  0.422912350
+## 864  2023-08-18   Slack   @bob_tweets Need assistance -0.754348847
+## 865  2023-08-18   Slack  @erin_tweets  Exciting news! -0.537696546
+## 866  2023-08-18   Email   carol_slack  Exciting news! -0.978982675
+## 867  2023-08-18 Twitter  dave@example Need assistance -0.613432584
+## 868  2023-08-18   Email   @frank_chat    Fun weekend!  0.061621126
+## 869  2023-08-18 Twitter  dave@example  Exciting news! -0.209318373
+## 870  2023-08-18   Slack  dave@example    Team meeting -0.718652172
+## 871  2023-08-18 Twitter  dave@example    Team meeting -0.012694929
+## 872  2023-08-18   Slack  dave@example    Fun weekend! -0.566594298
+## 873  2023-08-18 Twitter  @erin_tweets Need assistance  0.116931847
+## 874  2023-08-18   Slack  @erin_tweets  Exciting news! -0.719712700
+## 875  2023-08-18 Twitter   @bob_tweets  Exciting news!  0.290797958
+## 876  2023-08-18   Email  @erin_tweets Need assistance  0.171319252
+## 877  2023-08-18   Email  dave@example Hello everyone!  0.978220029
+## 878  2023-08-18   Slack   @frank_chat    Team meeting -0.134102609
+## 879  2023-08-18   Email alice@example Need assistance  0.275121063
+## 880  2023-08-18 Twitter   @bob_tweets    Fun weekend!  0.590919483
+## 881  2023-08-18 Twitter   @frank_chat    Team meeting  0.818109252
+## 882  2023-08-18   Email  dave@example  Exciting news! -0.768564025
+## 883  2023-08-18 Twitter   carol_slack Need assistance -0.107154121
+## 884  2023-08-18   Slack   @bob_tweets    Fun weekend!  0.567603516
+## 885  2023-08-18   Email   carol_slack  Exciting news! -0.546088908
+## 886  2023-08-18   Email   carol_slack Need assistance  0.121493359
+## 887  2023-08-18   Slack   @bob_tweets Hello everyone! -0.164491392
+## 888  2023-08-18   Slack   @bob_tweets    Team meeting  0.403409261
+## 889  2023-08-18   Slack  @erin_tweets Hello everyone! -0.395961934
+## 890  2023-08-18   Slack alice@example     Great work! -0.114574431
+## 891  2023-08-18 Twitter alice@example    Fun weekend!  0.977650215
+## 892  2023-08-18 Twitter  dave@example     Great work! -0.160749977
+## 893  2023-08-18 Twitter   @bob_tweets    Fun weekend!  0.866654206
+## 894  2023-08-18   Slack   @bob_tweets    Fun weekend! -0.898072343
+## 895  2023-08-18   Slack   @bob_tweets    Team meeting  0.192284770
+## 896  2023-08-18   Slack alice@example    Fun weekend! -0.088887415
+## 897  2023-08-18 Twitter alice@example Hello everyone! -0.936083395
+## 898  2023-08-18   Email   @bob_tweets Need assistance  0.453627230
+## 899  2023-08-18 Twitter   @bob_tweets     Great work! -0.839583620
+## 900  2023-08-18   Email alice@example    Team meeting -0.377541550
+## 901  2023-08-18   Slack   @frank_chat     Great work! -0.071027102
+## 902  2023-08-19 Twitter   @frank_chat Need assistance  0.481529109
+## 903  2023-08-19   Email  dave@example  Exciting news!  0.821827833
+## 904  2023-08-19   Email  dave@example  Exciting news! -0.533024813
+## 905  2023-08-19   Email  @erin_tweets    Team meeting -0.757670477
+## 906  2023-08-19   Email alice@example  Exciting news!  0.401543677
+## 907  2023-08-19   Slack  dave@example     Great work! -0.526421044
+## 908  2023-08-19   Slack   @bob_tweets Hello everyone!  0.679174718
+## 909  2023-08-19   Slack   @bob_tweets Hello everyone! -0.558468956
+## 910  2023-08-19 Twitter   @bob_tweets     Great work!  0.521462946
+## 911  2023-08-19   Email  dave@example  Exciting news!  0.324592507
+## 912  2023-08-19   Email  @erin_tweets    Team meeting -0.823923888
+## 913  2023-08-19   Slack  @erin_tweets     Great work!  0.037533612
+## 914  2023-08-19   Email  dave@example    Team meeting  0.087382621
+## 915  2023-08-19   Slack alice@example    Team meeting -0.249497572
+## 916  2023-08-19   Email   @frank_chat Hello everyone!  0.179850068
+## 917  2023-08-19   Email alice@example     Great work!  0.301563812
+## 918  2023-08-19   Slack   @bob_tweets Hello everyone!  0.487545231
+## 919  2023-08-19 Twitter   @frank_chat    Fun weekend! -0.371842024
+## 920  2023-08-19 Twitter  dave@example    Team meeting -0.284638313
+## 921  2023-08-19   Email   carol_slack    Fun weekend!  0.892766985
+## 922  2023-08-19 Twitter   carol_slack    Team meeting  0.317846402
+## 923  2023-08-19 Twitter alice@example Need assistance  0.143810244
+## 924  2023-08-19 Twitter  @erin_tweets    Team meeting  0.945942261
+## 925  2023-08-19 Twitter alice@example    Fun weekend! -0.111042333
+## 926  2023-08-19   Email   @frank_chat    Team meeting -0.943049938
+## 927  2023-08-19   Email  dave@example     Great work! -0.336303487
+## 928  2023-08-19   Email  @erin_tweets    Fun weekend!  0.149510738
+## 929  2023-08-19 Twitter alice@example    Team meeting -0.299451457
+## 930  2023-08-19   Email   @bob_tweets    Team meeting  0.855612874
+## 931  2023-08-19 Twitter  dave@example Need assistance -0.115035673
+## 932  2023-08-19   Slack  @erin_tweets     Great work! -0.725357866
+## 933  2023-08-19 Twitter   @frank_chat  Exciting news!  0.388266448
+## 934  2023-08-19 Twitter   carol_slack    Team meeting  0.578111817
+## 935  2023-08-19 Twitter alice@example Hello everyone! -0.378329881
+## 936  2023-08-19 Twitter   @bob_tweets Hello everyone!  0.420571170
+## 937  2023-08-19 Twitter   @frank_chat  Exciting news!  0.221380584
+## 938  2023-08-19   Slack   @frank_chat    Team meeting -0.887928675
+## 939  2023-08-19   Email   @frank_chat     Great work!  0.463513046
+## 940  2023-08-19   Email alice@example Hello everyone! -0.040838550
+## 941  2023-08-19   Email  @erin_tweets     Great work!  0.570171806
+## 942  2023-08-19   Email  dave@example    Team meeting -0.528815492
+## 943  2023-08-19 Twitter  @erin_tweets  Exciting news!  0.638825124
+## 944  2023-08-19   Slack   @frank_chat    Team meeting -0.472906698
+## 945  2023-08-19   Slack  dave@example    Team meeting -0.789976987
+## 946  2023-08-19   Slack alice@example  Exciting news!  0.502961815
+## 947  2023-08-19 Twitter alice@example Hello everyone!  0.857508211
+## 948  2023-08-20   Email  dave@example    Team meeting  0.617879979
+## 949  2023-08-20   Email   carol_slack    Team meeting  0.909817838
+## 950  2023-08-20   Email alice@example     Great work!  0.062977130
+## 951  2023-08-20 Twitter alice@example Hello everyone!  0.482187657
+## 952  2023-08-20   Email alice@example Hello everyone! -0.166448134
+## 953  2023-08-20   Email   @bob_tweets  Exciting news!  0.931368547
+## 954  2023-08-20   Slack alice@example     Great work! -0.459148118
+## 955  2023-08-20   Slack  dave@example  Exciting news!  0.617734990
+## 956  2023-08-20 Twitter alice@example  Exciting news!  0.310656996
+## 957  2023-08-20 Twitter   carol_slack     Great work!  0.544291852
+## 958  2023-08-20   Slack   @bob_tweets     Great work!  0.203791809
+## 959  2023-08-20   Slack alice@example  Exciting news!  0.685212519
+## 960  2023-08-20 Twitter  @erin_tweets     Great work! -0.404516522
+## 961  2023-08-20   Slack  dave@example  Exciting news! -0.476039052
+## 962  2023-08-20   Email   @bob_tweets Need assistance -0.299717092
+## 963  2023-08-20 Twitter  @erin_tweets     Great work! -0.743658878
+## 964  2023-08-20 Twitter   @frank_chat    Team meeting  0.659773430
+## 965  2023-08-20   Slack alice@example  Exciting news! -0.415822029
+## 966  2023-08-20 Twitter alice@example    Fun weekend!  0.280627117
+## 967  2023-08-20   Email   @bob_tweets    Team meeting -0.801527123
+## 968  2023-08-20   Slack  @erin_tweets    Team meeting -0.134665603
+## 969  2023-08-20   Email   carol_slack    Team meeting  0.078007510
+## 970  2023-08-20   Slack  dave@example     Great work!  0.814900840
+## 971  2023-08-20   Email  @erin_tweets  Exciting news! -0.195798854
+## 972  2023-08-20   Slack  @erin_tweets    Fun weekend!  0.604609676
+## 973  2023-08-20 Twitter   @bob_tweets    Fun weekend!  0.236553716
+## 974  2023-08-20   Email  dave@example    Team meeting  0.985037738
+## 975  2023-08-20   Slack   carol_slack  Exciting news!  0.221250645
+## 976  2023-08-20 Twitter  dave@example    Fun weekend! -0.818538250
+## 977  2023-08-20 Twitter  @erin_tweets     Great work! -0.349391197
+## 978  2023-08-20   Email   carol_slack     Great work!  0.680826971
+## 979  2023-08-20   Slack   carol_slack     Great work! -0.574539005
+## 980  2023-08-20 Twitter   @frank_chat    Team meeting -0.476500273
+## 981  2023-08-20 Twitter  @erin_tweets    Team meeting  0.341763970
+## 982  2023-08-20   Slack alice@example Hello everyone! -0.863882122
+## 983  2023-08-20   Email   @frank_chat    Team meeting -0.993759494
+## 984  2023-08-20 Twitter alice@example    Fun weekend! -0.436848105
+## 985  2023-08-20 Twitter  dave@example  Exciting news! -0.542942689
+## 986  2023-08-20   Slack   @bob_tweets    Team meeting -0.118006961
+## 987  2023-08-20   Slack   carol_slack     Great work! -0.595158034
+## 988  2023-08-20   Slack   @frank_chat     Great work!  0.606102686
+## 989  2023-08-20   Email alice@example    Fun weekend!  0.851679420
+## 990  2023-08-20   Email   @frank_chat    Team meeting  0.560076173
+## 991  2023-08-20   Slack   carol_slack    Fun weekend!  0.231915887
+## 992  2023-08-20   Slack   @bob_tweets Hello everyone!  0.520647362
+## 993  2023-08-20   Email   carol_slack    Team meeting  0.082343857
+## 994  2023-08-20 Twitter   @frank_chat  Exciting news!  0.307898677
+## 995  2023-08-20 Twitter  dave@example     Great work! -0.124954135
+## 996  2023-08-20   Email  dave@example    Team meeting -0.075425136
+## 997  2023-08-20   Email alice@example Hello everyone! -0.555095884
+## 998  2023-08-20   Slack  @erin_tweets Hello everyone! -0.357717138
+## 999  2023-08-20 Twitter   carol_slack Hello everyone!  0.640248996
+## 1000 2023-08-20 Twitter  @erin_tweets  Exciting news!  0.131818828
+\end{verbatim}
+
+\hypertarget{question-4-distinct-discovery}{%
+\paragraph{Question-4: Distinct
+Discovery}\label{question-4-distinct-discovery}}
+
+Apply the distinct command to find the unique senders in the
+``comm\_data'' dataframe.
+
+\textbf{Solution:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter code here}
+\NormalTok{comm\_data }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{distinct}\NormalTok{(sender)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          sender
+## 1  dave@example
+## 2   @bob_tweets
+## 3   @frank_chat
+## 4  @erin_tweets
+## 5 alice@example
+## 6   carol_slack
+\end{verbatim}
+
+\hypertarget{question-5-sender-stats}{%
+\paragraph{Question-5: Sender Stats}\label{question-5-sender-stats}}
+
+Employ the count and group\_by commands to generate a summary table that
+shows the count of messages sent by each sender in the ``comm\_data''
+dataframe.
+
+\textbf{Solution:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter code here}
+\NormalTok{comm\_data }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{count}\NormalTok{(sender)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          sender   n
+## 1   @bob_tweets 179
+## 2  @erin_tweets 171
+## 3   @frank_chat 174
+## 4 alice@example 180
+## 5   carol_slack 141
+## 6  dave@example 155
+\end{verbatim}
+
+\hypertarget{question-6-channel-chatter-insights}{%
+\paragraph{Question-6: Channel Chatter
+Insights}\label{question-6-channel-chatter-insights}}
+
+Using the group\_by and count commands, create a summary table that
+displays the count of messages sent through each communication channel
+in the ``comm\_data'' dataframe.
+
+\textbf{Solution:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter code here}
+\NormalTok{comm\_data }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(channel) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{count =} \FunctionTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 2
+##   channel count
+##   <chr>   <int>
+## 1 Email     331
+## 2 Slack     320
+## 3 Twitter   349
+\end{verbatim}
+
+\hypertarget{question-7-positive-pioneers}{%
+\paragraph{Question-7: Positive
+Pioneers}\label{question-7-positive-pioneers}}
+
+Utilize the filter, select, and arrange commands to identify the top
+three senders with the highest average positive sentiment scores.
+Display their usernames and corresponding sentiment averages.
+
+\textbf{Solution:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter code here}
+\NormalTok{comm\_data }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{ (sender) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{average\_sentiment =} \FunctionTok{mean}\NormalTok{(sentiment)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(average\_sentiment }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(average\_sentiment)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{slice}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 2
+##   sender        average_sentiment
+##   <chr>                     <dbl>
+## 1 carol_slack             0.118  
+## 2 alice@example           0.0570 
+## 3 dave@example            0.00687
+\end{verbatim}
+
+\hypertarget{question-8-message-mood-over-time}{%
+\paragraph{Question-8: Message Mood Over
+Time}\label{question-8-message-mood-over-time}}
+
+With the group\_by, summarise, and arrange commands, calculate the
+average sentiment score for each day in the ``comm\_data'' dataframe.
+
+\textbf{Solution:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter code here}
+\NormalTok{comm\_data }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{group\_by}\NormalTok{ (date) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{average\_sentiment =} \FunctionTok{mean}\NormalTok{(sentiment)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(date)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 20 x 2
+##    date       average_sentiment
+##    <chr>                  <dbl>
+##  1 2023-08-01           -0.0616
+##  2 2023-08-02            0.136 
+##  3 2023-08-03            0.107 
+##  4 2023-08-04           -0.0510
+##  5 2023-08-05            0.193 
+##  6 2023-08-06           -0.0144
+##  7 2023-08-07            0.0364
+##  8 2023-08-08            0.0666
+##  9 2023-08-09            0.0997
+## 10 2023-08-10           -0.0254
+## 11 2023-08-11           -0.0340
+## 12 2023-08-12            0.0668
+## 13 2023-08-13           -0.0604
+## 14 2023-08-14           -0.0692
+## 15 2023-08-15            0.0617
+## 16 2023-08-16           -0.0220
+## 17 2023-08-17           -0.0191
+## 18 2023-08-18           -0.0760
+## 19 2023-08-19            0.0551
+## 20 2023-08-20            0.0608
+\end{verbatim}
+
+\hypertarget{question-9-selective-sentiments}{%
+\paragraph{Question-9: Selective
+Sentiments}\label{question-9-selective-sentiments}}
+
+Use the filter and select commands to extract messages with a negative
+sentiment score (less than 0) and create a new dataframe.
+
+\textbf{Solution:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter code here}
+\NormalTok{negative\_sentiment }\OtherTok{\textless{}{-}}\NormalTok{ comm\_data }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(sentiment }\SpecialCharTok{\textless{}} \DecValTok{0}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(message,sentiment)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{question-10-enhancing-engagement}{%
+\paragraph{Question-10: Enhancing
+Engagement}\label{question-10-enhancing-engagement}}
+
+Apply the mutate command to add a new column to the ``comm\_data''
+dataframe, representing a sentiment label: ``Positive,'' ``Neutral,'' or
+``Negative,'' based on the sentiment score.
+
+\textbf{Solution:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter code here}
+\NormalTok{comm\_data }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{sentiment\_label =} \FunctionTok{ifelse}\NormalTok{(sentiment }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{, }\StringTok{"Positive"}\NormalTok{,}
+                          \FunctionTok{ifelse}\NormalTok{(sentiment }\SpecialCharTok{==} \DecValTok{0}\NormalTok{, }\StringTok{"Neutral"}\NormalTok{, }
+                                 \StringTok{"Negative"}\NormalTok{))) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(message, sentiment ,sentiment\_label)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##              message    sentiment sentiment_label
+## 1       Fun weekend!  0.824099663        Positive
+## 2    Hello everyone!  0.662486946        Positive
+## 3    Hello everyone! -0.143450806        Negative
+## 4       Fun weekend!  0.380196611        Positive
+## 5    Need assistance  0.187954018        Positive
+## 6    Need assistance -0.108376242        Negative
+## 7    Hello everyone! -0.740855453        Negative
+## 8    Hello everyone! -0.187917918        Negative
+## 9       Team meeting  0.617879979        Positive
+## 10   Hello everyone! -0.932525445        Negative
+## 11      Team meeting  0.819675826        Positive
+## 12       Great work!  0.150156671        Positive
+## 13   Need assistance  0.676776995        Positive
+## 14    Exciting news!  0.320830711        Positive
+## 15    Exciting news!  0.927110374        Positive
+## 16       Great work!  0.642848774        Positive
+## 17   Need assistance  0.148395223        Positive
+## 18      Team meeting  0.909817838        Positive
+## 19   Need assistance -0.879413284        Negative
+## 20   Hello everyone!  0.968081689        Positive
+## 21       Great work! -0.751736611        Negative
+## 22      Team meeting -0.786887704        Negative
+## 23      Fun weekend!  0.519153008        Positive
+## 24      Fun weekend!  0.874191639        Positive
+## 25      Fun weekend! -0.539049788        Negative
+## 26   Hello everyone!  0.433930994        Positive
+## 27    Exciting news! -0.141741692        Negative
+## 28   Need assistance  0.083300223        Positive
+## 29       Great work!  0.866824818        Positive
+## 30      Team meeting -0.189370414        Negative
+## 31   Need assistance -0.493062959        Negative
+## 32       Great work!  0.468266435        Positive
+## 33   Need assistance  0.599045397        Positive
+## 34       Great work! -0.179680133        Negative
+## 35       Great work!  0.199771451        Positive
+## 36      Team meeting  0.327507946        Positive
+## 37       Great work!  0.973676749        Positive
+## 38      Team meeting -0.092784007        Negative
+## 39      Team meeting -0.955364774        Negative
+## 40    Exciting news!  0.468174768        Positive
+## 41   Need assistance  0.481529109        Positive
+## 42   Need assistance -0.766245456        Negative
+## 43   Need assistance -0.547700667        Negative
+## 44    Exciting news! -0.415566467        Negative
+## 45       Great work! -0.579760317        Negative
+## 46      Fun weekend!  0.233402089        Positive
+## 47      Fun weekend!  0.387379609        Positive
+## 48       Great work!  0.062977130        Positive
+## 49    Exciting news! -0.290788232        Negative
+## 50      Team meeting  0.210089974        Positive
+## 51   Need assistance  0.091942075        Positive
+## 52   Need assistance -0.340010146        Negative
+## 53   Hello everyone!  0.675182751        Positive
+## 54       Great work! -0.443448592        Negative
+## 55      Team meeting -0.774452816        Negative
+## 56       Great work!  0.480868685        Positive
+## 57   Need assistance  0.914976185        Positive
+## 58      Fun weekend!  0.986894567        Positive
+## 59   Hello everyone! -0.882707532        Negative
+## 60   Hello everyone! -0.689319659        Negative
+## 61      Team meeting  0.932789830        Positive
+## 62   Hello everyone! -0.219064676        Negative
+## 63      Team meeting -0.004460444        Negative
+## 64   Hello everyone!  0.482187657        Positive
+## 65      Team meeting -0.935610580        Negative
+## 66      Fun weekend!  0.924321534        Positive
+## 67   Hello everyone! -0.452905738        Negative
+## 68    Exciting news!  0.415267176        Positive
+## 69   Hello everyone!  0.997601895        Positive
+## 70   Need assistance  0.119616441        Positive
+## 71   Need assistance -0.834047724        Negative
+## 72   Need assistance -0.195926677        Negative
+## 73      Fun weekend! -0.285561244        Negative
+## 74   Hello everyone!  0.529127310        Positive
+## 75      Team meeting -0.060755176        Negative
+## 76       Great work!  0.407506729        Positive
+## 77      Fun weekend! -0.569811309        Negative
+## 78      Fun weekend!  0.825692308        Positive
+## 79    Exciting news! -0.018193701        Negative
+## 80       Great work!  0.924440826        Positive
+## 81      Fun weekend!  0.185009266        Positive
+## 82    Exciting news!  0.821827833        Positive
+## 83   Need assistance  0.534302738        Positive
+## 84    Exciting news! -0.301641050        Negative
+## 85       Great work! -0.244326655        Negative
+## 86   Hello everyone! -0.761104998        Negative
+## 87    Exciting news! -0.408464086        Negative
+## 88      Fun weekend! -0.584208118        Negative
+## 89      Fun weekend!  0.866016825        Positive
+## 90      Team meeting -0.178657859        Negative
+## 91       Great work! -0.329095908        Negative
+## 92      Fun weekend! -0.707901944        Negative
+## 93   Hello everyone! -0.166448134        Negative
+## 94    Exciting news! -0.533024813        Negative
+## 95   Need assistance -0.356371285        Negative
+## 96      Team meeting -0.467768930        Negative
+## 97      Fun weekend! -0.056202481        Negative
+## 98      Team meeting -0.757670477        Negative
+## 99    Exciting news! -0.265161676        Negative
+## 100   Exciting news! -0.822780307        Negative
+## 101  Hello everyone!  0.535708998        Positive
+## 102   Exciting news!  0.953910344        Positive
+## 103      Great work!  0.891589128        Positive
+## 104  Need assistance  0.115187556        Positive
+## 105  Need assistance -0.680233249        Negative
+## 106  Hello everyone! -0.647561021        Negative
+## 107   Exciting news!  0.931368547        Positive
+## 108      Great work! -0.705626460        Negative
+## 109  Hello everyone! -0.050532605        Negative
+## 110      Great work! -0.459148118        Negative
+## 111   Exciting news!  0.617734990        Positive
+## 112     Fun weekend! -0.034278538        Negative
+## 113      Great work! -0.013945965        Negative
+## 114     Team meeting -0.934943126        Negative
+## 115  Need assistance  0.669039086        Positive
+## 116     Fun weekend! -0.474169046        Negative
+## 117     Team meeting -0.815906889        Negative
+## 118   Exciting news!  0.993148146        Positive
+## 119   Exciting news! -0.200843529        Negative
+## 120     Fun weekend! -0.958858334        Negative
+## 121     Team meeting  0.213498762        Positive
+## 122     Fun weekend! -0.558302570        Negative
+## 123  Need assistance -0.435741366        Negative
+## 124  Need assistance -0.770186925        Negative
+## 125   Exciting news! -0.871460078        Negative
+## 126  Need assistance  0.083397951        Positive
+## 127  Hello everyone! -0.843954970        Negative
+## 128     Fun weekend! -0.576360519        Negative
+## 129      Great work!  0.432502551        Positive
+## 130  Need assistance -0.462980804        Negative
+## 131   Exciting news! -0.745493084        Negative
+## 132     Fun weekend!  0.469535301        Positive
+## 133   Exciting news!  0.750492542        Positive
+## 134     Team meeting  0.858062949        Positive
+## 135   Exciting news!  0.773558143        Positive
+## 136   Exciting news!  0.401543677        Positive
+## 137  Hello everyone!  0.951721462        Positive
+## 138   Exciting news!  0.310656996        Positive
+## 139      Great work!  0.544291852        Positive
+## 140  Hello everyone! -0.075317414        Negative
+## 141  Need assistance  0.689327837        Positive
+## 142     Team meeting  0.853966497        Positive
+## 143  Need assistance -0.815106571        Negative
+## 144  Hello everyone!  0.530733542        Positive
+## 145      Great work! -0.526421044        Negative
+## 146  Hello everyone!  0.278570379        Positive
+## 147     Team meeting -0.202094683        Negative
+## 148      Great work!  0.509797142        Positive
+## 149     Fun weekend!  0.172285239        Positive
+## 150   Exciting news!  0.146396939        Positive
+## 151     Fun weekend! -0.390309056        Negative
+## 152      Great work!  0.203791809        Positive
+## 153      Great work! -0.733910211        Negative
+## 154      Great work!  0.709753431        Positive
+## 155     Fun weekend! -0.496555788        Negative
+## 156  Hello everyone! -0.892831107        Negative
+## 157  Hello everyone! -0.108963726        Negative
+## 158     Fun weekend! -0.799520459        Negative
+## 159   Exciting news!  0.044649603        Positive
+## 160     Fun weekend! -0.558283084        Negative
+## 161   Exciting news! -0.608554570        Negative
+## 162     Fun weekend!  0.420022254        Positive
+## 163  Need assistance  0.445466304        Positive
+## 164      Great work!  0.244422906        Positive
+## 165     Team meeting -0.526283488        Negative
+## 166  Need assistance -0.635092593        Negative
+## 167      Great work! -0.446627778        Negative
+## 168     Fun weekend! -0.149422837        Negative
+## 169     Fun weekend!  0.271711212        Positive
+## 170  Hello everyone!  0.752351641        Positive
+## 171      Great work! -0.630844017        Negative
+## 172  Hello everyone!  0.142070077        Positive
+## 173     Fun weekend! -0.533522750        Negative
+## 174     Fun weekend!  0.201027735        Positive
+## 175   Exciting news!  0.443950114        Positive
+## 176   Exciting news! -0.398672424        Negative
+## 177   Exciting news! -0.686074989        Negative
+## 178  Need assistance -0.514785561        Negative
+## 179   Exciting news! -0.445320373        Negative
+## 180      Great work!  0.346799491        Positive
+## 181   Exciting news! -0.433124611        Negative
+## 182  Hello everyone! -0.369747002        Negative
+## 183  Hello everyone!  0.917979236        Positive
+## 184      Great work! -0.912142744        Negative
+## 185   Exciting news!  0.020394353        Positive
+## 186     Fun weekend! -0.760701751        Negative
+## 187     Team meeting  0.500293179        Positive
+## 188  Hello everyone! -0.243440011        Negative
+## 189     Team meeting  0.120248223        Positive
+## 190     Fun weekend! -0.159573650        Negative
+## 191   Exciting news!  0.785684678        Positive
+## 192   Exciting news! -0.260005387        Negative
+## 193   Exciting news!  0.474910577        Positive
+## 194  Need assistance  0.601800072        Positive
+## 195  Need assistance  0.877496709        Positive
+## 196  Need assistance -0.356432681        Negative
+## 197  Need assistance -0.577738499        Negative
+## 198     Team meeting -0.767587414        Negative
+## 199     Fun weekend!  0.226010282        Positive
+## 200  Hello everyone!  0.987832270        Positive
+## 201  Need assistance  0.746888391        Positive
+## 202     Team meeting  0.024089097        Positive
+## 203     Team meeting -0.014527882        Negative
+## 204   Exciting news!  0.900116188        Positive
+## 205     Fun weekend! -0.391704335        Negative
+## 206  Hello everyone!  0.079340591        Positive
+## 207      Great work!  0.306993762        Positive
+## 208  Need assistance -0.857863282        Negative
+## 209     Fun weekend!  0.542777083        Positive
+## 210  Hello everyone!  0.575844854        Positive
+## 211     Team meeting -0.024207670        Negative
+## 212  Need assistance  0.089429019        Positive
+## 213  Hello everyone!  0.679174718        Positive
+## 214     Team meeting  0.100578078        Positive
+## 215  Need assistance  0.691338675        Positive
+## 216  Need assistance -0.611560303        Negative
+## 217  Need assistance -0.542398809        Negative
+## 218  Hello everyone! -0.940684421        Negative
+## 219   Exciting news!  0.685212519        Positive
+## 220  Need assistance  0.867801995        Positive
+## 221      Great work! -0.404516522        Negative
+## 222   Exciting news! -0.476039052        Negative
+## 223      Great work!  0.827052074        Positive
+## 224      Great work! -0.045373839        Negative
+## 225   Exciting news!  0.062969209        Positive
+## 226  Need assistance -0.042491458        Negative
+## 227  Hello everyone! -0.024430894        Negative
+## 228  Need assistance  0.115823371        Positive
+## 229  Need assistance -0.299717092        Negative
+## 230  Hello everyone! -0.558468956        Negative
+## 231      Great work!  0.521462946        Positive
+## 232     Team meeting -0.386754569        Negative
+## 233  Hello everyone! -0.081353148        Negative
+## 234  Need assistance -0.194268964        Negative
+## 235  Hello everyone!  0.973429719        Positive
+## 236      Great work!  0.646422371        Positive
+## 237     Team meeting  0.146319367        Positive
+## 238  Hello everyone!  0.802523659        Positive
+## 239     Fun weekend!  0.670605208        Positive
+## 240   Exciting news!  0.305391626        Positive
+## 241     Fun weekend! -0.927836751        Negative
+## 242      Great work! -0.518683678        Negative
+## 243   Exciting news!  0.549038415        Positive
+## 244   Exciting news!  0.991050147        Positive
+## 245  Need assistance -0.240649289        Negative
+## 246      Great work! -0.743658878        Negative
+## 247     Team meeting  0.629940747        Positive
+## 248     Team meeting  0.343653605        Positive
+## 249     Team meeting -0.176315426        Negative
+## 250     Team meeting -0.320228465        Negative
+## 251  Need assistance  0.084778340        Positive
+## 252   Exciting news!  0.324592507        Positive
+## 253   Exciting news! -0.582243779        Negative
+## 254   Exciting news!  0.497974098        Positive
+## 255  Need assistance -0.384110797        Negative
+## 256      Great work!  0.804542714        Positive
+## 257     Team meeting  0.862134462        Positive
+## 258   Exciting news!  0.018387399        Positive
+## 259  Need assistance  0.414960733        Positive
+## 260     Team meeting  0.659773430        Positive
+## 261  Hello everyone!  0.532433989        Positive
+## 262   Exciting news! -0.415822029        Negative
+## 263   Exciting news!  0.784590872        Positive
+## 264      Great work! -0.970631612        Negative
+## 265   Exciting news!  0.817105632        Positive
+## 266     Team meeting -0.823923888        Negative
+## 267   Exciting news!  0.581556937        Positive
+## 268     Fun weekend!  0.706561523        Positive
+## 269  Need assistance -0.611636332        Negative
+## 270   Exciting news! -0.388513986        Negative
+## 271      Great work!  0.037533612        Positive
+## 272     Fun weekend!  0.757286296        Positive
+## 273     Fun weekend! -0.049394990        Negative
+## 274      Great work!  0.049291416        Positive
+## 275     Team meeting -0.143542713        Negative
+## 276     Team meeting -0.385177557        Negative
+## 277  Need assistance -0.438415068        Negative
+## 278     Team meeting -0.549432104        Negative
+## 279     Fun weekend!  0.446355308        Positive
+## 280      Great work! -0.769964864        Negative
+## 281  Need assistance  0.519475343        Positive
+## 282     Fun weekend! -0.103599444        Negative
+## 283  Need assistance  0.063336529        Positive
+## 284   Exciting news!  0.423514269        Positive
+## 285  Hello everyone! -0.321912185        Negative
+## 286      Great work! -0.150377708        Negative
+## 287     Team meeting  0.353438236        Positive
+## 288  Hello everyone!  0.902683333        Positive
+## 289     Fun weekend!  0.280627117        Positive
+## 290  Need assistance -0.639425840        Negative
+## 291     Team meeting  0.824948560        Positive
+## 292     Team meeting  0.268132484        Positive
+## 293  Need assistance  0.017915569        Positive
+## 294   Exciting news!  0.222249684        Positive
+## 295     Team meeting -0.801527123        Negative
+## 296      Great work!  0.195303030        Positive
+## 297     Fun weekend!  0.474564350        Positive
+## 298     Team meeting -0.134665603        Negative
+## 299     Team meeting  0.078007510        Positive
+## 300   Exciting news! -0.525143623        Negative
+## 301  Need assistance  0.665302936        Positive
+## 302     Fun weekend! -0.417790642        Negative
+## 303      Great work! -0.410223121        Negative
+## 304   Exciting news! -0.302134784        Negative
+## 305     Team meeting  0.087382621        Positive
+## 306     Team meeting -0.249497572        Negative
+## 307      Great work! -0.488912587        Negative
+## 308     Team meeting -0.271451744        Negative
+## 309     Team meeting  0.384202328        Positive
+## 310      Great work!  0.766328182        Positive
+## 311   Exciting news! -0.007040349        Negative
+## 312   Exciting news!  0.370947586        Positive
+## 313  Hello everyone! -0.893453151        Negative
+## 314     Team meeting -0.670432338        Negative
+## 315   Exciting news!  0.422912350        Positive
+## 316  Need assistance -0.345415825        Negative
+## 317     Fun weekend! -0.848228461        Negative
+## 318  Need assistance  0.385732211        Positive
+## 319     Fun weekend! -0.143456620        Negative
+## 320  Hello everyone!  0.879992486        Positive
+## 321     Team meeting  0.364639959        Positive
+## 322      Great work!  0.814900840        Positive
+## 323   Exciting news! -0.195798854        Negative
+## 324     Fun weekend! -0.358376735        Negative
+## 325   Exciting news! -0.930242309        Negative
+## 326     Fun weekend!  0.604609676        Positive
+## 327  Hello everyone! -0.598425182        Negative
+## 328   Exciting news!  0.461496073        Positive
+## 329     Team meeting  0.964958043        Positive
+## 330   Exciting news! -0.875286373        Negative
+## 331  Hello everyone!  0.179850068        Positive
+## 332   Exciting news!  0.336964048        Positive
+## 333      Great work! -0.643276188        Negative
+## 334   Exciting news! -0.452694423        Negative
+## 335   Exciting news!  0.260118117        Positive
+## 336  Need assistance -0.754348847        Negative
+## 337  Need assistance -0.829999507        Negative
+## 338  Need assistance  0.043240849        Positive
+## 339     Fun weekend! -0.877705400        Negative
+## 340     Team meeting  0.265132846        Positive
+## 341     Team meeting -0.111247493        Negative
+## 342     Fun weekend!  0.451752027        Positive
+## 343      Great work! -0.317266905        Negative
+## 344  Hello everyone!  0.223401716        Positive
+## 345   Exciting news!  0.466239469        Positive
+## 346  Hello everyone!  0.491653796        Positive
+## 347     Fun weekend!  0.163814227        Positive
+## 348     Fun weekend! -0.415885320        Negative
+## 349   Exciting news! -0.537696546        Negative
+## 350  Need assistance -0.130674560        Negative
+## 351  Need assistance  0.279333149        Positive
+## 352  Need assistance -0.375053814        Negative
+## 353   Exciting news! -0.978982675        Negative
+## 354  Need assistance -0.220039924        Negative
+## 355  Need assistance  0.041204039        Positive
+## 356     Fun weekend!  0.236553716        Positive
+## 357      Great work!  0.222402995        Positive
+## 358      Great work!  0.301563812        Positive
+## 359  Hello everyone!  0.976894801        Positive
+## 360     Team meeting  0.190247875        Positive
+## 361  Need assistance  0.895823483        Positive
+## 362     Team meeting  0.093826082        Positive
+## 363      Great work!  0.652192219        Positive
+## 364  Need assistance  0.088740259        Positive
+## 365  Hello everyone!  0.740663246        Positive
+## 366     Fun weekend!  0.775130778        Positive
+## 367     Fun weekend!  0.124404418        Positive
+## 368  Hello everyone!  0.487545231        Positive
+## 369  Need assistance -0.613432584        Negative
+## 370      Great work! -0.951084716        Negative
+## 371   Exciting news!  0.679597112        Positive
+## 372     Team meeting  0.774573303        Positive
+## 373   Exciting news!  0.717076284        Positive
+## 374     Fun weekend!  0.061621126        Positive
+## 375  Need assistance -0.920249034        Negative
+## 376     Fun weekend!  0.484796492        Positive
+## 377   Exciting news! -0.209318373        Negative
+## 378  Need assistance -0.806338225        Negative
+## 379   Exciting news! -0.597888714        Negative
+## 380   Exciting news!  0.308247630        Positive
+## 381   Exciting news! -0.122806889        Negative
+## 382  Hello everyone!  0.299843722        Positive
+## 383   Exciting news!  0.275836162        Positive
+## 384     Team meeting -0.976236885        Negative
+## 385   Exciting news! -0.858994203        Negative
+## 386     Fun weekend!  0.608656868        Positive
+## 387     Fun weekend! -0.926554946        Negative
+## 388     Fun weekend!  0.043927317        Positive
+## 389      Great work!  0.435108419        Positive
+## 390     Team meeting -0.718652172        Negative
+## 391  Need assistance  0.963640937        Positive
+## 392      Great work!  0.805481421        Positive
+## 393     Fun weekend! -0.928850479        Negative
+## 394   Exciting news! -0.298691060        Negative
+## 395     Fun weekend!  0.823352248        Positive
+## 396      Great work! -0.900102365        Negative
+## 397     Fun weekend! -0.371842024        Negative
+## 398     Team meeting -0.012694929        Negative
+## 399     Team meeting  0.650313874        Positive
+## 400     Fun weekend! -0.357268680        Negative
+## 401  Need assistance  0.141076977        Positive
+## 402  Need assistance  0.373691486        Positive
+## 403  Need assistance  0.930096855        Positive
+## 404     Fun weekend! -0.566594298        Negative
+## 405     Team meeting -0.284638313        Negative
+## 406     Fun weekend!  0.892766985        Positive
+## 407     Team meeting -0.150205611        Negative
+## 408  Hello everyone!  0.616259416        Positive
+## 409      Great work!  0.533465849        Positive
+## 410      Great work!  0.516138048        Positive
+## 411  Need assistance  0.116931847        Positive
+## 412  Need assistance  0.674294885        Positive
+## 413   Exciting news!  0.696377364        Positive
+## 414     Team meeting  0.985037738        Positive
+## 415  Need assistance -0.904224418        Negative
+## 416   Exciting news! -0.901918261        Negative
+## 417     Fun weekend! -0.259928443        Negative
+## 418   Exciting news!  0.221250645        Positive
+## 419     Team meeting  0.892404643        Positive
+## 420      Great work! -0.545365768        Negative
+## 421  Need assistance -0.104900640        Negative
+## 422     Fun weekend! -0.818538250        Negative
+## 423      Great work! -0.349391197        Negative
+## 424   Exciting news! -0.212464974        Negative
+## 425     Team meeting  0.317846402        Positive
+## 426     Fun weekend!  0.690391378        Positive
+## 427  Hello everyone!  0.576369455        Positive
+## 428  Need assistance -0.543064435        Negative
+## 429     Fun weekend!  0.229193896        Positive
+## 430     Fun weekend! -0.286604216        Negative
+## 431  Hello everyone! -0.038818533        Negative
+## 432      Great work!  0.473425272        Positive
+## 433     Fun weekend!  0.346377916        Positive
+## 434  Need assistance  0.933738099        Positive
+## 435      Great work!  0.680826971        Positive
+## 436      Great work! -0.574539005        Negative
+## 437   Exciting news! -0.762122771        Negative
+## 438      Great work!  0.480317921        Positive
+## 439     Team meeting -0.956999032        Negative
+## 440     Fun weekend!  0.397376804        Positive
+## 441      Great work!  0.263225980        Positive
+## 442     Fun weekend!  0.791513952        Positive
+## 443   Exciting news! -0.050068120        Negative
+## 444  Hello everyone! -0.355751095        Negative
+## 445  Hello everyone!  0.184942272        Positive
+## 446      Great work!  0.468599080        Positive
+## 447   Exciting news!  0.157755047        Positive
+## 448      Great work!  0.693037350        Positive
+## 449      Great work!  0.360768258        Positive
+## 450      Great work!  0.214199054        Positive
+## 451  Need assistance -0.998774239        Negative
+## 452     Team meeting -0.970338997        Negative
+## 453     Fun weekend!  0.232626481        Positive
+## 454   Exciting news! -0.033773244        Negative
+## 455     Team meeting -0.476500273        Negative
+## 456     Team meeting  0.863822790        Positive
+## 457   Exciting news! -0.719712700        Negative
+## 458  Need assistance  0.408644735        Positive
+## 459      Great work!  0.910158344        Positive
+## 460  Need assistance -0.064178423        Negative
+## 461  Hello everyone! -0.567197050        Negative
+## 462  Hello everyone! -0.510870771        Negative
+## 463  Hello everyone! -0.939573104        Negative
+## 464  Need assistance -0.014521594        Negative
+## 465     Team meeting -0.287118956        Negative
+## 466  Need assistance  0.558824511        Positive
+## 467  Need assistance  0.343977793        Positive
+## 468  Hello everyone!  0.282330315        Positive
+## 469  Hello everyone!  0.116596443        Positive
+## 470   Exciting news!  0.368110256        Positive
+## 471      Great work!  0.266619468        Positive
+## 472   Exciting news!  0.290797958        Positive
+## 473     Team meeting  0.341763970        Positive
+## 474  Need assistance -0.883181106        Negative
+## 475  Hello everyone! -0.863882122        Negative
+## 476     Fun weekend!  0.463157478        Positive
+## 477   Exciting news!  0.567230823        Positive
+## 478      Great work! -0.641657173        Negative
+## 479   Exciting news! -0.847681918        Negative
+## 480     Team meeting -0.094959955        Negative
+## 481     Team meeting -0.024243061        Negative
+## 482  Need assistance  0.171319252        Positive
+## 483  Need assistance -0.750471560        Negative
+## 484  Hello everyone! -0.526591262        Negative
+## 485  Hello everyone!  0.806540163        Positive
+## 486  Need assistance  0.300882405        Positive
+## 487     Fun weekend! -0.345988781        Negative
+## 488      Great work! -0.784876938        Negative
+## 489      Great work! -0.947211589        Negative
+## 490     Fun weekend!  0.513564137        Positive
+## 491     Team meeting -0.235653992        Negative
+## 492  Hello everyone!  0.161035733        Positive
+## 493     Fun weekend!  0.402509230        Positive
+## 494  Hello everyone! -0.426096413        Negative
+## 495  Hello everyone! -0.774547359        Negative
+## 496     Team meeting -0.674190784        Negative
+## 497  Need assistance  0.235724795        Positive
+## 498  Hello everyone!  0.058449768        Positive
+## 499     Team meeting -0.993759494        Negative
+## 500     Team meeting -0.536957865        Negative
+## 501     Team meeting  0.779166287        Positive
+## 502     Team meeting  0.569526526        Positive
+## 503  Need assistance  0.664381829        Positive
+## 504  Need assistance -0.718395420        Negative
+## 505     Team meeting  0.526457346        Positive
+## 506      Great work! -0.400677142        Negative
+## 507     Team meeting -0.232014328        Negative
+## 508   Exciting news!  0.153143482        Positive
+## 509  Hello everyone! -0.918783627        Negative
+## 510     Fun weekend! -0.375794835        Negative
+## 511     Fun weekend! -0.021554315        Negative
+## 512  Need assistance  0.086844633        Positive
+## 513  Need assistance  0.484403751        Positive
+## 514     Team meeting -0.423585835        Negative
+## 515   Exciting news! -0.184577833        Negative
+## 516  Hello everyone!  0.978220029        Positive
+## 517     Fun weekend! -0.624432764        Negative
+## 518     Team meeting  0.498292263        Positive
+## 519   Exciting news!  0.771407587        Positive
+## 520     Fun weekend!  0.650773503        Positive
+## 521  Need assistance  0.143810244        Positive
+## 522     Team meeting  0.945942261        Positive
+## 523   Exciting news!  0.563268560        Positive
+## 524     Fun weekend! -0.173903828        Negative
+## 525     Team meeting  0.192018484        Positive
+## 526  Hello everyone! -0.029610693        Negative
+## 527   Exciting news!  0.723251828        Positive
+## 528   Exciting news! -0.616928389        Negative
+## 529  Hello everyone!  0.524320859        Positive
+## 530      Great work! -0.359934055        Negative
+## 531      Great work!  0.431652104        Positive
+## 532   Exciting news! -0.615862965        Negative
+## 533      Great work! -0.049498704        Negative
+## 534     Fun weekend! -0.111042333        Negative
+## 535  Need assistance  0.247236022        Positive
+## 536     Fun weekend!  0.237909144        Positive
+## 537     Team meeting -0.943049938        Negative
+## 538      Great work!  0.362224979        Positive
+## 539      Great work!  0.538406652        Positive
+## 540      Great work! -0.336303487        Negative
+## 541  Need assistance  0.454688824        Positive
+## 542     Team meeting -0.642315470        Negative
+## 543   Exciting news!  0.754322437        Positive
+## 544  Need assistance -0.236316590        Negative
+## 545     Fun weekend!  0.149510738        Positive
+## 546  Hello everyone!  0.762754925        Positive
+## 547  Hello everyone!  0.250149151        Positive
+## 548  Need assistance -0.249764988        Negative
+## 549  Hello everyone! -0.161284721        Negative
+## 550     Team meeting  0.082249742        Positive
+## 551      Great work! -0.956337988        Negative
+## 552      Great work!  0.120376800        Positive
+## 553     Fun weekend! -0.673607849        Negative
+## 554     Team meeting  0.457860831        Positive
+## 555  Need assistance -0.775436828        Negative
+## 556   Exciting news!  0.532747218        Positive
+## 557     Team meeting -0.134102609        Negative
+## 558     Fun weekend! -0.436848105        Negative
+## 559  Need assistance  0.275121063        Positive
+## 560  Need assistance  0.866607873        Positive
+## 561   Exciting news!  0.027252671        Positive
+## 562   Exciting news! -0.823877914        Negative
+## 563     Team meeting -0.299451457        Negative
+## 564   Exciting news! -0.542942689        Negative
+## 565     Fun weekend!  0.796501584        Positive
+## 566     Team meeting -0.118006961        Negative
+## 567  Need assistance -0.070094255        Negative
+## 568     Fun weekend!  0.590919483        Positive
+## 569  Hello everyone!  0.530999278        Positive
+## 570  Hello everyone!  0.582868762        Positive
+## 571  Need assistance -0.919222645        Negative
+## 572     Team meeting  0.818109252        Positive
+## 573   Exciting news!  0.664575256        Positive
+## 574   Exciting news! -0.768564025        Negative
+## 575      Great work! -0.595158034        Negative
+## 576  Need assistance  0.037042340        Positive
+## 577     Fun weekend! -0.064443091        Negative
+## 578     Fun weekend!  0.496487776        Positive
+## 579     Team meeting  0.499737595        Positive
+## 580  Hello everyone! -0.605858998        Negative
+## 581  Hello everyone!  0.488557915        Positive
+## 582      Great work! -0.823533585        Negative
+## 583  Hello everyone!  0.384222084        Positive
+## 584     Team meeting  0.176413531        Positive
+## 585  Hello everyone!  0.051583528        Positive
+## 586     Fun weekend! -0.485003887        Negative
+## 587     Team meeting  0.031597136        Positive
+## 588  Need assistance -0.438784983        Negative
+## 589  Hello everyone!  0.703965933        Positive
+## 590     Fun weekend!  0.438361928        Positive
+## 591  Hello everyone!  0.498191035        Positive
+## 592     Fun weekend! -0.495438306        Negative
+## 593      Great work!  0.606102686        Positive
+## 594  Hello everyone! -0.143556185        Negative
+## 595  Hello everyone!  0.450987421        Positive
+## 596      Great work!  0.470731148        Positive
+## 597     Fun weekend! -0.735883705        Negative
+## 598      Great work!  0.960373470        Positive
+## 599     Team meeting  0.855612874        Positive
+## 600   Exciting news!  0.365244868        Positive
+## 601   Exciting news! -0.024743940        Negative
+## 602     Fun weekend! -0.797102704        Negative
+## 603     Team meeting -0.365139902        Negative
+## 604  Need assistance -0.264464825        Negative
+## 605  Need assistance -0.461871512        Negative
+## 606  Need assistance -0.107154121        Negative
+## 607     Team meeting -0.229243480        Negative
+## 608  Need assistance -0.035525655        Negative
+## 609     Team meeting  0.253805156        Positive
+## 610  Need assistance  0.344264537        Positive
+## 611      Great work! -0.405934577        Negative
+## 612      Great work!  0.515643027        Positive
+## 613  Hello everyone! -0.606922586        Negative
+## 614  Hello everyone!  0.173851238        Positive
+## 615   Exciting news!  0.769946682        Positive
+## 616  Hello everyone! -0.172054263        Negative
+## 617  Need assistance  0.188933107        Positive
+## 618  Hello everyone! -0.987261285        Negative
+## 619  Need assistance  0.747163485        Positive
+## 620     Fun weekend! -0.672147054        Negative
+## 621   Exciting news! -0.792284821        Negative
+## 622   Exciting news!  0.063475272        Positive
+## 623      Great work! -0.026141260        Negative
+## 624      Great work!  0.830162693        Positive
+## 625     Fun weekend! -0.141636565        Negative
+## 626     Fun weekend!  0.038330505        Positive
+## 627     Fun weekend! -0.693275109        Negative
+## 628  Need assistance  0.291605130        Positive
+## 629  Need assistance -0.115035673        Negative
+## 630  Need assistance  0.215954025        Positive
+## 631      Great work! -0.068923920        Negative
+## 632     Team meeting -0.289186294        Negative
+## 633   Exciting news!  0.030849482        Positive
+## 634     Fun weekend!  0.345517721        Positive
+## 635  Need assistance  0.330107941        Positive
+## 636  Hello everyone!  0.042741961        Positive
+## 637   Exciting news! -0.633368273        Negative
+## 638      Great work! -0.725357866        Negative
+## 639     Team meeting -0.812502595        Negative
+## 640      Great work!  0.564973874        Positive
+## 641     Fun weekend! -0.042934414        Negative
+## 642     Fun weekend!  0.169502832        Positive
+## 643      Great work!  0.383860287        Positive
+## 644     Fun weekend! -0.895003283        Negative
+## 645     Fun weekend!  0.005671109        Positive
+## 646  Need assistance -0.992002849        Negative
+## 647  Hello everyone!  0.905330024        Positive
+## 648     Fun weekend! -0.552409418        Negative
+## 649     Team meeting -0.780283807        Negative
+## 650     Fun weekend! -0.835450725        Negative
+## 651      Great work! -0.236779108        Negative
+## 652      Great work! -0.495721815        Negative
+## 653      Great work!  0.406890230        Positive
+## 654     Team meeting  0.870818266        Positive
+## 655     Fun weekend!  0.304697359        Positive
+## 656   Exciting news!  0.591279314        Positive
+## 657     Fun weekend!  0.816346027        Positive
+## 658  Hello everyone! -0.446434771        Negative
+## 659     Fun weekend!  0.347548683        Positive
+## 660     Fun weekend!  0.567603516        Positive
+## 661   Exciting news!  0.388266448        Positive
+## 662     Team meeting -0.144443278        Negative
+## 663  Hello everyone!  0.902623749        Positive
+## 664     Team meeting -0.877922161        Negative
+## 665  Hello everyone!  0.710270591        Positive
+## 666  Hello everyone! -0.725457437        Negative
+## 667     Team meeting -0.232356975        Negative
+## 668      Great work!  0.245927144        Positive
+## 669  Need assistance -0.115179492        Negative
+## 670  Hello everyone! -0.812013249        Negative
+## 671  Hello everyone!  0.805289558        Positive
+## 672     Team meeting -0.320194449        Negative
+## 673  Hello everyone!  0.450289166        Positive
+## 674   Exciting news! -0.546088908        Negative
+## 675      Great work! -0.018533767        Negative
+## 676      Great work! -0.777630202        Negative
+## 677     Fun weekend!  0.419715998        Positive
+## 678     Team meeting -0.351081788        Negative
+## 679  Hello everyone! -0.217646003        Negative
+## 680     Team meeting  0.425960287        Positive
+## 681     Team meeting -0.203160496        Negative
+## 682  Need assistance -0.100954488        Negative
+## 683  Need assistance  0.886342321        Positive
+## 684  Need assistance  0.121493359        Positive
+## 685  Hello everyone!  0.902016178        Positive
+## 686  Need assistance  0.157653404        Positive
+## 687     Team meeting -0.493501368        Negative
+## 688     Team meeting  0.746085706        Positive
+## 689   Exciting news! -0.487793705        Negative
+## 690  Hello everyone!  0.076276061        Positive
+## 691     Fun weekend! -0.329790550        Negative
+## 692   Exciting news! -0.149807401        Negative
+## 693  Need assistance  0.599532404        Positive
+## 694      Great work! -0.022698464        Negative
+## 695   Exciting news! -0.283369262        Negative
+## 696     Team meeting -0.933677876        Negative
+## 697  Hello everyone! -0.878399170        Negative
+## 698      Great work!  0.041871845        Positive
+## 699      Great work! -0.311243319        Negative
+## 700   Exciting news!  0.777389107        Positive
+## 701  Hello everyone! -0.572465386        Negative
+## 702     Fun weekend! -0.372473280        Negative
+## 703  Need assistance -0.713639749        Negative
+## 704      Great work!  0.874556832        Positive
+## 705      Great work! -0.700269639        Negative
+## 706  Need assistance  0.935812009        Positive
+## 707   Exciting news!  0.055117640        Positive
+## 708     Fun weekend!  0.957983019        Positive
+## 709   Exciting news! -0.539138246        Negative
+## 710   Exciting news!  0.722319741        Positive
+## 711  Hello everyone!  0.768580468        Positive
+## 712   Exciting news! -0.054910814        Negative
+## 713      Great work!  0.544805384        Positive
+## 714   Exciting news! -0.693217811        Negative
+## 715  Hello everyone! -0.164491392        Negative
+## 716     Fun weekend!  0.378708432        Positive
+## 717  Need assistance  0.544408341        Positive
+## 718   Exciting news!  0.605349668        Positive
+## 719   Exciting news!  0.696509592        Positive
+## 720  Hello everyone! -0.694118693        Negative
+## 721     Fun weekend!  0.734125260        Positive
+## 722      Great work! -0.222633559        Negative
+## 723      Great work! -0.111933967        Negative
+## 724      Great work! -0.417041691        Negative
+## 725      Great work! -0.841218561        Negative
+## 726  Need assistance -0.173975688        Negative
+## 727     Fun weekend! -0.102208237        Negative
+## 728  Need assistance  0.773382573        Positive
+## 729  Hello everyone!  0.605556316        Positive
+## 730     Fun weekend!  0.851679420        Positive
+## 731   Exciting news!  0.244900235        Positive
+## 732      Great work! -0.505026447        Negative
+## 733  Need assistance -0.544543609        Negative
+## 734     Fun weekend!  0.990166281        Positive
+## 735     Team meeting  0.560076173        Positive
+## 736  Hello everyone! -0.289897254        Negative
+## 737  Hello everyone!  0.713812393        Positive
+## 738     Fun weekend!  0.191519982        Positive
+## 739      Great work!  0.460303653        Positive
+## 740  Need assistance  0.037588875        Positive
+## 741  Hello everyone!  0.130742100        Positive
+## 742     Team meeting -0.801572199        Negative
+## 743   Exciting news! -0.736287751        Negative
+## 744     Team meeting  0.403409261        Positive
+## 745      Great work!  0.580541194        Positive
+## 746      Great work!  0.550955762        Positive
+## 747     Team meeting -0.303564250        Negative
+## 748   Exciting news!  0.596924395        Positive
+## 749  Need assistance -0.281915764        Negative
+## 750     Team meeting  0.578111817        Positive
+## 751  Need assistance -0.273263505        Negative
+## 752      Great work! -0.693289580        Negative
+## 753  Hello everyone! -0.395961934        Negative
+## 754  Need assistance  0.787741330        Positive
+## 755  Need assistance -0.970480603        Negative
+## 756     Fun weekend!  0.542070733        Positive
+## 757  Need assistance  0.251102221        Positive
+## 758     Team meeting -0.113114946        Negative
+## 759  Hello everyone! -0.666331347        Negative
+## 760     Team meeting  0.783531986        Positive
+## 761      Great work!  0.018169560        Positive
+## 762     Fun weekend!  0.129630754        Positive
+## 763     Team meeting  0.849549761        Positive
+## 764      Great work!  0.782265475        Positive
+## 765   Exciting news! -0.995861550        Negative
+## 766      Great work! -0.549234209        Negative
+## 767     Fun weekend!  0.992682932        Positive
+## 768   Exciting news!  0.614791796        Positive
+## 769  Hello everyone! -0.325806037        Negative
+## 770   Exciting news! -0.873230109        Negative
+## 771     Team meeting  0.255163795        Positive
+## 772  Hello everyone! -0.851052538        Negative
+## 773      Great work!  0.181200765        Positive
+## 774  Hello everyone! -0.633588556        Negative
+## 775      Great work!  0.159243134        Positive
+## 776      Great work! -0.481857921        Negative
+## 777  Hello everyone! -0.378329881        Negative
+## 778   Exciting news!  0.795437461        Positive
+## 779      Great work! -0.674055766        Negative
+## 780  Hello everyone!  0.747580624        Positive
+## 781  Need assistance  0.739025190        Positive
+## 782  Hello everyone! -0.508614742        Negative
+## 783   Exciting news!  0.671785708        Positive
+## 784  Need assistance -0.917325706        Negative
+## 785  Need assistance -0.600080754        Negative
+## 786      Great work! -0.539260621        Negative
+## 787      Great work!  0.066785066        Positive
+## 788     Team meeting -0.074092148        Negative
+## 789   Exciting news!  0.979591473        Positive
+## 790  Need assistance -0.846264025        Negative
+## 791  Hello everyone! -0.562214842        Negative
+## 792     Fun weekend!  0.535877908        Positive
+## 793  Hello everyone! -0.945477226        Negative
+## 794  Need assistance -0.329706852        Negative
+## 795  Hello everyone!  0.420571170        Positive
+## 796   Exciting news!  0.221380584        Positive
+## 797     Fun weekend!  0.394200163        Positive
+## 798     Team meeting  0.921573296        Positive
+## 799     Team meeting  0.504667453        Positive
+## 800     Team meeting -0.927027794        Negative
+## 801     Team meeting -0.996662613        Negative
+## 802     Fun weekend!  0.525517232        Positive
+## 803      Great work! -0.853163924        Negative
+## 804  Hello everyone!  0.346090994        Positive
+## 805   Exciting news!  0.063273371        Positive
+## 806     Team meeting -0.887928675        Negative
+## 807     Team meeting -0.608078998        Negative
+## 808  Hello everyone!  0.063933458        Positive
+## 809     Fun weekend!  0.226440192        Positive
+## 810      Great work! -0.114574431        Negative
+## 811  Need assistance -0.065970336        Negative
+## 812  Hello everyone!  0.672468295        Positive
+## 813   Exciting news! -0.616592484        Negative
+## 814  Need assistance  0.165087673        Positive
+## 815   Exciting news!  0.553149406        Positive
+## 816     Fun weekend! -0.953222217        Negative
+## 817     Fun weekend!  0.893210486        Positive
+## 818  Hello everyone! -0.120084892        Negative
+## 819  Hello everyone! -0.568787924        Negative
+## 820     Team meeting -0.641849058        Negative
+## 821     Fun weekend!  0.977650215        Positive
+## 822     Fun weekend!  0.269629325        Positive
+## 823  Need assistance  0.572155187        Positive
+## 824     Fun weekend! -0.530567507        Negative
+## 825     Fun weekend! -0.998980226        Negative
+## 826  Hello everyone!  0.649366590        Positive
+## 827     Team meeting -0.492082868        Negative
+## 828  Need assistance  0.135939530        Positive
+## 829  Hello everyone!  0.593321668        Positive
+## 830      Great work! -0.160749977        Negative
+## 831     Fun weekend!  0.231915887        Positive
+## 832     Fun weekend!  0.312383833        Positive
+## 833     Team meeting -0.709024122        Negative
+## 834     Fun weekend!  0.866654206        Positive
+## 835  Hello everyone! -0.440484574        Negative
+## 836     Team meeting  0.704733795        Positive
+## 837      Great work!  0.268422757        Positive
+## 838     Fun weekend! -0.898072343        Negative
+## 839      Great work!  0.463513046        Positive
+## 840  Need assistance -0.161143415        Negative
+## 841  Hello everyone! -0.040838550        Negative
+## 842     Fun weekend!  0.312006338        Positive
+## 843  Hello everyone!  0.520647362        Positive
+## 844   Exciting news! -0.798021044        Negative
+## 845      Great work! -0.652119522        Negative
+## 846   Exciting news! -0.286527871        Negative
+## 847      Great work!  0.282790715        Positive
+## 848      Great work! -0.597466531        Negative
+## 849  Hello everyone!  0.368215033        Positive
+## 850  Need assistance  0.593302410        Positive
+## 851   Exciting news! -0.113282133        Negative
+## 852  Need assistance  0.937844194        Positive
+## 853     Fun weekend! -0.520876877        Negative
+## 854      Great work!  0.570171806        Positive
+## 855     Team meeting -0.528815492        Negative
+## 856  Hello everyone!  0.725036937        Positive
+## 857  Hello everyone! -0.279889458        Negative
+## 858     Fun weekend! -0.455487390        Negative
+## 859  Hello everyone!  0.401231622        Positive
+## 860   Exciting news!  0.638825124        Positive
+## 861  Hello everyone! -0.822144668        Negative
+## 862  Hello everyone! -0.160779689        Negative
+## 863     Fun weekend!  0.567614020        Positive
+## 864  Need assistance -0.102778860        Negative
+## 865   Exciting news!  0.053784013        Positive
+## 866     Fun weekend! -0.511013610        Negative
+## 867     Team meeting -0.879799920        Negative
+## 868      Great work! -0.387922954        Negative
+## 869   Exciting news! -0.750027833        Negative
+## 870  Need assistance -0.614020258        Negative
+## 871   Exciting news! -0.770805090        Negative
+## 872  Hello everyone! -0.638266036        Negative
+## 873     Team meeting  0.796688539        Positive
+## 874  Hello everyone! -0.416070993        Negative
+## 875      Great work!  0.884830707        Positive
+## 876      Great work! -0.232635738        Negative
+## 877   Exciting news!  0.423581860        Positive
+## 878  Need assistance  0.694902051        Positive
+## 879  Hello everyone! -0.798660460        Negative
+## 880      Great work! -0.389785778        Negative
+## 881  Need assistance  0.120129855        Positive
+## 882  Hello everyone! -0.691606675        Negative
+## 883      Great work!  0.872962321        Positive
+## 884     Fun weekend!  0.619198539        Positive
+## 885      Great work!  0.605523043        Positive
+## 886  Hello everyone! -0.359136123        Negative
+## 887      Great work! -0.351176404        Negative
+## 888  Need assistance  0.911442756        Positive
+## 889  Need assistance  0.596431601        Positive
+## 890      Great work! -0.311684015        Negative
+## 891     Fun weekend! -0.789119672        Negative
+## 892     Team meeting -0.472906698        Negative
+## 893     Team meeting -0.789976987        Negative
+## 894  Need assistance  0.743181323        Positive
+## 895     Team meeting -0.307752223        Negative
+## 896      Great work! -0.948017055        Negative
+## 897     Team meeting  0.611721705        Positive
+## 898  Hello everyone! -0.318016798        Negative
+## 899     Team meeting -0.893834382        Negative
+## 900     Team meeting  0.082343857        Positive
+## 901  Need assistance -0.600851388        Negative
+## 902     Team meeting  0.192284770        Positive
+## 903  Need assistance  0.834841503        Positive
+## 904      Great work!  0.401612313        Positive
+## 905     Team meeting  0.068864945        Positive
+## 906   Exciting news!  0.307898677        Positive
+## 907      Great work! -0.548428072        Negative
+## 908  Need assistance  0.899728119        Positive
+## 909      Great work!  0.710615378        Positive
+## 910     Fun weekend!  0.035476264        Positive
+## 911  Need assistance -0.003094339        Negative
+## 912     Fun weekend! -0.528116655        Negative
+## 913      Great work! -0.124954135        Negative
+## 914  Need assistance  0.626154714        Positive
+## 915     Fun weekend!  0.045978463        Positive
+## 916     Fun weekend!  0.698494015        Positive
+## 917  Need assistance -0.198273231        Negative
+## 918  Hello everyone!  0.264306294        Positive
+## 919     Fun weekend! -0.240693055        Negative
+## 920     Team meeting -0.075425136        Negative
+## 921      Great work!  0.798867194        Positive
+## 922     Fun weekend! -0.088887415        Negative
+## 923  Need assistance  0.298994374        Positive
+## 924   Exciting news!  0.968932204        Positive
+## 925      Great work!  0.746216161        Positive
+## 926     Team meeting -0.939407335        Negative
+## 927      Great work! -0.666475324        Negative
+## 928  Need assistance  0.809991531        Positive
+## 929  Need assistance  0.662048494        Positive
+## 930  Hello everyone! -0.936083395        Negative
+## 931      Great work! -0.389590032        Negative
+## 932     Fun weekend!  0.355941510        Positive
+## 933  Need assistance  0.896539724        Positive
+## 934  Hello everyone! -0.555095884        Negative
+## 935     Team meeting -0.047711935        Negative
+## 936   Exciting news! -0.618614707        Negative
+## 937     Fun weekend! -0.412842807        Negative
+## 938      Great work! -0.251496902        Negative
+## 939  Need assistance -0.459899545        Negative
+## 940  Need assistance -0.101536875        Negative
+## 941   Exciting news! -0.329569053        Negative
+## 942   Exciting news!  0.350437745        Positive
+## 943   Exciting news!  0.529548995        Positive
+## 944      Great work! -0.806566573        Negative
+## 945   Exciting news! -0.249575844        Negative
+## 946  Hello everyone! -0.064463819        Negative
+## 947  Hello everyone! -0.357717138        Negative
+## 948  Need assistance -0.696885624        Negative
+## 949   Exciting news! -0.662697271        Negative
+## 950  Need assistance  0.060486035        Positive
+## 951      Great work! -0.704862314        Negative
+## 952  Need assistance -0.129298556        Negative
+## 953     Fun weekend!  0.079245736        Positive
+## 954  Hello everyone!  0.640248996        Positive
+## 955  Need assistance -0.988749139        Negative
+## 956  Need assistance  0.953375103        Positive
+## 957  Need assistance -0.044029484        Negative
+## 958   Exciting news!  0.502961815        Positive
+## 959   Exciting news! -0.237763272        Negative
+## 960  Hello everyone!  0.807257727        Positive
+## 961     Team meeting -0.666378770        Negative
+## 962  Need assistance  0.492307736        Positive
+## 963   Exciting news! -0.010767524        Negative
+## 964  Need assistance  0.453627230        Positive
+## 965      Great work!  0.937586371        Positive
+## 966     Team meeting -0.712716471        Negative
+## 967      Great work! -0.839583620        Negative
+## 968     Team meeting  0.165403601        Positive
+## 969      Great work! -0.887057793        Negative
+## 970  Need assistance -0.837423526        Negative
+## 971     Team meeting  0.778342899        Positive
+## 972   Exciting news!  0.131818828        Positive
+## 973  Need assistance  0.821079701        Positive
+## 974   Exciting news!  0.085280708        Positive
+## 975     Fun weekend!  0.203746784        Positive
+## 976      Great work! -0.462906254        Negative
+## 977  Hello everyone!  0.857508211        Positive
+## 978     Team meeting  0.582250814        Positive
+## 979      Great work!  0.170066014        Positive
+## 980      Great work!  0.552484959        Positive
+## 981      Great work! -0.129584252        Negative
+## 982     Fun weekend!  0.418006041        Positive
+## 983     Team meeting -0.377541550        Negative
+## 984     Fun weekend! -0.363247766        Negative
+## 985  Need assistance  0.496275815        Positive
+## 986  Need assistance -0.716619523        Negative
+## 987     Team meeting  0.243233590        Positive
+## 988  Hello everyone!  0.937329018        Positive
+## 989      Great work!  0.675534202        Positive
+## 990     Fun weekend!  0.844455994        Positive
+## 991      Great work! -0.071027102        Negative
+## 992  Hello everyone! -0.360894154        Negative
+## 993  Need assistance -0.316063035        Negative
+## 994   Exciting news! -0.531753783        Negative
+## 995     Team meeting -0.785379849        Negative
+## 996  Hello everyone!  0.599585856        Positive
+## 997   Exciting news!  0.874988238        Positive
+## 998   Exciting news!  0.186763622        Positive
+## 999     Fun weekend!  0.172925062        Positive
+## 1000 Hello everyone!  0.583445542        Positive
+\end{verbatim}
+
+\hypertarget{question-11-message-impact}{%
+\paragraph{Question-11: Message
+Impact}\label{question-11-message-impact}}
+
+Create a new dataframe using the mutate and arrange commands that
+calculates the product of the sentiment score and the length of each
+message. Arrange the results in descending order.
+
+\textbf{Solution:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter code here}
+\NormalTok{product\_sentiment }\OtherTok{\textless{}{-}}\NormalTok{ comm\_data }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{message\_impact =}\NormalTok{ sentiment }\SpecialCharTok{*} \FunctionTok{nchar}\NormalTok{(message)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(message\_impact) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(message\_impact))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{question-12-daily-message-challenge}{%
+\paragraph{Question-12: Daily Message
+Challenge}\label{question-12-daily-message-challenge}}
+
+Use the group\_by, summarise, and arrange commands to find the day with
+the highest total number of characters sent across all messages in the
+``comm\_data'' dataframe.
+
+\textbf{Solution:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Enter code here}
+\NormalTok{comm\_data }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(date) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{highest =} \FunctionTok{sum}\NormalTok{(}\FunctionTok{nchar}\NormalTok{(message))) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(highest)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{slice}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 2
+##   date       highest
+##   <chr>        <int>
+## 1 2023-08-10     875
+\end{verbatim}
+
+\hypertarget{question-13-untidy-data}{%
+\paragraph{Question-13: Untidy data}\label{question-13-untidy-data}}
+
+Can you list at least two reasons why the dataset illustrated in slide
+10 is non-tidy? How can it be made Tidy?
+
+\textbf{Solution:} There are multiple variables in one column. For
+example, 'Subject'' mixes variables like 'Employment Status'',
+``Civilian labour'', ``Females 16 years and above'' and other employment
+statuses as well. Separate columns containing ``Employment Status'' or
+``Demographic Categories''. // Additionally some header columns contain
+data as well, scattering them within the data rows rather than the
+consistently being at the top. // Lastly, there are (X) used as
+placeholders which can represent multiple meanings - for example, it can
+either be missing or uncalculated percentages. Rather than using
+placeholders, use a Null value , which would automatically indicate it
+as a missing value.
+
+\end{document}

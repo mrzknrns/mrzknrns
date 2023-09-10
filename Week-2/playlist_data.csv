@@ -1,0 +1,27 @@
+DJ_Name,Music_Genre,Rating,Experience,Age,Location,Plays_Per_Week
+DJ A,Pop,4.2,Advanced,28,City X,80
+DJ B,Rock,3.8,Intermediate,24,City Y,60
+DJ C,Electronic,4.5,Advanced,30,City Z,100
+DJ D,Pop,4.0,Intermediate,22,City X,70
+DJ E,Electronic,4.8,Advanced,27,City Y,90
+DJ F,Rock,3.6,Intermediate,25,City Z,55
+DJ G,Pop,4.3,Advanced,29,City X,85
+DJ H,Electronic,4.1,Intermediate,23,City Y,75
+DJ I,Rock,3.9,Advanced,31,City Z,70
+DJ J,Pop,4.4,Intermediate,26,City X,95
+DJ K,Hip-Hop,4.6,Advanced,32,City Y,110
+DJ L,Electronic,4.2,Intermediate,28,City Z,75
+DJ M,Pop,3.8,Advanced,29,City X,60
+DJ N,Rock,4.1,Intermediate,25,City Y,80
+DJ O,Electronic,4.5,Advanced,31,City Z,95
+DJ P,Hip-Hop,4.3,Intermediate,26,City X,105
+DJ Q,Pop,4.0,Advanced,27,City Y,70
+DJ R,Rock,3.7,Intermediate,24,City Z,50
+DJ S,Electronic,4.4,Advanced,29,City X,85
+DJ T,Hip-Hop,4.6,Intermediate,23,City Y,100
+DJ U,Pop,4.2,Advanced,28,City Z,80
+DJ V,Rock,3.9,Intermediate,24,City X,60
+DJ W,Electronic,4.5,Advanced,30,City Y,100
+DJ X,Pop,4.1,Intermediate,22,City Z,70
+DJ Y,Electronic,4.7,Advanced,27,City X,90
+DJ Z,Rock,3.5,Intermediate,25,City Y,55

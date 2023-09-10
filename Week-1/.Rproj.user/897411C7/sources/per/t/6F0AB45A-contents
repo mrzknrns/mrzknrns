@@ -1,0 +1,40 @@
+---
+title: "Challenge-1"
+author: "Marzuki Nooranas"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, out.height= "350px",out.width="350px",echo=FALSE,eval=TRUE,fig.align="center",fig.cap="Hello I am Marzuki and I am a Year 2 Sociology Major"}
+knitr::include_graphics("/Users/marzuki/Desktop/NM2207/Week-1/me.jpg")
+```
+
+I have always been fascinated by how society functions and its intricate connections, my passion for understanding the world around us, is driven by a desire to foster meaningful connections within all communities! To demonstrate this, I embark of frequent backpacking trips across Southeast Asia, and actively engage myself in the cultures and learn about their customs. Such experiences provide me with firsthand insights into how different societies interact, and not only broadening my horizons, but also fostering empathy across different communities
+
+```{r, out.height= "350px",out.width="800px",echo=FALSE,eval=TRUE,fig.cap="Screenshot of RStudio Layout"}
+knitr::include_graphics("/Users/marzuki/Desktop/NM2207/Week-1/Challenge-1.png")
+```
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
