@@ -132,8 +132,6 @@ create_meme <- function(image_path, meme_text) {
                    font = "Impact", 
                    strokecolor = "black", 
                    color = "white")
-
-  
   return(meme)
 }
 
