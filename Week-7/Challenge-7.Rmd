@@ -1,0 +1,346 @@
+---
+title: "Challenge-7"
+author: "Marzuki Nooranas"
+date: "`r Sys.Date()`"
+output:
+  word_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**Practice:**
+
+```{r, eval=TRUE,echo=TRUE}
+# Enter code here
+library(tidyverse)
+library(palmerpenguins)
+glimpse(penguins)
+```
+
+**Plot recreation:**
+
+```{r, eval=TRUE,echo=TRUE}
+ggplot(data = penguins,
+       mapping = aes(x = bill_depth_mm,
+                     y = bill_length_mm,
+                     colour = species)) + 
+  geom_point() +
+  labs(title = "Bill depth and length",
+       subtitle = "Dimensions for Adelie, Chinstrap, and Gentoo Penguins",
+       x = "Bill depth (mm)",
+       y = "Bill length (mm)",
+  colour = "Species",
+  caption = "Source: Palmer Station LTER / palmerpenguin package") +
+scale_colour_viridis_d()
+```
+
+**Palmer Penguins: Argument names:**
+
+```{r, eval=TRUE,echo=TRUE}
+ggplot(penguins,
+    aes(x = bill_depth_mm,
+        y = bill_length_mm,
+        colour= species)) + 
+  geom_point() +
+  labs(title = "Bill depth and length",
+       subtitle = "Dimensions for Adelie,
+       Chinstrap, and Gentoo Penguins",
+       x = "Bill depth (mm)",
+       y = "Bill length (mm)",
+  colour = "Species",
+  caption = "Source: Palmer Station LTER / palmerpenguin package") +
+scale_colour_viridis_d()
+```
+
+**Palmer Penguins:Aesthetics Options:**
+
+```{r, eval=TRUE,echo=TRUE}
+ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm, colour = species,
+shape = species, size = body_mass_g, alpha = flipper_length_mm)) +
+geom_point() + scale_colour_viridis_d()
+```
+
+**Mapping:**
+
+```{r, eval=TRUE,echo=TRUE}
+ggplot(penguins) +
+  aes(x = bill_depth_mm,
+      y = bill_length_mm,
+      size = body_mass_g,
+      alpha = flipper_length_mm) +
+geom_point()
+```
+
+**Setting:**
+
+```{r, eval=TRUE,echo=TRUE}
+ggplot(penguins) +
+  aes(x = bill_depth_mm,
+      y = bill_length_mm) +
+  geom_point(size = 2, alpha = 0.5)
+```
+
+**Faceting:**
+
+```{r, eval=TRUE,echo=TRUE}
+ggplot(penguins) +
+  aes(x = bill_depth_mm,
+      y = bill_length_mm) +
+  geom_point() +
+  facet_grid(species ~ island)
+```
+
+
+**Facet 2:**
+```{r, eval=TRUE,echo=TRUE}
+ggplot(penguins, 
+       aes(x = bill_depth_mm, 
+           y = bill_length_mm)) + 
+  geom_point() +
+facet_grid(species ~ sex)
+```
+
+
+**Facet 3:**
+```{r, eval=TRUE,echo=TRUE}
+ggplot(penguins, 
+       aes(x = bill_depth_mm, 
+           y = bill_length_mm)) + 
+  geom_point() +
+facet_grid(sex ~ species)
+
+```
+
+
+**Facet 4:**
+```{r, eval=TRUE,echo=TRUE}
+ggplot(penguins, 
+       aes(x = bill_depth_mm, 
+           y = bill_length_mm)) + 
+  geom_point() +
+facet_wrap(~ species)
+
+```
+
+
+**Facet 5:**
+```{r, eval=TRUE,echo=TRUE}
+ggplot(penguins, 
+       aes(x = bill_depth_mm, 
+           y = bill_length_mm)) + 
+  geom_point() +
+facet_wrap(~ species, ncol = 2)
+
+```
+
+
+**Facet 6:**
+```{r, eval=TRUE,echo=TRUE}
+ggplot(penguins, 
+       aes(x = bill_depth_mm, 
+           y = bill_length_mm)) + 
+  geom_point() +
+facet_grid(. ~ species)
+
+```
+
+
+**Facet and Colour:**
+```{r, eval=TRUE,echo=TRUE}
+ggplot(penguins, 
+       aes(x = bill_depth_mm, 
+           y = bill_length_mm, 
+           color = species)) +
+geom_point() + 
+  facet_grid(species ~ sex) + 
+  scale_color_viridis_d()
+```
+
+
+**Face and color, no legend:**
+```{r, eval=TRUE,echo=TRUE}
+ggplot(penguins, 
+       aes(x = bill_depth_mm, 
+           y = bill_length_mm, 
+           color = species)) +
+geom_point() + 
+  facet_grid(species ~ sex) + 
+  scale_color_viridis_d() +
+guides(color = "none")
+```
+
+**Dataset 2: Lending Club**
+
+```{r, eval=TRUE,echo=TRUE}
+library(openintro)
+glimpse(loans_full_schema)
+```
+
+
+**Selected Variable:**
+```{r, eval=TRUE,echo=TRUE}
+loans <- loans_full_schema %>%
+  select(loan_amount, interest_rate, term, grade,
+         state, annual_income, homeownership, debt_to_income)
+glimpse(loans)
+
+```
+
+
+**Histogram**
+```{r, eval=TRUE,echo=TRUE}
+ggplot(loans) + 
+  aes(x = loan_amount) +
+geom_histogram()
+
+```
+
+**Histograms and binwidth=1000:**
+
+```{r, eval=TRUE,echo=TRUE}
+
+# binwidth = 1000
+ggplot(loans, 
+       aes(x = loan_amount)) +
+geom_histogram(binwidth = 1000)
+```
+
+**Customising Histogram**
+```{r, eval=TRUE,echo=TRUE}
+ggplot(loans, 
+       aes(x = loan_amount, 
+           fill = homeownership)) +
+geom_histogram(binwidth = 5000, alpha = 0.5) +
+labs(x = "Loan amount ($)",
+     y = "Frequency",
+     title = "Amounts of Lending Club loans")
+```
+
+
+**Facet with a categorical Variable:
+```{r, eval=TRUE,echo=TRUE}
+ggplot(loans, 
+       aes(x = loan_amount, fill = homeownership)) + 
+  geom_histogram(binwidth = 5000) +
+labs(x = "Loan amount ($)",y = "Frequency",title = "Amounts of Lending Club loans") +
+facet_wrap(~ homeownership, nrow = 3)
+```
+
+**Density Plot:**
+```{r, eval=TRUE,echo=TRUE}
+ggplot(loans, aes(x = loan_amount)) +
+geom_density()
+```
+
+**Density Plot and adjusting bandwidth:**
+```{r, eval=TRUE,echo=TRUE}
+ggplot(loans, aes(x = loan_amount)) +
+geom_density(adjust = 0.5)
+```
+
+**Customising density plots:**
+```{r, eval=TRUE,echo=TRUE}
+ggplot(loans, aes(x = loan_amount)) +
+geom_density(adjust = 2) +
+labs( x = "Loan amount ($)", y = "Density", title = "Amounts of Lending Club loans" )
+```
+
+```{r, eval=TRUE,echo=TRUE}
+ggplot(loans, aes(x = loan_amount, fill = homeownership)) +
+geom_density(adjust = 2, alpha = 0.5) +
+labs(x = "Loan amount ($)",y = "Density",title = "Amounts of Lending Club loans", fill = "Homeownership")
+```
+
+**Box plots:**
+```{r, eval=TRUE,echo=TRUE}
+ggplot(loans, aes(x = interest_rate)) +
+geom_boxplot()
+```
+
+**Box plots and outliers:**
+```{r, eval=TRUE,echo=TRUE}
+ggplot(loans, aes(x = annual_income)) +
+geom_boxplot()
+```
+
+**Customising Box Plots:**
+```{r, eval=TRUE,echo=TRUE}
+ggplot(loans, 
+       aes(x = interest_rate)) +
+  geom_boxplot() +labs(x = "Interest rate (%)",
+                       y = NULL,
+title = "Interest rates of Lending Club loans") +
+theme( axis.ticks.y = element_blank(), axis.text.y = element_blank() )
+```
+
+**Scatterplot:**
+```{r, eval=TRUE,echo=TRUE}
+ggplot(loans, 
+       aes(x = debt_to_income, y = interest_rate)) +
+geom_point()
+```
+
+**Hex plot:**
+```{r, eval=TRUE,echo=TRUE}
+library(hexbin)
+ggplot(loans, aes(x = debt_to_income, y = interest_rate)) +
+geom_hex()
+```
+
+**Hex plot 2:**
+```{r, eval=TRUE,echo=TRUE}
+ggplot(loans %>% 
+         filter(debt_to_income < 100),
+aes(x = debt_to_income, 
+    y = interest_rate)) +
+geom_hex()
+```
+
+**Bar plot**
+```{r, eval=TRUE,echo=TRUE}
+ggplot(loans, aes(x = homeownership)) +
+geom_bar()
+```
+
+**Segmented bar plot:**
+```{r, eval=TRUE,echo=TRUE}
+ggplot(loans, 
+       aes(x = homeownership,
+           fill = grade)) +
+geom_bar()
+
+ggplot(loans, aes(x = homeownership, 
+                  fill = grade)) +
+geom_bar(position = "fill")
+```
+
+**Customising Bar plots**
+
+```{r, eval=TRUE,echo=TRUE}
+ggplot(loans, aes(y = homeownership, fill = grade)) + geom_bar(position = "fill") +
+labs( x = "Proportion", 
+      y = "Homeownership", fill = "Grade", 
+      title = "Grades of Lending Club loans")
+```
+
+**Violin plots**
+```{r, eval=TRUE,echo=TRUE}
+ggplot(loans, 
+       aes(x = homeownership, y = loan_amount)) +
+geom_violin()
+```
+
+
+**Ridge plots:**
+```{r, eval=TRUE,echo=TRUE}
+library(ggridges)
+ggplot(loans, aes(x = loan_amount, 
+                  y = grade, 
+                  fill = grade, 
+                  color = grade)) +
+geom_density_ridges(alpha = 0.5)
+```
+
