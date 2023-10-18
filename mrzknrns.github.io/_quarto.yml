@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "mrzknrns.github.io"
+  title: "mrzknrns"
   navbar:
     left:
       - href: index.qmd
