@@ -12,7 +12,7 @@ website:
 
 format:
   html:
-    theme: cosmo
+    theme: jekyll-theme-slate
     css: styles.css
     toc: true
 
