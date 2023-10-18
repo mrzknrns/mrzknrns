@@ -1,0 +1,28 @@
+---
+title: "Week-9: Webpage + Diary Entry"
+author: "Marzuki Nooranas"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Question 1:
+
+(1) What is the topic that you have finalized? (Answer in 1 or 2 sentences),
+
+```{r, eval=TRUE,echo=TRUE}
+
+```
+
+
+## Question 2:
+
+(2) What are the data sources that you have curated so far? (Answer 1 or 2 sentences).
+
+
+```{r, eval=TRUE,echo=TRUE}
+
+```
