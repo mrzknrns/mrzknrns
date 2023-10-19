@@ -29,9 +29,13 @@ grid.arrange(rasterGrob(img1, width=unit(1.1,"npc"), height=unit(0.8,"npc"), gp=
 
 # **My Hello to You \~**
 
-Hello there! My name is Marzuki Nooranas - or *Marz* for short! I am currently in my 2nd year, double majoring in Sociology and, Communications and New Media! I have always been fascinated by how society functions and its intricate connections, my passion for understanding the world around us, is driven by a desire to foster meaningful connections within all communities!
+Hello there! My name is Marzuki Nooranas - or *Marz* for short! I am currently in my 2nd year, double majoring in Sociology and, Communications and New Media!
 
-To demonstrate this, I embark of frequent backpacking trips across Southeast Asia, and actively engage myself in the cultures and learn about their customs. Such experiences provide me with firsthand insights into how different societies interact, and not only broadening my horizons, but also fostering empathy across different communities. Here's a little snippet!
+I have always been fascinated by how society functions and its intricate connections, my passion for understanding the world around us, is driven by a desire to foster meaningful connections within all communities!
+
+To demonstrate this, I embark of frequent backpacking trips across Southeast Asia, and actively engage myself in the cultures and learn about their customs.
+
+Such experiences provide me with firsthand insights into how different societies interact, and not only broadening my horizons, but also fostering empathy across different communities. Here's a little snippet!
 
 ```{=html}
 <style>
@@ -108,7 +112,9 @@ The actual prototyping journey was not very smooth, but hey, here is the end pro
 
 ### Savvify - An Automated Savings Platform
 
-During my time in Temasek Polytechnic, my group mates and I worked on an automated savings platform - ***Savvify***. Essentially, the application helps users to round up your payment transactions to the nearest dollar, and crediting it to the users' e-wallet upon making QR Payments. Our main goal was to bring new solutions e-payment solutions while helping young adults like us, to understand real life responsibilities - improving their financial literacy!
+During my time in Temasek Polytechnic, my group mates and I worked on an automated savings platform - ***Savvify***. Essentially, the application helps users to round up your payment transactions to the nearest dollar, and crediting it to the users' e-wallet upon making QR Payments.
+
+Our main goal was to bring new solutions e-payment solutions while helping young adults like us, to understand real life responsibilities - improving their financial literacy!
 
 {{< video https://youtu.be/kzWq31_mRyc >}}
 

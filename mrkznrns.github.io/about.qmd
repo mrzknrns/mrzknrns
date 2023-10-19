@@ -1,11 +1,16 @@
 ---
 title: "Data Story"
 ---
+
 <br>
 
 ### Investigating Singapore's Resale Flat Prices from 1990 to 2023
 
-
 ##### Is public housing in Singapore affordable for the average Singaporean?
-<br>
-This is where my introduction will be
+
+<br> This is where my introduction will be. This is just a placeholder for potential data sets!
+
+```{r, eval=TRUE,echo=FALSE}
+library(tidyverse)
+starwars
+```

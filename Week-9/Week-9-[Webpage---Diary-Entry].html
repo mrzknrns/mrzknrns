@@ -375,11 +375,82 @@ prices over the years</p>
 <li>What are the data sources that you have curated so far? (Answer 1 or
 2 sentences).</li>
 </ol>
-<p><strong>Answer:</strong> I have curated two datasets from
-www.data.gov.sg – Singapore’s open data collection. The one data set
-contains transacted prices of resale flats from 1990 to 1999 and the
-other contains the resale prices from January 2017 onwards with an
-additional column “remaining_lease” for the lease duration.</p>
+<p><strong>Answer:</strong> I have curated two datasets from <a href="https://beta.data.gov.sg/collections/189/view" class="uri">https://beta.data.gov.sg/collections/189/view</a> –
+Singapore’s open data collection. The one data set contains transacted
+prices of resale flats from 1990 to 1999 and the other contains the
+resale prices from January 2017 onwards with an additional column
+“remaining_lease” for the lease duration</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+## ✔ dplyr     1.1.2     ✔ readr     2.1.4
+## ✔ forcats   1.0.0     ✔ stringr   1.5.0
+## ✔ ggplot2   3.4.3     ✔ tibble    3.2.1
+## ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+## ✔ purrr     1.0.2     
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+<pre class="r"><code>data_1990_1999 &lt;- read.csv(&quot;ResaleFlatPricesBasedonApprovalDate19901999.csv&quot;)
+data_2017_onwards &lt;-read.csv(&quot;ResaleflatpricesbasedonregistrationdatefromJan2017onwards-2.csv&quot;)
+
+head(data_1990_1999, 10)</code></pre>
+<pre><code>##      month       town flat_type block      street_name storey_range
+## 1  1990-01 ANG MO KIO    1 ROOM   309 ANG MO KIO AVE 1     10 TO 12
+## 2  1990-01 ANG MO KIO    1 ROOM   309 ANG MO KIO AVE 1     04 TO 06
+## 3  1990-01 ANG MO KIO    1 ROOM   309 ANG MO KIO AVE 1     10 TO 12
+## 4  1990-01 ANG MO KIO    1 ROOM   309 ANG MO KIO AVE 1     07 TO 09
+## 5  1990-01 ANG MO KIO    3 ROOM   216 ANG MO KIO AVE 1     04 TO 06
+## 6  1990-01 ANG MO KIO    3 ROOM   211 ANG MO KIO AVE 3     01 TO 03
+## 7  1990-01 ANG MO KIO    3 ROOM   202 ANG MO KIO AVE 3     07 TO 09
+## 8  1990-01 ANG MO KIO    3 ROOM   235 ANG MO KIO AVE 3     10 TO 12
+## 9  1990-01 ANG MO KIO    3 ROOM   235 ANG MO KIO AVE 3     04 TO 06
+## 10 1990-01 ANG MO KIO    3 ROOM   232 ANG MO KIO AVE 3     01 TO 03
+##    floor_area_sqm     flat_model lease_commence_date resale_price
+## 1              31       IMPROVED                1977         9000
+## 2              31       IMPROVED                1977         6000
+## 3              31       IMPROVED                1977         8000
+## 4              31       IMPROVED                1977         6000
+## 5              73 NEW GENERATION                1976        47200
+## 6              67 NEW GENERATION                1977        46000
+## 7              67 NEW GENERATION                1977        42000
+## 8              67 NEW GENERATION                1977        38000
+## 9              67 NEW GENERATION                1977        40000
+## 10             67 NEW GENERATION                1977        47000</code></pre>
+<pre class="r"><code>head(data_2017_onwards, 10)</code></pre>
+<pre><code>##      month       town flat_type block       street_name storey_range
+## 1  2017-01 ANG MO KIO    2 ROOM   406 ANG MO KIO AVE 10     10 TO 12
+## 2  2017-01 ANG MO KIO    3 ROOM   108  ANG MO KIO AVE 4     01 TO 03
+## 3  2017-01 ANG MO KIO    3 ROOM   602  ANG MO KIO AVE 5     01 TO 03
+## 4  2017-01 ANG MO KIO    3 ROOM   465 ANG MO KIO AVE 10     04 TO 06
+## 5  2017-01 ANG MO KIO    3 ROOM   601  ANG MO KIO AVE 5     01 TO 03
+## 6  2017-01 ANG MO KIO    3 ROOM   150  ANG MO KIO AVE 5     01 TO 03
+## 7  2017-01 ANG MO KIO    3 ROOM   447 ANG MO KIO AVE 10     04 TO 06
+## 8  2017-01 ANG MO KIO    3 ROOM   218  ANG MO KIO AVE 1     04 TO 06
+## 9  2017-01 ANG MO KIO    3 ROOM   447 ANG MO KIO AVE 10     04 TO 06
+## 10 2017-01 ANG MO KIO    3 ROOM   571  ANG MO KIO AVE 3     01 TO 03
+##    floor_area_sqm     flat_model lease_commence_date    remaining_lease
+## 1              44       Improved                1979 61 years 04 months
+## 2              67 New Generation                1978 60 years 07 months
+## 3              67 New Generation                1980 62 years 05 months
+## 4              68 New Generation                1980  62 years 01 month
+## 5              67 New Generation                1980 62 years 05 months
+## 6              68 New Generation                1981           63 years
+## 7              68 New Generation                1979 61 years 06 months
+## 8              67 New Generation                1976 58 years 04 months
+## 9              68 New Generation                1979 61 years 06 months
+## 10             67 New Generation                1979 61 years 04 months
+##    resale_price
+## 1        232000
+## 2        250000
+## 3        262000
+## 4        265000
+## 5        265000
+## 6        275000
+## 7        280000
+## 8        285000
+## 9        285000
+## 10       285000</code></pre>
 </div>
 
 

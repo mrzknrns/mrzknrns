@@ -15,8 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 **Answer:** I have finalised and chosen to explore the changes in the prices of resale flats in Singapore. The goal is to analyse the nominal price growth from 1990 to 2023, an compare it with the adjusted inflation rate to understand the real increase in flat prices over the years 
 
-```{r, eval=TRUE,echo=TRUE}
-
+```{r, eval=TRUE,echo=FALSE}
 ```
 
 
@@ -24,8 +23,16 @@ knitr::opts_chunk$set(echo = TRUE)
 
 (2) What are the data sources that you have curated so far? (Answer 1 or 2 sentences).
 
-**Answer:** I have curated two datasets from www.data.gov.sg -- Singapore's open data collection. The one data set contains transacted prices of resale flats from 1990 to 1999 and the other contains the resale prices from January 2017 onwards with an additional column "remaining_lease" for the lease duration.
+**Answer:** I have curated two datasets from https://beta.data.gov.sg/collections/189/view -- Singapore's open data collection. The one data set contains transacted prices of resale flats from 1990 to 1999 and the other contains the resale prices from January 2017 onwards with an additional column "remaining_lease" for the lease duration 
 
 ```{r, eval=TRUE,echo=TRUE}
+
+library(tidyverse)
+data_1990_1999 <- read.csv("ResaleFlatPricesBasedonApprovalDate19901999.csv")
+data_2017_onwards <-read.csv("ResaleflatpricesbasedonregistrationdatefromJan2017onwards-2.csv")
+
+head(data_1990_1999, 10)
+head(data_2017_onwards, 10)
+
 
 ```
