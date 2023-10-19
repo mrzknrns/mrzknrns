@@ -18,8 +18,8 @@ library(grid)
 library(gridExtra)
 library(png)
 
-img1 <- readPNG("images/me_icon.png")
-img2 <- readPNG("images/68FD47AF-F084-4FCC-85AC-4712EEC1B685.PNG")
+img1 <- readPNG("src/images//me_icon.png")
+img2 <- readPNG("src/images/68FD47AF-F084-4FCC-85AC-4712EEC1B685.PNG")
 
 grid.arrange(rasterGrob(img1, width=unit(1.1,"npc"), height=unit(0.8,"npc"), gp=gpar(mai=c(0,0,0,0))), 
              rasterGrob(img2, width=unit(1,"npc"), height=unit(0.7,"npc"), gp=gpar(mai=c(0,0,0,0))), 
