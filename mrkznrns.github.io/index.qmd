@@ -1,6 +1,17 @@
 ---
-title: "Marzuki Nooranas." 
+title: ""
 ---
+
+```{r, eval=TRUE,echo=FALSE}
+
+```
+
+![](images/namelogo.png)
+
+# **Link to Course Content**
+
+<https://github.com/mrzknrns/NM2207.git>
+
 ```{r, eval=TRUE,echo=FALSE}
 
 library(grid)
@@ -16,16 +27,98 @@ grid.arrange(rasterGrob(img1, width=unit(1.1,"npc"), height=unit(0.8,"npc"), gp=
 
 ```
 
-# **Well Hello There!**
+# **My Hello to You \~**
 
-Hello there! My name is Marzuki Nooranas - or you can call me *Marz!* I am currently in my 2nd year, double majoring in Sociology and, Communications and New Media! 
+Hello there! My name is Marzuki Nooranas - or *Marz* for short! I am currently in my 2nd year, double majoring in Sociology and, Communications and New Media! I have always been fascinated by how society functions and its intricate connections, my passion for understanding the world around us, is driven by a desire to foster meaningful connections within all communities!
 
-I have always been fascinated by how society functions and its intricate connections, my passion for understanding the world around us, is driven by a desire to foster meaningful connections within all communities! To demonstrate this, I embark of frequent backpacking trips across Southeast Asia, and actively engage myself in the cultures and learn about their customs. Such experiences provide me with firsthand insights into how different societies interact, and not only broadening my horizons, but also fostering empathy across different communities
+To demonstrate this, I embark of frequent backpacking trips across Southeast Asia, and actively engage myself in the cultures and learn about their customs. Such experiences provide me with firsthand insights into how different societies interact, and not only broadening my horizons, but also fostering empathy across different communities. Here's a little snippet!
 
+```{=html}
+<style>
+    .tiktok-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px; /* Adjust for spacing between the embeds */
+    }
 
-# Link to Course Content:
+    .tiktok-embed {
+        width: 50%; /* Adjust based on your desired width */
+        max-width: none;
+    }
+</style>
+```
+::: tiktok-container
+<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@mentaikofries_/video/7181240142063996161" data-video-id="7181240142063996161" style="max-width: 605px;min-width: 325px;">
 
-### <https://github.com/mrzknrns/NM2207.git>
+<section>
 
-```{}
+<a target="_blank" title="@mentaikofries_" href="https://www.tiktok.com/@mentaikofries_?refer=embed">@mentaikofries_</a>
+
+<p>overland travel for the vibesss. what a way to end 2022 phewww</p>
+
+<a target="_blank" title="♬ original sound - 𝚁𝚊𝚐𝚑𝚊𝚍💗" href="https://www.tiktok.com/music/original-sound-7178872451673459457?refer=embed">♬ original sound - 𝚁𝚊𝚐𝚑𝚊𝚍💗</a>
+
+</section>
+
+</blockquote>
+
+```{=html}
+<script async src="https://www.tiktok.com/embed.js"></script>
+```
+> </blockquote>
+
+<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@mentaikofries_/video/7238779076528442625" data-video-id="7238779076528442625" style="max-width: 605px;min-width: 325px;">
+
+<section>
+
+<a target="_blank" title="@mentaikofries_" href="https://www.tiktok.com/@mentaikofries_?refer=embed">@mentaikofries_</a>
+
+<p>nha trang is my favvvvvv</p>
+
+<a target="_blank" title="♬ moth to a flame x after hours - trlixqy" href="https://www.tiktok.com/music/moth-to-a-flame-x-after-hours-7174186663990561579?refer=embed">♬ moth to a flame x after hours - trlixqy</a>
+
+</section>
+
+</blockquote>
+
+```{=html}
+<script async src="https://www.tiktok.com/embed.js"></script>
+```
+:::
+
+```{=html}
+<script async src="https://www.tiktok.com/embed.js"></script>
+```
+# **My Past Work**
+
+## National University of Singapore
+
+### DTK1234 - Design Thinking
+
+In this module, we were assigned the task of innovating everyday chores. Here is my idea: it is basically an attachment that can be clipped to an existing ironing board, so that people - including the elderly or people with disabilities - can iron clothes without feeling tired or unsafe
+
+![](images/prototyping.png){fig-align="center"}
+
+The actual prototyping journey was not very smooth, but hey, here is the end product! Looks good aye? To me at least...
+
+![](images/prototyping_2-01.png)
+
+## Temasek Polytechnic
+
+### Savvify - An Automated Savings Platform
+
+During my time in Temasek Polytechnic, my group mates and I worked on an automated savings platform - ***Savvify***. Essentially, the application helps users to round up your payment transactions to the nearest dollar, and crediting it to the users' e-wallet upon making QR Payments. Our main goal was to bring new solutions e-payment solutions while helping young adults like us, to understand real life responsibilities - improving their financial literacy!
+
+{{< video https://youtu.be/kzWq31_mRyc >}}
+
+### GIGAWipes - Innovation through Programming
+
+"Innovation does not stop" -- Here, we explored how to incorporate programming in our daily lives. This may or may not be inspired by true events but for this project, we created a prototype of a toilet roll dispenser but... I'll let the video do the talking...
+
+{{< video https://youtu.be/2yBwaRCfiuI >}}
+
+# 
+
+```         
 ```

@@ -11,9 +11,12 @@ website:
         text: Home
       - about.qmd
 
+
 format:
   html:
-    theme: none
+    theme:   
+     light: flatly
+     dark: darkly
     css: styles.css
     toc: true
 
