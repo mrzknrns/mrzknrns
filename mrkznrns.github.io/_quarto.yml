@@ -13,7 +13,7 @@ website:
 
 format:
   html:
-    theme: cosmo
+    theme: none
     css: styles.css
     toc: true
 
