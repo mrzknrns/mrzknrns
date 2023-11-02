@@ -173,6 +173,14 @@ To answer part (3), another data set of household income with CPF contribution. 
 **Update from Week 10:**
 
 
+## Question 1: 
+(1) List the visualizations that you are going to use in your project
+
+## Question 2: 
+(2) How do you plan to make it interactive?
+
+## Question 3: 
+(3) What concepts incorporated in your project were taught in the course and which ones were self-learnt?
 
 ## Week-12: Diary Entry
 
