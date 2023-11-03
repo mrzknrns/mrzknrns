@@ -11,7 +11,7 @@
 
 <meta name="author" content="Marzuki Nooranas" />
 
-<meta name="date" content="2023-11-01" />
+<meta name="date" content="2023-11-03" />
 
 <title>NM2207 Data Story: Final Project</title>
 
@@ -352,7 +352,7 @@ display: none;
 
 <h1 class="title toc-ignore">NM2207 Data Story: Final Project</h1>
 <h4 class="author">Marzuki Nooranas</h4>
-<h4 class="date">2023-11-01</h4>
+<h4 class="date">2023-11-03</h4>
 
 </div>
 
@@ -680,7 +680,170 @@ flat’ statement. Yahoo Singapore. <a href="https://sg.news.yahoo.com/blogs/sin
 </div>
 <div id="week-11-diary-entry" class="section level2">
 <h2>Week-11: Diary Entry</h2>
-<p><strong>Update from Week 10</strong></p>
+<p><strong>Update from Week 10:</strong> For week 11, I explored
+potential visualisation that can be used to provide a more clearer
+understanding. I also researched on other possible ways to make in
+interactive.</p>
+</div>
+<div id="question-1-2" class="section level2">
+<h2>Question 1:</h2>
+<ol style="list-style-type: decimal">
+<li>List the visualizations that you are going to use in your
+project</li>
+</ol>
+<p>For now, I am planning to create 4 analysis and visualisation. These
+visualisation will provide a clearer understanding of the prices of
+resale flats in Singapore. The 4 visualisations are:</p>
+<p><strong>(1) Trend of HDB Resale Prices in Singapore - Line Graph and
+Bar Graph:</strong> This analyses the trend of resale flat prices fron
+1999 to 2022. A line plot would be created to show the average resale
+prices of that year, based on room types as well. The bar graph on the
+other hand, will be used for direct comparison between two years - they
+will be grouped base on the room types. For example, 1999 compared with
+2022 for 3-room flats, and another one for 4-room flats and so on.</p>
+<p><strong>(2) The Distribution of Resale Flat Prices for different flat
+types - A Box Plot:</strong> A box plot is ideal to show the
+distribution of numerical variable - in this case the transacted amount
+of the resale flat - across the different flat types. This can also show
+if there are any outliers - to further understand the number of high
+prices as compared to the average ones.</p>
+<p><strong>(3) The Impact of Remaining Lease on Resale Prices - Scatter
+Plot:</strong> This helps to understand how the length of the remaining
+affects the resale prices. Therefore, the use of scatter plot, together
+with a regression line will be ideal. The scatter plot will depict the
+resale transactions, in this case, the x-axis will be the remaining
+lease, and the y-axis will be the resale price. The regression line will
+also visualise the overall trend, while quantifying the relationship
+between the resale prices, and remaining lease. The line will also
+highlight if there is a correlation of a shorter lease and a lower
+selling price, a major consideration for flat buyers.</p>
+<p><strong>(4) The influence of Estate on Resale Prices - Violin
+Plot:</strong> The violin plot will be able to visualise the
+distribution of resale flat prices accoss the estates and flat types.
+The plot will show mediam price and full distribution of prices - this
+allows comparison on central tendency but also the density of prices and
+variability. Also this can show how certain estates have wider variances
+in prices or if there are any similar price points where many flats are
+concentrated. The violin plot - although still considering - can be
+segmented further into flat types within the estates, or be colour coded
+within one plot - this will be explored in Week 12/13.</p>
+<p><strong>(5) </strong></p>
+</div>
+<div id="question-2-2" class="section level2">
+<h2>Question 2:</h2>
+<ol start="2" style="list-style-type: decimal">
+<li>How do you plan to make it interactive?</li>
+</ol>
+<p>In order to create a more interactive webpage, I am planning to use
+the capabilities of ‘ggplot2’ to create and render the initial plots and
+diagrams. After which, I will utilise ‘Shiny UI’ for the user interface
+and interactivity. Lastly, I will use R Markdown and R file to integrate
+the story and present it in one cohesive webpage with sections. For each
+visualisation, here is how i am planning to do so:</p>
+<p><strong>‘ggplot2’</strong> will be used to create the initial
+foundation plots for line and bar graphs, box plot, scatter plot and
+violin plot.</p>
+<p><strong>‘Shiny UI’</strong> components like ‘selectInput’,
+‘sliderInput, ’radioButtons’, ‘hover’ and ’coloour inout will be used to
+create interactivity on the graphs. Users will be able to interact with
+the dynamic capabilities of Shiny UI, giving them a more engaging,
+user-driven exploration of the data.</p>
+<p><strong>‘R Markdown’:</strong> The integration of ‘ggplot2’ and
+‘Shiny’ will be shown through the Quarto Document. Therefore, serving as
+a narrative structure guiding users through the data story of resale
+flats, providing context and explaining the potential insights derived
+from the visualisation.</p>
+</div>
+<div id="question-3-1" class="section level2">
+<h2>Question 3:</h2>
+<ol start="3" style="list-style-type: decimal">
+<li>What concepts incorporated in your project were taught in the course
+and which ones were self-learnt? (Create a table)</li>
+</ol>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Weeks</th>
+<th>Topics</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Week 1</td>
+<td>Creating and uploading photos on RMarkdown and Quarto</td>
+</tr>
+<tr class="even">
+<td>Week 2</td>
+<td>Understanding ggplot2 and Shiny</td>
+</tr>
+<tr class="odd">
+<td>Week 3</td>
+<td>Variables and Data Structures to explore the data-sets</td>
+</tr>
+<tr class="even">
+<td>Week 4</td>
+<td>Making new variables, choosing columns and rows for clearer
+visualisation</td>
+</tr>
+<tr class="odd">
+<td>Week 5</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td>Week 6</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td>Week 7</td>
+<td>Making integration of Shiny Dashboard with Quarto, Visualising data
+using ggplot and Shiny</td>
+</tr>
+<tr class="even">
+<td>Week 8</td>
+<td>Visualising data using ggplot and Shiny, Creating an R app for
+visualisation</td>
+</tr>
+<tr class="odd">
+<td>Week 9</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td>Week 10</td>
+<td>Storytelling</td>
+</tr>
+<tr class="odd">
+<td>Week 11</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td>Self-Thought</td>
+<td>Still exploring possible topics</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="question-4" class="section level2">
+<h2>Question 4:</h2>
+<ol start="4" style="list-style-type: decimal">
+<li>Challenges faced and how I go about it?</li>
+</ol>
+<ol style="list-style-type: decimal">
+<li><p>Currently facing difficulties when trying to deploy interactive
+Shiny Application into the main quarto page. May need to look into past
+challenges and code along to refresh.</p></li>
+<li><p>As of now, the placeholders on the webpage is still in static
+mode - looks very plain and dull. Will explore the other decorative
+options in the coming days. For now, focusing on creating the plots for
+data sets as well.</p></li>
+<li><p>Data cleaning for household income is surprisingly tedious as
+well. Looking to streamline the datasets further to ensure easy
+readability when creating plots to measure affordability of the prices
+of HDB Resale flats.</p></li>
+</ol>
 </div>
 <div id="week-12-diary-entry" class="section level2">
 <h2>Week-12: Diary Entry</h2>
