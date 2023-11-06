@@ -1,0 +1,155 @@
+---
+title: "Challenge-11"
+author: "Marzuki Nooranas"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, eval=TRUE,echo=FALSE}
+
+library(httr)
+library(jsonlite)
+library(tidyverse)
+
+
+ historic_state_data_url <- "https://api.covidactnow.org/v2/states.timeseries.json?apiKey=38b7e9895fd84dd9a8f90354f9eb3b75"
+ raw_data <- GET(historic_state_data_url)
+```
+
+## STEP-2 : Extracting data
+```{r, eval=TRUE,echo=TRUE}
+data <- fromJSON(rawToChar(raw_data$content))
+```
+
+## STEP-3: Explore the data
+
+```{r, eval=TRUE,echo=FALSE}
+glimpse(data)
+```
+
+## STEP-4 : Explore the data
+i. What is the population in various states of U.S.A?
+ii. What fraction of the population was infected ?
+iii. What fraction of infected persons recovered ?
+iv. What fraction of the population is currently vaccinated ?
+v. What was the transmission-like in the various states ? vi. How did the disease progress since it started ?
+
+
+## STEP-4 : Mapping variables to questions
+```{r, eval=TRUE,echo=FALSE}
+population_data <- data[, c('state', 'population')]
+print(population_data)
+```
+
+```{r, eval=TRUE,echo=FALSE}
+data$case_fraction <- data$actuals$cases / data$population
+print(data[, c('state', 'case_fraction')])
+```
+
+```{r, eval=TRUE,echo=FALSE}
+data$estimated_recoveries <- data$actuals$cases - data$actuals$deaths
+data$recovery_fraction <- data$estimated_recoveries / data$actuals$cases
+print(data[, c('state', 'recovery_fraction')])
+```
+
+```{r, eval=TRUE,echo=FALSE}
+
+data$vaccination_fraction <- data$actuals$vaccinationsCompleted / data$population
+print(data[, c('state', 'vaccination_fraction')])
+
+```
+
+```{r, eval=TRUE,echo=FALSE}
+time_series <- data %>%
+unnest(actualsTimeseries)
+
+time_series_transmission <- tibble(Date=time_series$cdcTransmissionLevelTimeseries[[which(data$state=="CA")]]$date)
+time_series_transmission$Alaska <- time_series$cdcTransmissionLevelTimeseries[[which(data$state=="AK")]]$ cdcTransmissionLevel
+time_series_transmission$California <- time_series$cdcTransmissionLevelTimeseries[[which(data$state=="CA")]]$cdcTransmissionLevel
+time_series_transmission$New_Jersey <- time_series$cdcTransmissionLevelTimeseries[[which(data$state=="NJ")]]$cdcTransmissionLevel
+time_series_transmission$Tennessee <- time_series$cdcTransmissionLevelTimeseries[[which(data$state=="TN")]]$cdcTransmissionLevel
+time_series_transmission$District_of_Columbia <- time_series$cdcTransmissionLevelTimeseries[[which(data$state=="DC")]]$cdcTransmissionLevel
+ print(head(time_series_transmission))
+```
+
+```{r, eval=TRUE,echo=FALSE}
+time_series_cases <- list(Alaska = time_series %>% filter(state=="AK") %>% select(date,cases))
+# Cases of each state
+time_series_cases$California <- time_series %>% filter(state=="CA") %>% select(date,cases) 
+time_series_cases$New_Jersey <- time_series %>% filter(state=="NJ") %>% select(date,cases) 
+time_series_cases$Tennessee <- time_series %>% filter(state=="TN") %>% select(date,cases) 
+time_series_cases$District_of_Columbia <- time_series %>% filter(state=="DC") %>% select(date,cases)
+
+```
+
+## STEP-6: Analysing Data
+
+```{r, eval=TRUE,echo=FALSE}
+ggplot(data, aes(x=state,y=population)) + geom_bar(stat="identity") + labs(x="States",y="Population") + theme_bw()
+```
+
+
+```{r, eval=TRUE,echo=FALSE}
+ggplot(data, aes(x=state,y=(data$actuals$cases/population))) + geom_bar(stat="identity") + labs(x="States",y="Infected (%)")+theme_bw()
+```
+
+```{r, eval=TRUE,echo=FALSE}
+time_series_transmission[seq(1,1300,by=100),]%>%
+   pivot_longer(cols=Alaska:District_of_Columbia,names_to="Countries",values_to="Transmission") %>%
+ ggplot(aes(x=Date,y=Transmission,colour=Countries,group=Countries)) +
+ geom_point(show.legend=TRUE) + labs(x="Date",y="Transmission Level")+theme_bw()
+```
+
+```{r, eval=TRUE,echo=FALSE}
+data_to_plot <- tibble(Date_Alaska = time_series_cases$Alaska$date[seq(1,1300,by=100)],
+                        Cases_Alaska = time_series_cases$Alaska$cases[seq(1,1300,by=100)],
+
+Date_California = time_series_cases$California$date[seq(1,1300,by=100)],
+Cases_California = time_series_cases$California$cases[seq(1,1300,by=100)],
+Date_New_Jersey = time_series_cases$New_Jersey$date[seq(1,1300,by=100)],
+Cases_New_Jersey = time_series_cases$New_Jersey$cases[seq(1,1300,by=100)],
+Date_Tennessee = time_series_cases$Tennessee$date[seq(1,1300,by=100)],
+Cases_Tennessee = time_series_cases$Tennessee$cases[seq(1,1300,by=100)],
+Date_District_of_Columbia = time_series_cases$District_of_Columbia$date[seq(1,1300,by=100)],
+Cases_District_of_Columbia = time_series_cases$District_of_Columbia$cases[seq(1,1300,by=100)])
+                                                                              
+data_to_plot
+```
+
+```{r, eval=TRUE,echo=FALSE}
+library(cowplot)
+```
+
+```{r, eval=TRUE,echo=FALSE}
+fig1<- ggplot(data_to_plot, aes(x=Date_Alaska,y=Cases_Alaska)) +
+ geom_point() + labs(x="Date",y="Cases", title="Alaska") + theme_bw()
+ fig2<- ggplot(data_to_plot, aes(x=Date_California,y=Cases_California)) +
+ geom_point() + labs(x="Date",y="Cases", title="California") + theme_bw()
+ fig3<- ggplot(data_to_plot, aes(x=Date_New_Jersey,y=Cases_New_Jersey)) +
+ geom_point() + labs(x="Date",y="Cases", title="New Jersey") + theme_bw()
+ fig4<- ggplot(data_to_plot, aes(x=Date_Tennessee,y=Cases_Tennessee)) +
+ geom_point() + labs(x="Date",y="Cases", title="Tennessee") + theme_bw()
+ fig5<- ggplot(data_to_plot, aes(x=Date_District_of_Columbia,y=Cases_District_of_Columbia)) +
+ geom_point() + labs(x="Date",y="Cases", title="District of Columbia") + theme_bw()
+ 
+ plot_grid(fig1 + theme(legend.justification = c(0,1)),
+           fig2 + theme(legend.justification = c(1,0)),
+           fig3 + theme(legend.justification = c(0,1)),
+           fig4 + theme(legend.justification = c(1,0)),
+           fig5 + theme(legend.justification = c(0,1)),
+           align = "v", axis = "lr", nrow=3,
+           ncol = 2,labels = LETTERS[1:5],
+           rel_heights = c(1,2))
+```
+
+```{r, eval=TRUE,echo=FALSE}
+
+```
+
+```{r, eval=TRUE,echo=FALSE}
+
+```
