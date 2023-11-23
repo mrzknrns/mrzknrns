@@ -104,13 +104,13 @@ This idea that we have to be (economically) productive every single minute of ou
 
 ### HS1501 - Artificial Intelligence and Society
 
-In this module, we looked at the benefits and potential downsides of relying on AI. My group focused on leveraging on AI technology to aid in bereavement process. I designed a brochure for a Virtual Memory Garden where users will transported into a virtual space together with thier loved ones - as an avatar!
+In this module, we looked at the benefits and potential downsides of relying on AI. My group focused on leveraging on AI technology to aid in bereavement process. I designed a brochure for a Virtual Memory Garden where users will transported into a virtual space together with their loved ones - as an avatar!
 
 ![](docs/src/images/brochure.png)
 
 ### DTK1234 - Design Thinking
 
-In this module, we were assigned the task of innovating everyday chores. Here is my idea: it is basically an attachment that can be clipped to an existing ironing board, so that people - including the elderly or people with disabilities - can iron clothes without feeling tired or unsafe
+In this module, we were assigned the task of innovating everyday chores. Here is my idea: it is basically an attachment that can be clipped to an existing ironing board, so that people - including the elderly or people with disabilities - can iron clothes without feeling tired or unsafe!
 
 ![](images/prototyping.png){fig-align="center"}
 
@@ -134,5 +134,9 @@ Our main goal was to bring new solutions e-payment solutions while helping young
 
 {{< video https://youtu.be/2yBwaRCfiuI >}}
 
+Not bad aye! Essentially, The lanyard communicates via Bluetooth. this ensures that toilet rolls are filled and readily available for use, maintaining hygiene and convenience in restrooms! 
+
 ```         
 ```
+
+![](src/images/footer.png)
