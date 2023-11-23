@@ -239,13 +239,29 @@ In order to create a more interactive webpage, I am planning to use the capabili
 **(1) Responsive Design for Varied Devices **: 
 Similar to Week 11, initially, the webpages were not as responsive and photos used not displayed correctly. Therefore, making it responsive is crucial in order for the experience  to be as seamless, with as little disruption as possible. I have gone about it by using flexible grid layouts and incorporating the new CSS within my QML file to ensure its responsiveness. For example, if you were to enter my github site using a tablet or phone, it should have been optimised accordingly!
 
-**(2) Knowing when to Aesthetics with Functionality:** Another challenge I have faced is trying to find the right balance between asthetic appeal and functional design. The initial response was to build a visually striking design but I have learned that it is important to prioritise functionality while maintaining an engaging and appealing design. 
+**(2) Knowing when to Aesthetics with Functionality:** Another challenge I have faced is trying to find the right balance between aesthetic appeal and functional design. The initial response was to build a visually striking design but I have learned that it is important to prioritise functionality while maintaining an engaging and appealing design. 
 
 **(3) Deploying Interactive Elements in Quarto:** I am still trying to deploy my interactive elements in right now, may need to work on it over the weekend. For now, I am going to continue working on the narratives so that I would not have any time management issues when it comes to week 13. So here is my plan: I am going to put AT LEAST 3 interactive shiny app, for the others, I may utilise the static ggplot graphs - hope all goes well~
 
 ## Week-13: Final Write-Up Entry
 
 **Update from Week 12:** 
+
+Final Write-up:
+
+ **(1)  What is the theme of your data story? **
+ 
+ **(2) Why is it important to address this question? **
+ 
+ **(3) Why do you think the data sources that you have curated can help you answer the question? **
+ 
+ **(4) What are the insights from the data and how are they depicted in plots? **
+ 
+ **(5) How did you implement this entire project? Were there any new concepts that you learnt to implement some aspects of it? **
+ 
+ 
+ 
+
 
 
 
