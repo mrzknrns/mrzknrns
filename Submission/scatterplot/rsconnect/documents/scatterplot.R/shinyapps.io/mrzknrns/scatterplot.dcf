@@ -1,0 +1,12 @@
+name: scatterplot
+title: scatterplot
+username: mrzknrns
+account: mrzknrns
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 10530144
+bundleId: 7929291
+url: https://mrzknrns.shinyapps.io/scatterplot/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

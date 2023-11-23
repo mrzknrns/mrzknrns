@@ -1,0 +1,12 @@
+name: bargraph
+title: bargraph
+username: mrzknrns
+account: mrzknrns
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 10522894
+bundleId: 7927017
+url: https://mrzknrns.shinyapps.io/bargraph/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

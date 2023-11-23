@@ -1,0 +1,12 @@
+name: violin
+title: violin
+username: mrzknrns
+account: mrzknrns
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 10530488
+bundleId: 7929510
+url: https://mrzknrns.shinyapps.io/violin/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

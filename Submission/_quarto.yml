@@ -1,0 +1,27 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "mrkznrns.github.io"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: My Experience
+      - href: datastory.qmd
+        text: My Data Story
+      - href: https://github.com/mrzknrns/mrzknrns.git
+        text: Weekly Course Content
+
+format:
+  html:
+    shiny: true
+    theme:   
+      light: flatly
+      dark: darkly
+    css: styles.css
+    toc: true
+
+editor: visual

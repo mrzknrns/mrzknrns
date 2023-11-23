@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>mrkznrns.github.io - Singapore’s Public Housing Affordability</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">mrkznrns.github.io</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html" rel="" target="">
+ <span class="menu-text">My Experience</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./datastory.html" rel="" target="" aria-current="page">
+ <span class="menu-text">My Data Story</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/mrzknrns/mrzknrns.git" rel="" target="">
+ <span class="menu-text">Weekly Course Content</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#is-public-housing-affordable-for-singaporeans" id="toc-is-public-housing-affordable-for-singaporeans" class="nav-link active" data-scroll-target="#is-public-housing-affordable-for-singaporeans">Is Public Housing Affordable for Singaporeans?</a>
+  <ul class="collapse">
+  <li><a href="#investigating-singapores-resale-flat-prices-from-1990-to-2022" id="toc-investigating-singapores-resale-flat-prices-from-1990-to-2022" class="nav-link" data-scroll-target="#investigating-singapores-resale-flat-prices-from-1990-to-2022">Investigating Singapore’s Resale Flat Prices from 1990 to 2022</a></li>
+  <li><a href="#trend-of-hdb-resale-prices-in-singapore" id="toc-trend-of-hdb-resale-prices-in-singapore" class="nav-link" data-scroll-target="#trend-of-hdb-resale-prices-in-singapore">Trend of HDB Resale Prices in Singapore</a></li>
+  <li><a href="#comparing-average-resale-prices-of-flat-types-by-years" id="toc-comparing-average-resale-prices-of-flat-types-by-years" class="nav-link" data-scroll-target="#comparing-average-resale-prices-of-flat-types-by-years">Comparing Average Resale Prices of Flat Types by Years</a></li>
+  <li><a href="#the-distribution-of-resale-flat-prices-of-different-flat-types" id="toc-the-distribution-of-resale-flat-prices-of-different-flat-types" class="nav-link" data-scroll-target="#the-distribution-of-resale-flat-prices-of-different-flat-types">The Distribution of Resale Flat Prices of Different Flat Types</a></li>
+  <li><a href="#the-impact-of-remaining-lease-on-resale-prices" id="toc-the-impact-of-remaining-lease-on-resale-prices" class="nav-link" data-scroll-target="#the-impact-of-remaining-lease-on-resale-prices">The Impact of Remaining Lease on Resale Prices</a></li>
+  <li><a href="#the-influence-of-estate-on-resale-prices" id="toc-the-influence-of-estate-on-resale-prices" class="nav-link" data-scroll-target="#the-influence-of-estate-on-resale-prices">The Influence of Estate on Resale Prices</a></li>
+  <li><a href="#assessing-affordability-of-resale-flats-in-singapore-for-you" id="toc-assessing-affordability-of-resale-flats-in-singapore-for-you" class="nav-link" data-scroll-target="#assessing-affordability-of-resale-flats-in-singapore-for-you">Assessing Affordability of Resale Flats in Singapore for you!</a></li>
+  <li><a href="#why-such-analysis-is-important" id="toc-why-such-analysis-is-important" class="nav-link" data-scroll-target="#why-such-analysis-is-important">Why such analysis is important?</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Singapore’s Public Housing Affordability</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="src/images/HDB-flat-after-divorce.jpg" class="img-fluid figure-img" width="1000"></p>
+</figure>
+</div>
+<section id="is-public-housing-affordable-for-singaporeans" class="level2">
+<h2 class="anchored" data-anchor-id="is-public-housing-affordable-for-singaporeans">Is Public Housing Affordable for Singaporeans?</h2>
+<section id="investigating-singapores-resale-flat-prices-from-1990-to-2022" class="level3">
+<h3 class="anchored" data-anchor-id="investigating-singapores-resale-flat-prices-from-1990-to-2022">Investigating Singapore’s Resale Flat Prices from 1990 to 2022</h3>
+<p style="text-align: justify;">
+In Singapore, housing affordability has been an increasing worry for future Singaporeans. However, in 2012, the then Deputy Prime Minister (DPM) Tharman Shanmugaratnam - stating household income of SGD$1000 was sufficient to own a home, sparked discussions among netizen online (Tan, 2012).
+</p>
+<p style="text-align: justify;">
+While Mr Tharman argued the housing grants could provide support for low-income household, many Singaporeans expressed concern about the long-term viability of such claims, especially in the face of the constant rising cost of living and property prices.
+</p>
+<p><img src="src/images/tharman.webp" class="img-fluid" width="800"></p>
+<p style="text-align: justify;">
+Now, this brings an important question to whether public housing in Singapore truly affordable for the average Singaporean in the future. This analysis will also explore the evolving housing market that may impact the affordability of homes for future generations of Singaporeans.
+</p>
+<p style="text-align: justify;">
+The above concerns will uncover the complexities of the housing market, analyse potential long-term trend, also seek to understand that while variables such as estate, size or remaining lease play significant roles, this analysis aims to identity the most influential factors.
+</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="docs/images/dreamhome.png" class="img-fluid figure-img" width="698"></p>
+</figure>
+</div>
+<p style="text-align: justify;">
+According to Kumar (2022), the affordability of homes in Singapore is a multifaceted issue. The table above provides an outline of the housing prices in Singapore. Using this as a guide, it determines the average salary needed per spouse needed to comfortably afford monthly repayments.
+</p>
+<p style="text-align: justify;">
+For instance, to afford a 3-room flat, which has a median price of $360,000, both partners would have to at least earn SGD$5,230. While it may seem manageable, this does not account for other living expenses, or other income fluctuation - couple may own a car, or have multiple kids.
+</p>
+<p style="text-align: justify;">
+Imagine you and your sponse are looking to start a family. Now that we’ve a glimpse into the affordability of homes in Singapore, do you think you can comfortably own your own home when the time comes? Let’s dive into real data and discuss this critical issue further.
+</p>
+<p><img src="src/images/flats.jpeg" class="img-fluid"></p>
+</section>
+<section id="trend-of-hdb-resale-prices-in-singapore" class="level3">
+<h3 class="anchored" data-anchor-id="trend-of-hdb-resale-prices-in-singapore">Trend of HDB Resale Prices in Singapore</h3>
+<p style="text-align: justify;">
+To understand the trend of housing prices in Singapore, the analysis will use the available data sets from <a href="www.data.gov.sg">this site</a>. The publicly available data contains historical sales figures on yearly bases, and can be used to access market dynamics and predict future trend.
+</p>
+<p style="text-align: justify;">
+Before moving on to the deeper analysis, let us understand how the overall prices have increased from 1990 to 2022. While the general increase in prices overtime aligns with economic growth, the rate of the surge from 1990 to 2022 is alarming.
+</p>
+<p style="text-align: justify;">
+One may argue that the increment is a sign of prospering economy, on the other side, it also rings alarm bells in terms of overall affordability. Now let’s examine the graph below:
+</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="datastory_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p style="text-align: justify;">
+The graph above illustrates a significant steepening in the slopes of average resale prices in Singapore from 1990 to 2022 - indicating the exorbitant increase of prices across all flat types. The steeper slope in 2022 shows a more prominent price escalation as compared to 1990’s. This is can be an indication increasing pressure on affordability and financial stretch for home ownership.
+</p>
+<p style="text-align: justify;">
+Notice that on the graph, there is a worrying widening price gap between each successive flat type, with the difference in average prices from one flat type to the next becoming more distinct. For example, the price jump from a 3-room to a 4-room for both 1990 and 2022, may point towards a growing demand for a larger home. Larger home, bigger family right?
+</p>
+<p style="text-align: justify;">
+With that, we can understand that the widening gap of prices could create a cost burden for upgraders seeking more specious accommodations for a bigger family. The growing gap in prices shows that planning for home ownership is extremely crucial to prevent any buyers’ remorse.
+</p>
+</section>
+<section id="comparing-average-resale-prices-of-flat-types-by-years" class="level3">
+<h3 class="anchored" data-anchor-id="comparing-average-resale-prices-of-flat-types-by-years">Comparing Average Resale Prices of Flat Types by Years</h3>
+<p style="text-align: justify;">
+Now let’s look at the price increment individually for both years, compared with the same flat type. The graph presented shows a great difference for a 4-room flat between 1990 and 2022.
+</p>
+<p style="text-align: justify;">
+The year 1990 with an average price of SGD$81,525 and 2022 with an average price of SGD$525,092, represented by green and orange respectively. In the graph below, feel free to explore and compare the prices of other flat types between 1990 and 2022!
+</p>
+<iframe height="450" width="100%" frameborder="no" src="https://mrzknrns.shinyapps.io/bargraph/">
+</iframe>
+<p style="text-align: justify;">
+As mentioned, the rising trend of housing cost, as shown in the graph, indicates that potential owners may face financial barriers when seeking for housing options. Additionally, the graph suggests that the real estate market has become increasingly segmented. Unfortunately, with increasing demand and limited supply, property agents are taking advantage of eager potential home owners (Lam, 2020).
+</p>
+<p style="text-align: justify;">
+For example, in 2019, a property agent was found guilty of unethical bidding practices in order to cash out a larger commission (Lim, 2019). To curb this, regulatory bodies must enforce strict rules and guidelines to ensure fair practices in this already very competitive and high-stakes market.
+</p>
+</section>
+<section id="the-distribution-of-resale-flat-prices-of-different-flat-types" class="level3">
+<h3 class="anchored" data-anchor-id="the-distribution-of-resale-flat-prices-of-different-flat-types">The Distribution of Resale Flat Prices of Different Flat Types</h3>
+<p style="text-align: justify;">
+While a price increment can potentially indicate a critical issue with affordability, it is also important to access where the increase is still within the “safe” median range. However, in the box plot below, we can see how the presence of outliers underscores the significant and unprecedented price increase.
+</p>
+<p style="text-align: justify;">
+Hint: Pay attention to how 3-room flats almost hitting $1,000,000! On top of that, we can also visually compare the number of outliers in 1990 and 2022, denoted by the green and orange box respectively.
+</p>
+<iframe height="500" width="100%" frameborder="no" src="https://mrzknrns.shinyapps.io/boxplot/">
+</iframe>
+<p style="text-align: justify;">
+Let’s input all the flat type options, what do you see? With 3-Room, 4-Room, 5-Room and Executive selected, we can see a consistent pattern. The data reveals a distinct trend where “regular-sized” flats are slowly approaching the million-dollar mark in resale price in 2022.
+</p>
+<p style="text-align: justify;">
+The upward trajectory is also an indication of the growth in the resale market, reflecting how people are willing to pay for their dream home. This inevitably affect those within a lower income bracket, preventing them to do the same.
+</p>
+<p><img src="src/images/darkhome.jpeg" class="img-fluid"></p>
+<p style="text-align: justify;">
+Furthermore, across the other flat types, there is an increasing number of outliers beyond the upper whiskers of the box plots for 2022. While this can suggest a substantial market growth, it can also reflect the high number of exceptional cases where resale prices are charging a even higher premium, exceeding the median trends - which is already high.
+</p>
+<p style="text-align: justify;">
+Now, that we have clearly seen the high prices Singaporean are willing to pay for their dream home, are there other factors that can be attributed to the price increase? Next, we will explore if the remaining lease left or the location of the flat affect the resale price.
+</p>
+</section>
+<section id="the-impact-of-remaining-lease-on-resale-prices" class="level3">
+<h3 class="anchored" data-anchor-id="the-impact-of-remaining-lease-on-resale-prices">The Impact of Remaining Lease on Resale Prices</h3>
+<p style="text-align: justify;">
+To lower the cost burden for flat upgraders, some may consider purchasing a flat with a lower remaining lease. However, is there a correlation between the remaining lease and the cost of a resale flat in 1990 and 2022?
+</p>
+<p style="text-align: justify;">
+As we look and examine into the numbers, it becomes clear that patterns have shifted from 1990 to 2022. Here, we will be comparing the data from these two distinct years. Now let’s look at the scatterplot below. Pay attention to the red line, what does it tell you?
+</p>
+<iframe height="500" width="100%" frameborder="no" src="https://mrzknrns.shinyapps.io/scatterplot/">
+</iframe>
+<p style="text-align: justify;">
+In 1990, the line suggested a clear trend: where a longer remaining lease often correlated with a higher resale price. The regression line showed a noticeable upward slope; decently steep actually. This would indicate that the longer the remaining lease, the higher the resale price of the flat, which makes sense at the time where buyers could reside in the flat without facing any lease expiration issue in the future.
+</p>
+<p style="text-align: justify;">
+However, as we move to 2022, while there is still a correlation, we can observe that it is not as steep. This suggests that the remaining lease period is not as strong an indicator as it was in 1990. Also, the data points are more spread out , indicating a high variance in resale prices. We can now infer that other factors such as location, types or houses, or amenities have grown in importance of lease length when determining the value of the resale flat.
+</p>
+<p style="text-align: justify;">
+</p><p><img src="src/images/buy.jpeg" class="img-fluid"></p>
+Put yourself in the shoes of the buyer, would you get a house with longer remaining lease, but with everything else an hour away or a shorter remaining lease with everything else a stone’s throw away?
+<p></p>
+<p style="text-align: justify;">
+The answer is not merely a matter of counting the years on a lease. So far, none of the HDB flats have seen their lease expired. So no one knows what really happens after that. Buying your own home is also about weighing the value or time and quality of your daily life. After all, what is a good extended lease if it comes at an expense of your convenience and time? Now, we will look into another important factor: The Estate
+</p>
+</section>
+<section id="the-influence-of-estate-on-resale-prices" class="level3">
+<h3 class="anchored" data-anchor-id="the-influence-of-estate-on-resale-prices">The Influence of Estate on Resale Prices</h3>
+<p><img src="src/images/bukitpunggol.png" class="img-fluid"></p>
+<p style="text-align: justify;">
+We can agree that price is an important consideration for purchasing a home. Have you figured out where to live? Do you want to live close to your parents in the same estate? Or do you have a preferred school you would like to send your future children too? Now, we will examine if the estate affects the price of the resale flat. We will also determine which estate tends to be more costly or cheaper to settle down.
+</p>
+<iframe height="450" width="100%" frameborder="no" src="https://mrzknrns.shinyapps.io/violin/">
+</iframe>
+<p style="text-align: justify;">
+Now, let’s explore the violin plot on the interactive dashboard. For visualisation, we will use Bukit Timah and Punggol. According to 99.co (n.d), <a href="https://www.99.co/singapore/neighbourhoods/bukit-timah">Bukit Timah</a> is known for it access to many well sought after educational institutes such as Hwa Chong Institutions, National Junior College and Raffles Girls’ Primary School, making it one of the most popular estate.
+</p>
+<p style="text-align: justify;">
+<a href="https://www.99.co/singapore/neighbourhoods/punggol">Punggol</a>, on the other hand, is a relatively new estate. It is slowly becoming popular with younger couples due to its modern amenities and promising development plans. The town is being developed with a vision to be eco-friendly, sustainable while providing trendy lifestyle hubs that cater to all age groups.
+</p>
+<p style="text-align: justify;">
+That being said, let’s analyse the violin plot. We can observe the wider distribution of resale prices, with a more pronounced upper tail. This would indicate there are a larger variety of flats, but also a substantial market for high-end luxury flats.
+</p>
+<p style="text-align: justify;">
+On the flip side, Punggol has a narrower but dense concentration of price, indicating a more concrete (or less variation) in resale prices. Now, let’s interact with the plot, select your dream estates and explore the price variations! Oh and just in case, I’ll put the MRT Map here for reference!
+</p>
+<p><img src="src/images/mrt.avif" class="img-fluid"></p>
+<p style="text-align: justify;">
+Now, if we were to deduce on which is the best place to settle down based on what we have gathered, the decision really depends on what you value the most. For instance, if you value tranquility and a sea view, Punggol would be great.
+</p>
+<p style="text-align: justify;">
+However, if you would like be in close proximity of prestigious schools, <em>(all schools are good schools - but let’s not get into that for now)</em> then Bukit Timah might be the best choice for you! The visualisation does not only tell us about the prices, but also a reflection of lifestyle, and the long-term family vision for you and your spouse!
+</p>
+</section>
+<section id="assessing-affordability-of-resale-flats-in-singapore-for-you" class="level3">
+<h3 class="anchored" data-anchor-id="assessing-affordability-of-resale-flats-in-singapore-for-you">Assessing Affordability of Resale Flats in Singapore for you!</h3>
+<p style="text-align: justify;">
+So far, we have looked at the prices of the resale flats, factors such as remaining lease and estate, we will now access if the resale flats are truly affordable! Soon, it will be time for you to consider purchasing a new home so let’s play a little game!
+</p>
+<p style="text-align: justify;">
+According to YCharts, the 5-year inflation rate tends to be about 2.46%. Provided all else remains constant, the calculator would give a rough indication of how much you will have to pay every month to own your dream home - this is inclusive of DBS’s 2.6% interest rates. The prices you see based on 2022’s average cost, and adjusted for inflation in 5 years.
+</p>
+<div style="display: flex; justify-content: center; align-items: center; overflow: hidden;">
+<p><iframe height="930" width="100%" frameborder="no" src="https://mrzknrns.shinyapps.io/game/"></iframe></p>
+</div>
+</section>
+<section id="why-such-analysis-is-important" class="level3">
+<h3 class="anchored" data-anchor-id="why-such-analysis-is-important">Why such analysis is important?</h3>
+<p style="text-align: justify;">
+Year-on-year, the prices of resale HDB flats have seen a continuous rise, reflecting in a growing demand of housing solutions in Singapore. However, this brings concerns to many Singaporeans, especially younger couples intending to start a family, as they struggle with affordability and availability issues.
+</p>
+<p style="text-align: justify;">
+According to recent reports, analysts indicated that prices of resale flats are expected to rise moderately for the remainder of 2023 (CNA, 2023). While cooling measures have taken place to control the prices, the growth in the third quarter of 2023 was due to price resistance setting in amid inflationary and affordability concerns.
+</p>
+<p style="text-align: justify;">
+You might be thinking - ” Aren’t there build-to-order (BTO) flats that are way priced way lower with other grants for purchase?” - and you know what, you are absolutely right! But are you willing to ballot with tens and thousands of couples, wait 5-6 years, and then face the possibility of being turned down? Certainly, the choice to ballot for a BTO flat, despite its lower cost and readily available grants, requires risk-taking and uncertainties.
+</p>
+<p style="text-align: justify;">
+Therefore, this analysis could provide a thoughtful evaluation of the need for immediate housing against the potential delays and challenges of the BTO process. For now, all we can do is leverage on the available grants and ensure that we spend on what we can afford.
+</p>
+</section>
+<section id="references" class="level3">
+<h3 class="anchored" data-anchor-id="references">References</h3>
+<p style="text-align: justify; font-size: smaller;">
+</p><p>Bukit Timah Singapore - latest guide and real estate information, places of interest &amp; things to do | 99.co. (n.d.). https://www.99.co/singapore/neighbourhoods/bukit-timah</p>
+<p>DBS Singapore. (2023, October 10). What you need to know before getting a home loan | DBS Singapore. DBS. https://www.dbs.com.sg/personal/articles/nav/my-home/all-about-home-loans.</p>
+<p>CNA. (2023, October 2). HDB resale prices may keep rising moderately for rest of 2023: Analysts. CNA. https://www.channelnewsasia.com/singapore/hdb-resale-prices-q3-increase-moderate-supply-bto-2023-analysts-3813581</p>
+<p>Household income - latest data. (n.d.-b). Base. https://www.singstat.gov.sg/find-data/search-by-theme/households/household-income/latest-data</p>
+<p>Koh, J. (2023, November 19). Is the HDB Resale Flat Market Still Overheating? Seedly. https://blog.seedly.sg/hdb-resale-flats-price-high/</p>
+<p>Kumar, S. (2022, April 11). Here’s The Salary You Need To Earn To Afford These Homes In Singapore [2022 Edition]. DollarsAndSense.sg. https://dollarsandsense.sg/salary-need-earn-afford-homes-singapore/</p>
+<p>Liew, I. (2023, October 2). HDB resale prices up 1.2% in Q3, lower than quarter average in 2022; more flats sold. The Straits Times. https://www.straitstimes.com/singapore/housing/hdb-resale-prices-up-12-in-q3-lower-than-quarter-average-in-2022-more-flats-sold</p>
+<p>Liew, I. (2023b, October 1). About 1,900 BTO flats in 2 Choa Chu Kang projects to be offered in early Oct launch. The Straits Times. https://www.straitstimes.com/singapore/housing/about-1900-bto-flats-in-2-choa-chu-kang-projects-to-be-offered-in-early-oct-launch</p>
+<p>Lam, F. (2020, October 23). Singapore property agents urged to be ethical, give accurate advice. The Business Times. https://www.businesstimes.com.sg/property/singapore-property-agents-urged-be-ethical-give-accurate-advice</p>
+<p>Lim, K. (2019, October 21). Property agent fined S$30,000, suspended 12 months over unethical bid to pocket bigger commission. TODAY. https://www.todayonline.com/singapore/property-agent-fined-s30000-suspended-12-months-over-unethical-bid-pocket-bigger</p>
+<p>Tan, J. (2012, March 2). Online uproar over DPM Tharman’s ‘$1k flat’ statement. Yahoo Singapore. https://sg.news.yahoo.com/blogs/singaporescene/online-uproar-over-dpm-tharman-1k-flat-statement-132522414.html</p>
+<p>Punggol Singapore - latest guide and real estate information, places of interest &amp; things to do | 99.co. (n.d.). https://www.99.co/singapore/neighbourhoods/punggol</p>
+<p>YCharts. (n.d.). 5-Year, 5-Year forward inflation expectation rate. https://ycharts.com/indicators/5year_5year_forward_inflation_expectation_rate</p>
+<p>
+</p>
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

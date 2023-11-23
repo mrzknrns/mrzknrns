@@ -1,0 +1,307 @@
+---
+title: "Singapore's Public Housing Affordability"
+---
+
+![](src/images/HDB-flat-after-divorce.jpg){fig-align="left" width="1000"}
+
+## Is Public Housing Affordable for Singaporeans?
+
+### Investigating Singapore's Resale Flat Prices from 1990 to 2022
+
+<p style="text-align: justify;">
+In Singapore, housing affordability has been an increasing worry for future Singaporeans. However, in 2012, the then Deputy Prime Minister (DPM) Tharman Shanmugaratnam - stating household income of SGD\$1000 was sufficient to own a home, sparked discussions among netizen online (Tan, 2012).
+</p>
+
+<p style="text-align: justify;">
+While Mr Tharman argued the housing grants could provide support for low-income household, many Singaporeans expressed concern about the long-term viability of such claims, especially in the face of the constant rising cost of living and property prices.
+</p>
+
+![](src/images/tharman.webp){width="800"}
+
+<p style="text-align: justify;">
+Now, this brings an important question to whether public housing in Singapore truly affordable for the average Singaporean in the future. This analysis will also explore the evolving housing market that may impact the affordability of homes for future generations of Singaporeans.
+</p>
+
+<p style="text-align: justify;">
+The above concerns will uncover the complexities of the housing market, analyse potential long-term trend, also seek to understand that while variables such as estate, size or remaining lease play significant roles, this analysis aims to identity the most influential factors.
+</p>
+
+![](docs/images/dreamhome.png){fig-align="center" width="698"}
+
+<p style="text-align: justify;">
+According to Kumar (2022), the affordability of homes in Singapore is a multifaceted issue. The table above provides an outline of the housing prices in Singapore. Using this as a guide, it determines the average salary needed per spouse needed to comfortably afford monthly repayments.
+</p>
+
+<p style="text-align: justify;">
+For instance, to afford a 3-room flat, which has a median price of \$360,000, both partners would have to at least earn SGD$5,230. While it may seem manageable, this does not account for other living expenses, or other income fluctuation - couple may own a car, or have multiple kids.
+</p>
+
+<p style="text-align: justify;">
+Imagine you and your sponse are looking to start a family. Now that we've a glimpse into the affordability of homes in Singapore, do you think you can comfortably own your own home when the time comes? Let's dive into real data and discuss this critical issue further.
+</p>
+
+![](src/images/flats.jpeg)
+
+### Trend of HDB Resale Prices in Singapore
+
+<p style="text-align: justify;">
+To understand the trend of housing prices in Singapore, the analysis will use the available data sets from [this site](www.data.gov.sg). The publicly available data contains historical sales figures on yearly bases, and can be used to access market dynamics and predict future trend.
+</p>
+
+<p style="text-align: justify;">
+Before moving on to the deeper analysis, let us understand how the overall prices have increased from 1990 to 2022. While the general increase in prices overtime aligns with economic growth, the rate of the surge from 1990 to 2022 is alarming.
+</p>
+
+<p style="text-align: justify;">
+One may argue that the increment is a sign of prospering economy, on the other side, it also rings alarm bells in terms of overall affordability. Now let's examine the graph below:
+</p>
+
+```{r, eval=TRUE,echo=FALSE, message=FALSE, warning=FALSE}
+
+library(tidyverse)
+library(tidyr)
+library(ggplot2)
+library(scales)
+```
+
+```{r, eval=TRUE,echo=FALSE, fig.align='center'}
+data1999 <- read.csv("docs/src/data/ResaleFlatPrices1999.csv")
+data2022 <- read.csv("docs/src/data/ResaleFlatPrices2022.csv")
+
+average_prices_1999 <- data1999 %>%
+  group_by(flat_type) %>%
+  summarise("1990" = mean(resale_price))
+
+average_prices_2022 <- data2022 %>%
+  group_by(flat_type) %>%
+  summarise("2022" = mean(resale_price))
+
+combined_data <- merge(average_prices_1999, average_prices_2022, by = "flat_type")
+
+long_data <- pivot_longer(combined_data, cols = -flat_type, names_to = "Year", values_to = "AveragePrice")
+
+
+ggplot(long_data, aes(x = flat_type, y = AveragePrice, group = Year, color = Year)) +
+  geom_line(linewidth = 1.5) +
+  geom_point(size = 3) +
+  geom_text(aes(label = sprintf("$%.2f", AveragePrice)), hjust = 1, vjust = -1, check_overlap = TRUE, size = 3) +
+  scale_y_continuous(labels = label_comma()) + 
+  labs(title = "Average Resale Price in 1990 and 2022 (Flat Type, SGD)",
+       x = "Flat Type",
+       y = "Average Resale Price",
+       color = "Year") +
+  theme_minimal()
+
+```
+
+<p style="text-align: justify;">
+The graph above illustrates a significant steepening in the slopes of average resale prices in Singapore from 1990 to 2022 - indicating the exorbitant increase of prices across all flat types. The steeper slope in 2022 shows a more prominent price escalation as compared to 1990's. This is can be an indication increasing pressure on affordability and financial stretch for home ownership.
+</p>
+
+<p style="text-align: justify;">
+Notice that on the graph, there is a worrying widening price gap between each successive flat type, with the difference in average prices from one flat type to the next becoming more distinct. For example, the price jump from a 3-room to a 4-room for both 1990 and 2022, may point towards a growing demand for a larger home. Larger home, bigger family right?
+</p>
+
+<p style="text-align: justify;">
+With that, we can understand that the widening gap of prices could create a cost burden for upgraders seeking more specious accommodations for a bigger family. The growing gap in prices shows that planning for home ownership is extremely crucial to prevent any buyers' remorse.
+</p>
+
+### Comparing Average Resale Prices of Flat Types by Years
+
+<p style="text-align: justify;">
+Now let's look at the price increment individually for both years, compared with the same flat type. The graph presented shows a great difference for a 4-room flat between 1990 and 2022.
+</p>
+
+<p style="text-align: justify;">
+The year 1990 with an average price of SGD\$81,525 and 2022 with an average price of SGD$525,092, represented by green and orange respectively. In the graph below, feel free to explore and compare the prices of other flat types between 1990 and 2022!
+</p>
+
+<iframe height="450" width="100%" frameborder="no" src="https://mrzknrns.shinyapps.io/bargraph/">
+
+</iframe>
+
+<p style="text-align: justify;">
+As mentioned, the rising trend of housing cost, as shown in the graph, indicates that potential owners may face financial barriers when seeking for housing options. Additionally, the graph suggests that the real estate market has become increasingly segmented. Unfortunately, with increasing demand and limited supply, property agents are taking advantage of eager potential home owners (Lam, 2020).
+</p>
+
+<p style="text-align: justify;">
+For example, in 2019, a property agent was found guilty of unethical bidding practices in order to cash out a larger commission (Lim, 2019). To curb this, regulatory bodies must enforce strict rules and guidelines to ensure fair practices in this already very competitive and high-stakes market.
+</p>
+
+### The Distribution of Resale Flat Prices of Different Flat Types
+
+<p style="text-align: justify;">
+While a price increment can potentially indicate a critical issue with affordability, it is also important to access where the increase is still within the "safe" median range. However, in the box plot below, we can see how the presence of outliers underscores the significant and unprecedented price increase.
+</p>
+
+<p style="text-align: justify;">
+Hint: Pay attention to how 3-room flats almost hitting \$1,000,000! On top of that, we can also visually compare the number of outliers in 1990 and 2022, denoted by the green and orange box respectively.
+</p>
+
+<iframe height="500" width="100%" frameborder="no" src="https://mrzknrns.shinyapps.io/boxplot/">
+
+</iframe>
+
+<p style="text-align: justify;">
+Let's input all the flat type options, what do you see? With 3-Room, 4-Room, 5-Room and Executive selected, we can see a consistent pattern. The data reveals a distinct trend where "regular-sized" flats are slowly approaching the million-dollar mark in resale price in 2022.
+</p>
+
+<p style="text-align: justify;">
+The upward trajectory is also an indication of the growth in the resale market, reflecting how people are willing to pay for their dream home. This inevitably affect those within a lower income bracket, preventing them to do the same.
+</p>
+
+![](src/images/darkhome.jpeg)
+
+<p style="text-align: justify;">
+Furthermore, across the other flat types, there is an increasing number of outliers beyond the upper whiskers of the box plots for 2022. While this can suggest a substantial market growth, it can also reflect the high number of exceptional cases where resale prices are charging a even higher premium, exceeding the median trends - which is already high.
+</p>
+
+<p style="text-align: justify;">
+Now, that we have clearly seen the high prices Singaporean are willing to pay for their dream home, are there other factors that can be attributed to the price increase? Next, we will explore if the remaining lease left or the location of the flat affect the resale price.
+</p>
+
+### The Impact of Remaining Lease on Resale Prices
+
+<p style="text-align: justify;">
+To lower the cost burden for flat upgraders, some may consider purchasing a flat with a lower remaining lease. However, is there a correlation between the remaining lease and the cost of a resale flat in 1990 and 2022?
+</p>
+
+<p style="text-align: justify;">
+As we look and examine into the numbers, it becomes clear that patterns have shifted from 1990 to 2022. Here, we will be comparing the data from these two distinct years. Now let's look at the scatterplot below. Pay attention to the red line, what does it tell you?
+</p>
+
+<iframe height="500" width="100%" frameborder="no" src="https://mrzknrns.shinyapps.io/scatterplot/">
+
+</iframe>
+
+<p style="text-align: justify;">
+In 1990, the line suggested a clear trend: where a longer remaining lease often correlated with a higher resale price. The regression line showed a noticeable upward slope; decently steep actually. This would indicate that the longer the remaining lease, the higher the resale price of the flat, which makes sense at the time where buyers could reside in the flat without facing any lease expiration issue in the future.
+</p>
+
+<p style="text-align: justify;">
+However, as we move to 2022, while there is still a correlation, we can observe that it is not as steep. This suggests that the remaining lease period is not as strong an indicator as it was in 1990. Also, the data points are more spread out , indicating a high variance in resale prices. We can now infer that other factors such as location, types or houses, or amenities have grown in importance of lease length when determining the value of the resale flat.
+</p>
+
+<p style="text-align: justify;">
+![](src/images/buy.jpeg)
+
+Put yourself in the shoes of the buyer, would you get a house with longer remaining lease, but with everything else an hour away or a shorter remaining lease with everything else a stone's throw away?
+</p>
+
+<p style="text-align: justify;">
+The answer is not merely a matter of counting the years on a lease. So far, none of the HDB flats have seen their lease expired. So no one knows what really happens after that. Buying your own home is also about weighing the value or time and quality of your daily life. After all, what is a good extended lease if it comes at an expense of your convenience and time? Now, we will look into another important factor: The Estate
+</p>
+
+### The Influence of Estate on Resale Prices
+
+![](src/images/bukitpunggol.png)
+
+<p style="text-align: justify;">
+We can agree that price is an important consideration for purchasing a home. Have you figured out where to live? Do you want to live close to your parents in the same estate? Or do you have a preferred school you would like to send your future children too? Now, we will examine if the estate affects the price of the resale flat. We will also determine which estate tends to be more costly or cheaper to settle down.
+</p>
+
+<iframe height="450" width="100%" frameborder="no" src="https://mrzknrns.shinyapps.io/violin/">
+
+</iframe>
+
+<p style="text-align: justify;">
+Now, let's explore the violin plot on the interactive dashboard. For visualisation, we will use Bukit Timah and Punggol. According to 99.co (n.d), [Bukit Timah](https://www.99.co/singapore/neighbourhoods/bukit-timah) is known for it access to many well sought after educational institutes such as Hwa Chong Institutions, National Junior College and Raffles Girls' Primary School, making it one of the most popular estate.
+</p>
+
+<p style="text-align: justify;">
+[Punggol](https://www.99.co/singapore/neighbourhoods/punggol), on the other hand, is a relatively new estate. It is slowly becoming popular with younger couples due to its modern amenities and promising development plans. The town is being developed with a vision to be eco-friendly, sustainable while providing trendy lifestyle hubs that cater to all age groups.
+</p>
+
+<p style="text-align: justify;">
+That being said, let's analyse the violin plot. We can observe the wider distribution of resale prices, with a more pronounced upper tail. This would indicate there are a larger variety of flats, but also a substantial market for high-end luxury flats.
+</p>
+
+<p style="text-align: justify;">
+On the flip side, Punggol has a narrower but dense concentration of price, indicating a more concrete (or less variation) in resale prices. Now, let's interact with the plot, select your dream estates and explore the price variations! Oh and just in case, I'll put the MRT Map here for reference!
+</p>
+
+![](src/images/mrt.avif)
+
+<p style="text-align: justify;">
+Now, if we were to deduce on which is the best place to settle down based on what we have gathered, the decision really depends on what you value the most. For instance, if you value tranquility and a sea view, Punggol would be great.
+</p>
+
+<p style="text-align: justify;">
+However, if you would like be in close proximity of prestigious schools, *(all schools are good schools - but let's not get into that for now)* then Bukit Timah might be the best choice for you! The visualisation does not only tell us about the prices, but also a reflection of lifestyle, and the long-term family vision for you and your spouse!
+</p>
+
+### Assessing Affordability of Resale Flats in Singapore for you!
+
+<p style="text-align: justify;">
+So far, we have looked at the prices of the resale flats, factors such as remaining lease and estate, we will now access if the resale flats are truly affordable! Soon, it will be time for you to consider purchasing a new home so let's play a little game!
+</p>
+
+<p style="text-align: justify;">
+According to YCharts, the 5-year inflation rate tends to be about 2.46%. Provided all else remains constant, the calculator would give a rough indication of how much you will have to pay every month to own your dream home - this is inclusive of DBS's 2.6% interest rates. The prices you see based on 2022's average cost, and adjusted for inflation in 5 years.
+</p>
+
+<div style="display: flex; justify-content: center; align-items: center; overflow: hidden;">
+  <iframe height="930" width="100%" frameborder="no" src="https://mrzknrns.shinyapps.io/game/"></iframe>
+</div>
+
+### Why such analysis is important?
+
+<p style="text-align: justify;">
+Year-on-year, the prices of resale HDB flats have seen a continuous rise, reflecting in a growing demand of housing solutions in Singapore. However, this brings concerns to many Singaporeans, especially younger couples intending to start a family, as they struggle with affordability and availability issues. 
+</p>
+
+<p style="text-align: justify;">
+According to recent reports, analysts indicated that prices of resale flats are expected to rise moderately for the remainder of 2023 (CNA, 2023). While cooling measures have taken place to control the prices, the growth in the third quarter of 2023 was due to price resistance setting in amid inflationary and affordability concerns. 
+</p>
+
+<p style="text-align: justify;">
+You might be thinking - " Aren't there build-to-order (BTO) flats that are way priced way lower with other grants for purchase?" - and you know what, you are absolutely right! But are you willing to ballot with tens and thousands of couples, wait 5-6 years, and then face the possibility of being turned down? Certainly, the choice to ballot for a BTO flat, despite its lower cost and readily available grants, requires risk-taking and uncertainties.
+</p>
+
+<p style="text-align: justify;">
+Therefore, this analysis could provide a thoughtful evaluation of the need for immediate housing against the potential delays and challenges of the BTO process. For now, all we can do is leverage on the available grants and ensure that we spend on what we can afford. 
+</p>
+
+```{r, eval=TRUE,echo=FALSE}
+
+```
+
+### References
+
+<p style="text-align: justify; font-size: smaller;">
+Bukit Timah Singapore - latest guide and real estate information, places of interest & things to do | 99.co. (n.d.). https://www.99.co/singapore/neighbourhoods/bukit-timah
+
+DBS Singapore. (2023, October 10). What you need to know before getting a home loan | DBS Singapore. DBS. https://www.dbs.com.sg/personal/articles/nav/my-home/all-about-home-loans.
+
+CNA. (2023, October 2). HDB resale prices may keep rising moderately for rest of 2023: Analysts. CNA. https://www.channelnewsasia.com/singapore/hdb-resale-prices-q3-increase-moderate-supply-bto-2023-analysts-3813581
+
+Household income - latest data. (n.d.-b). Base. https://www.singstat.gov.sg/find-data/search-by-theme/households/household-income/latest-data
+
+Koh, J. (2023, November 19). Is the HDB Resale Flat Market Still Overheating? Seedly. https://blog.seedly.sg/hdb-resale-flats-price-high/
+
+Kumar, S. (2022, April 11). Here’s The Salary You Need To Earn To Afford These Homes In Singapore [2022 Edition]. DollarsAndSense.sg. https://dollarsandsense.sg/salary-need-earn-afford-homes-singapore/
+
+Liew, I. (2023, October 2). HDB resale prices up 1.2% in Q3, lower than quarter average in 2022; more flats sold. The Straits Times. https://www.straitstimes.com/singapore/housing/hdb-resale-prices-up-12-in-q3-lower-than-quarter-average-in-2022-more-flats-sold
+
+
+Liew, I. (2023b, October 1). About 1,900 BTO flats in 2 Choa Chu Kang projects to be offered in early Oct launch. The Straits Times. https://www.straitstimes.com/singapore/housing/about-1900-bto-flats-in-2-choa-chu-kang-projects-to-be-offered-in-early-oct-launch
+
+
+Lam, F. (2020, October 23). Singapore property agents urged to be ethical, give accurate advice. The Business Times. https://www.businesstimes.com.sg/property/singapore-property-agents-urged-be-ethical-give-accurate-advice
+
+
+Lim, K. (2019, October 21). Property agent fined S$30,000, suspended 12 months over unethical bid to pocket bigger commission. TODAY. https://www.todayonline.com/singapore/property-agent-fined-s30000-suspended-12-months-over-unethical-bid-pocket-bigger
+
+
+Tan, J. (2012, March 2). Online uproar over DPM Tharman’s ‘$1k flat’ statement. Yahoo Singapore. https://sg.news.yahoo.com/blogs/singaporescene/online-uproar-over-dpm-tharman-1k-flat-statement-132522414.html
+
+Punggol Singapore - latest guide and real estate information, places of interest & things to do | 99.co. (n.d.). https://www.99.co/singapore/neighbourhoods/punggol
+
+YCharts. (n.d.). 5-Year, 5-Year forward inflation expectation rate. https://ycharts.com/indicators/5year_5year_forward_inflation_expectation_rate
+
+<p>
+
+
+```{r}
+
+```

@@ -1,0 +1,12 @@
+name: game
+title: game
+username: mrzknrns
+account: mrzknrns
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 10609607
+bundleId: 7960975
+url: https://mrzknrns.shinyapps.io/game/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

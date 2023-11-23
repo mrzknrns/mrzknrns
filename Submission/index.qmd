@@ -1,0 +1,138 @@
+---
+title: "Well Hello There!"
+---
+
+```{r, eval=TRUE,echo=FALSE}
+
+```
+
+![](src/images/namelogo.png){fig-align="left" width="800"}
+
+![](src/images/me2.jpg)
+
+## My Hello to You \~
+
+Hello there! My name is Marzuki Nooranas - or *Marz* for short! I am currently in my 2nd year, double majoring in Sociology and, Communications and New Media!
+
+I have always been fascinated by how society functions and its intricate connections, my passion for understanding the world around us, is driven by a desire to foster meaningful connections within all communities!
+
+## My overland journey from Singapore to Vietnam!
+
+To demonstrate this, I embark of frequent backpacking trips across Southeast Asia, and actively engage myself in the cultures and learn about their customs.
+
+Such experiences provide me with firsthand insights into how different societies interact, and not only broadening my horizons, but also fostering empathy across different communities. Here's a little snippet -
+
+```{=html}
+<style>
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; 
+}
+
+.tiktok-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 105%; 
+}
+
+.tiktok-embed {
+  box-sizing: border-box;
+  max-width: 100%;
+  flex: 1 1 300px;
+  margin: 0 auto; 
+}
+
+@media screen and (max-width: 600px) {
+  .tiktok-embed {
+    min-width: auto;
+  }
+}
+</style>
+```
+::: tiktok-container
+<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@mentaikofries_/video/7181240142063996161" data-video-id="7181240142063996161" style="max-width: 605px;min-width: 325px;">
+
+<section>
+
+<a target="_blank" title="@mentaikofries_" href="https://www.tiktok.com/@mentaikofries_?refer=embed">@mentaikofries_</a>
+
+<p>overland travel for the vibesss</p>
+
+<a target="_blank" title="♬ original sound - 𝚁𝚊𝚐𝚑𝚊𝚍💗" href="https://www.tiktok.com/music/original-sound-7178872451673459457?refer=embed">♬ original sound - 𝚁𝚊𝚐𝚑𝚊𝚍💗</a>
+
+</section>
+
+</blockquote>
+
+```{=html}
+<script async src="https://www.tiktok.com/embed.js"></script>
+```
+> </blockquote>
+
+<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@mentaikofries_/video/7238779076528442625" data-video-id="7238779076528442625" style="max-width: 605px;min-width: 325px;">
+
+<section>
+
+<a target="_blank" title="@mentaikofries_" href="https://www.tiktok.com/@mentaikofries_?refer=embed">@mentaikofries_</a>
+
+<p>nha trang is my favvvvvv</p>
+
+<a target="_blank" title="♬ moth to a flame x after hours - trlixqy" href="https://www.tiktok.com/music/moth-to-a-flame-x-after-hours-7174186663990561579?refer=embed">♬ moth to a flame x after hours - trlixqy</a>
+
+</section>
+
+</blockquote>
+
+```{=html}
+<script async src="https://www.tiktok.com/embed.js"></script>
+```
+:::
+
+# **My Past Work**
+
+## National University of Singapore
+
+### SC3101 - Social Thought and Theory
+
+In this module, we explored the contributions of the founding fathers of Sociology - Marx, Weber and Durkheim. This Social Media assignment looks into Weber's ideas found in the The Protestant Work Ethic and the Spirit of Capitalism and Bureaucracy.
+
+This idea that we have to be (economically) productive every single minute of our day, how we should be "growing money even in our sleep" is increasingly prevalent today. How everything we do now is to be justified in economic terms and we end up losing meaning, becoming disenchanted in life - Here's what we did!
+
+{{< video https://www.youtube.com/embed/-SYPjaJoi-I?si=ViXbIgq6TR4Lmbh4 >}}
+
+### HS1501 - Artificial Intelligence and Society
+
+In this module, we looked at the benefits and potential downsides of relying on AI. My group focused on leveraging on AI technology to aid in bereavement process. I designed a brochure for a Virtual Memory Garden where users will transported into a virtual space together with thier loved ones - as an avatar!
+
+![](docs/src/images/brochure.png)
+
+### DTK1234 - Design Thinking
+
+In this module, we were assigned the task of innovating everyday chores. Here is my idea: it is basically an attachment that can be clipped to an existing ironing board, so that people - including the elderly or people with disabilities - can iron clothes without feeling tired or unsafe
+
+![](images/prototyping.png){fig-align="center"}
+
+The actual prototyping journey was not very smooth, but hey, here is the end product! Looks good aye? To me at least...
+
+![](images/prototyping_2-01.png)
+
+## Temasek Polytechnic
+
+### Savvify - An Automated Savings Platform
+
+During my time in Temasek Polytechnic, my group mates and I worked on an automated savings platform - ***Savvify***. Essentially, the application helps users to round up your payment transactions to the nearest dollar, and crediting it to the users' e-wallet upon making QR Payments.
+
+Our main goal was to bring new solutions e-payment solutions while helping young adults like us, to understand real life responsibilities - improving their financial literacy!
+
+{{< video https://youtu.be/kzWq31_mRyc >}}
+
+### GIGAWipes - Innovation through Programming
+
+"Innovation does not stop" -- Here, we explored how to incorporate programming in our daily lives. This may or may not be inspired by true events but for this project, we created a prototype of a toilet roll dispenser but... I'll let the video do the talking...
+
+{{< video https://youtu.be/2yBwaRCfiuI >}}
+
+```         
+```

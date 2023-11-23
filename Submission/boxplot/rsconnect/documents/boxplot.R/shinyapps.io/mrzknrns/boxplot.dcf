@@ -1,0 +1,12 @@
+name: boxplot
+title:
+username: mrzknrns
+account: mrzknrns
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 10516586
+bundleId: 7924820
+url: https://mrzknrns.shinyapps.io/boxplot/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
