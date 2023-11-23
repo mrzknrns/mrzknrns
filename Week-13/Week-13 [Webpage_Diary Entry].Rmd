@@ -3,8 +3,8 @@ title: "NM2207 Data Story: Final Project"
 author: "Marzuki Nooranas"
 date: "`r Sys.Date()`"
 output:
-  html_document: default
   word_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -27,7 +27,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 (2) What are the data sources that you have curated so far? (Answer 1 or 2 sentences).
 
-**Answer:** I have curated two datasets from https://beta.data.gov.sg/collections/189/view -- Singapore's open data collection. The one data set contains transacted prices of resale flats from 1990 to 1999 and the other contains the resale prices from January 2017 onwards with an additional column "remaining_lease" for the lease duration. 
+**Answer:** I have curated two datasets from https://beta.data.gov.sg/collections/189/view -- Singapore's open data collection. The one data set contains transacted prices of resale flats from 1990 to 1990 and the other contains the resale prices from January 2017 onwards with an additional column "remaining_lease" for the lease duration. 
 
 ```{r, eval=TRUE,echo=FALSE}
 
@@ -152,7 +152,7 @@ To answer part (3), another data set of household income with CPF contribution. 
 
 (2) **SingStat Untidy Data:** Currently, still trying to tidy the data.This data set contained titles, descriptions, and other information that could interfere with the accurate reading and interpretation of the dataset. What i have done is removing titles, and non essential information. By reformating the data to a more structured format, the raw data can help with analysis and provide a more accessible framework to draw insights and form conclusions. 
 
-(3) **Missing 'remaining_lease' on "ResaleFlatPrices1999.csv":** The data set lacked a crutial information which is viatal for a comparative analysis with the 2022 dataset. Therefore, to solve this, a new column is created by calculating the remaining lease through subtracting the 'lease_commence_data' from the year 1999, giving the remaining lease at the point in time. 
+(3) **Missing 'remaining_lease' on "ResaleFlatPrices1990.csv":** The data set lacked a crutial information which is viatal for a comparative analysis with the 2022 dataset. Therefore, to solve this, a new column is created by calculating the remaining lease through subtracting the 'lease_commence_data' from the year 1990, giving the remaining lease at the point in time. 
 
 (4) **Trouble finding the current resale flat ownership data set:** While there is potential data set from SingStats, I am still finalising the last data set that I require. This dataset can roughly gauge the ownership rates and trends overtime. This can provide a clearer picture of how the evolving housing market is impacting the ownership raters, and potentially the broader socio-economic landscape in Singapore. 
 
@@ -178,15 +178,15 @@ For week 11, I explored potential visualisation that can be used to provide a mo
 
 For now, I am planning to create 4 analysis and visualisation. These visualisation will provide a clearer understanding of the prices of resale flats in Singapore. The 4 visualisations are:
 
-**(1) Trend of HDB Resale Prices in Singapore - Line Graph and Bar Graph:** This analyses the trend of resale flat prices fron 1999 to 2022. A line plot would be created to show the average resale prices of that year, based on room types as well. The bar graph on the other hand, will be used for direct comparison between two years - they will be grouped base on the room types. For example, 1999 compared with 2022 for 3-room flats, and another one for 4-room flats and so on. 
+**(1) Trend of HDB Resale Prices in Singapore - Line Graph and Bar Graph:** This analyses the trend of resale flat prices fron 1990 to 2022. A line plot would be created to show the average resale prices of that year, based on room types as well. The bar graph on the other hand, will be used for direct comparison between two years - they will be grouped base on the room types. For example, 1990 compared with 2022 for 3-room flats, and another one for 4-room flats and so on. 
 
 **(2) The Distribution of Resale Flat Prices for different flat types - A Box Plot:** A box plot is ideal to show the distribution of numerical variable - in this case the transacted amount of the resale flat - across the different flat types. This can also show if there are any outliers - to further understand the number of high prices as compared to the average ones. 
 
 **(3) The Impact of Remaining Lease on Resale Prices - Scatter Plot:** This helps to understand how the length of the remaining affects the resale prices. Therefore, the use of scatter plot, together with a regression line will be ideal. The scatter plot will depict the resale transactions, in this case, the x-axis will be the remaining lease, and the y-axis will be the resale price. The regression line will also visualise the overall trend, while quantifying the relationship between the resale prices, and remaining lease. The line will also highlight if there is a correlation of a shorter lease and a lower selling price, a major consideration for flat buyers. 
 
-**(4) The influence of Estate on Resale Prices - Violin Plot:** The violin plot will be able to visualise the distribution of resale flat prices accoss the estates and flat types. The plot will show mediam price and full distribution of prices - this allows comparison on central tendency but also the density of prices and variability. Also this can show how certain estates have wider variances in prices or if there are any similar price points where many flats are concentrated. The violin plot - although still considering - can be segmented further into flat types within the estates, or be colour coded within one plot - this will be explored in Week 12/13.
+**(4) The influence of Estate on Resale Prices - Violin Plot:** The violin plot will be able to visualise the distribution of resale flat prices across the estates and flat types. The plot will show median price and full distribution of prices - this allows comparison on central tendency but also the density of prices and variability. Also this can show how certain estates have wider variances in prices or if there are any similar price points where many flats are concentrated. The violin plot - although still considering - can be segmented further into flat types within the estates, or be colour coded within one plot - this will be explored in Week 12/13.
 
-**(5) **
+**(5) Simple Game: ** This game allows users to input their potential annual income, together with their spouse. This could give them the "feel" to understand how pricey the resale flats could get. They will also receive an advice, if they should continue with the purchase or not.
 
 ## Question 2: 
 (2) How do you plan to make it interactive?
@@ -243,26 +243,77 @@ Similar to Week 11, initially, the webpages were not as responsive and photos us
 
 **(3) Deploying Interactive Elements in Quarto:** I am still trying to deploy my interactive elements in right now, may need to work on it over the weekend. For now, I am going to continue working on the narratives so that I would not have any time management issues when it comes to week 13. So here is my plan: I am going to put AT LEAST 3 interactive shiny app, for the others, I may utilise the static ggplot graphs - hope all goes well~
 
-## Week-13: Final Write-Up Entry
+## Week-13: Final Submission
 
-**Update from Week 12:** 
+**Question 1:**
 
-Final Write-up:
+Theme: Accessing and Analysing the Affordability of Singapore's Public Housing. 
 
- **(1)  What is the theme of your data story? **
- 
- **(2) Why is it important to address this question? **
- 
- **(3) Why do you think the data sources that you have curated can help you answer the question? **
- 
- **(4) What are the insights from the data and how are they depicted in plots? **
- 
- **(5) How did you implement this entire project? Were there any new concepts that you learnt to implement some aspects of it? **
- 
- 
- 
+**Question 2:**
 
+In Singapore, housing affordability has been an increasing worry for future Singaporeans. With the continuous rising prices of resale flats, many Singaporeans expressed concern about the long-term viability of such claims, especially in the face of the constant rising cost of living and property prices. First, according to an article by Liew (2023), the resale prices from Housing Development Board saw a constant increase over 14 consecutive quarters since mid-2020. While the increase is has slowed down - 1.5% from 2nd Quarter in 2023 to 1.2% in 3rd quarter - the same year highlights the growing concerns of housing affordability in the future. The report also mentioned the alarming increase in million-dollar transactions in mature estates - 105 transactions from 2nd Quarter in 2023 to 128 transactions in 3rd quarter (Tan, as cited by Liew, 2023). 
 
+Next, in another article by Liew (2023), the Housing Development Board (HDB), newer homeowners are opting for a resale flat instead of the 'Build-To-Order' flats. The sales delayed from August 2023 to October 2023 and the wait time of 4-years contributed to the shift in preference towards resale flats. Therefore, the shift highlights the urgent housing needs, the prices Singaporeans are willing to pay for immediate availability shows the importance of this analysis.
 
+Lastly, to evaluate the affordability for future Singaporeans, it is important to delve into the analysis on income used for housing, and the median housing prices over time. For instance, according to the Central Provident Fund Board (CPF), Singaporeans should allocate a maximum of 30% of income for housing - Mortgage Servicing Ratio (MSR). Shown below, according to Kumar (2022), to afford a 3-room average flat in Singapore, buyers should have a minimum combined salary of $5,200. This highlights the critical housing affordability for Singaporeans' financial sustainability for the long run.
+ 
+**Question 3:**
+
+The data gathered and curated from www.data.gov.sg is reliable, and therefore can help to answer the question. Firstly, the data is provided by various official governmental agencies, ensuring a high level or accuracy and credibility. For instance, the collection of data from the government, typically considered reliable due to the stringent data collection process. Most importantly, as this analysis deals with resale prices, it is crucial that the datasets are updated, reflecting the latest trends and changes. To understand the trend of housing prices in Singapore, the publicly available data contains historical sales figures on yearly bases and can be used to access market dynamics and predict future trend.
+
+**Question 4:**
+
+In the data story, there are 5 main visualisations – 4 interactive and 1 interactive mini-game. They are line graph, bar graph, box plot, scatterplot, and violin plot. 
+
+Understanding the Trend of HDB Resale Prices - Line Graph and Bar Graph - This analyses the trend of resale flat prices from 1990 to 2022. A line plot was created to show the average resale prices of that year, based on room types as well. The bar graph on the other hand, will be used for direct comparison between two years - they will be grouped based on the room types. The graph illustrates a significant steepening in the slopes of average resale prices in Singapore from 1990 to 2022 - indicating the exorbitant increase of prices across all flat types. The steeper slope in 2022 shows a more prominent price escalation as compared to 1990's. This can be an indication increasing pressure on affordability and financial stretch for home ownership.
+
+The Distribution of Resale Flat Prices for different flat types – Box Plot: Across the flat types, there is an increasing number of outliers beyond the upper whiskers of the box plots for 2022. While this can suggest a substantial market growth, it can also reflect the high number of exceptional cases where resale prices are charging an even higher premium, exceeding the median trends 
+
+The Impact of Remaining Lease on Resale Prices - Scatter Plot: This helps to understand how the length of the remaining affects the resale prices. In 1990, the line suggested a clear trend: where a longer remaining lease often correlated with a higher resale price. However, in 2022, while there is still a correlation, we can observe that it is not as steep. This suggests that the remaining lease period is not as strong an indicator as it was in 1990. We can infer that other factor such as location, types or houses, or amenities have grown in importance of lease length when determining the value of the resale flat.
+
+The influence of Estate on Resale Prices - Violin Plot: The violin plot will be able to visualise the distribution of resale flat prices across the estates and flat types. The plot successfully indicated that mature estates with more well-recognised schools are in high demand – reflected in the price as well. For instance, the article uses Bukit Timah and Punggol as examples where the former have more prestigious schools, amenities as compared to the latter. 
+
+Interactive Simple Game: This game allows users to input their potential annual income, together with their spouse. This could give them the "feel" to understand how pricey the resale flats could get. They will also receive some advice if they should continue with the purchase or not.
+
+**Question 5:**
+
+The project was implemented using R-Studio and particularly the use of Shiny, ggplot and Quarto. I watched various Youtube Videos, Step-by-Step guide on how to publish the interactive plots on our data story and lecture videos too. Personally, aligning with my major, sociology, I have an interest and aspire to conduct further research focusing on family, housing, and education. I utilised my previous knowledge to create a “calculator” based game as mentioned earlier in part (4). While I created it using JavaScript back in polytechnic, I had to relearn it and incorporate that in R and Quarto – it was very challenging as some of the syntaxes were very different.  
+
+(992 Words)
+
+ 
+ 
 
 **References:**
+
+Bukit Timah Singapore - latest guide and real estate information, places of interest & things to do | 99.co. (n.d.). https://www.99.co/singapore/neighbourhoods/bukit-timah
+
+DBS Singapore. (2023, October 10). What you need to know before getting a home loan | DBS Singapore. DBS. https://www.dbs.com.sg/personal/articles/nav/my-home/all-about-home-loans.
+
+CNA. (2023, October 2). HDB resale prices may keep rising moderately for rest of 2023: Analysts. CNA. https://www.channelnewsasia.com/singapore/hdb-resale-prices-q3-increase-moderate-supply-bto-2023-analysts-3813581
+
+Household income - latest data. (n.d.-b). Base. https://www.singstat.gov.sg/find-data/search-by-theme/households/household-income/latest-data
+
+Koh, J. (2023, November 19). Is the HDB Resale Flat Market Still Overheating? Seedly. https://blog.seedly.sg/hdb-resale-flats-price-high/
+
+Kumar, S. (2022, April 11). Here’s The Salary You Need To Earn To Afford These Homes In Singapore [2022 Edition]. DollarsAndSense.sg. https://dollarsandsense.sg/salary-need-earn-afford-homes-singapore/
+
+Liew, I. (2023, October 2). HDB resale prices up 1.2% in Q3, lower than quarter average in 2022; more flats sold. The Straits Times. https://www.straitstimes.com/singapore/housing/hdb-resale-prices-up-12-in-q3-lower-than-quarter-average-in-2022-more-flats-sold
+
+
+Liew, I. (2023b, October 1). About 1,900 BTO flats in 2 Choa Chu Kang projects to be offered in early Oct launch. The Straits Times. https://www.straitstimes.com/singapore/housing/about-1900-bto-flats-in-2-choa-chu-kang-projects-to-be-offered-in-early-oct-launch
+
+
+Lam, F. (2020, October 23). Singapore property agents urged to be ethical, give accurate advice. The Business Times. https://www.businesstimes.com.sg/property/singapore-property-agents-urged-be-ethical-give-accurate-advice
+
+
+Lim, K. (2019, October 21). Property agent fined S$30,000, suspended 12 months over unethical bid to pocket bigger commission. TODAY. https://www.todayonline.com/singapore/property-agent-fined-s30000-suspended-12-months-over-unethical-bid-pocket-bigger
+
+
+Tan, J. (2012, March 2). Online uproar over DPM Tharman’s ‘$1k flat’ statement. Yahoo Singapore. https://sg.news.yahoo.com/blogs/singaporescene/online-uproar-over-dpm-tharman-1k-flat-statement-132522414.html
+
+Punggol Singapore - latest guide and real estate information, places of interest & things to do | 99.co. (n.d.). https://www.99.co/singapore/neighbourhoods/punggol
+
+YCharts. (n.d.). 5-Year, 5-Year forward inflation expectation rate. https://ycharts.com/indicators/5year_5year_forward_inflation_expectation_rate
+
+
